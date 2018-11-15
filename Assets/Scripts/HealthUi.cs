@@ -22,7 +22,7 @@ public class HealthUi : MonoBehaviour
         hp.Subscribe(sliderValue);
     }
 
-    void ChangeUIHealthValues(int value)
+    void ChangeUIHealthValues(float value)
     {
         Debug.Log("Je change la valeur de mon UI");
         healthBar.value = value;
