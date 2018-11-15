@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-
+[RequireComponent(typeof(Stats))]
 public class PlayerAttack : PlayerScript{
-    Weapon weapon;
+    protected Weapon weapon;
+    protected Stats stats;
 	// Use this for initialization
 	public void Start () {
         Initialize();
         weapon = GetComponentInChildren<Weapon>();
+        stats = GetComponent<Stats>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
         if (ih.SimpleAttackInput())
         {
             Fire();
         }
 	}
+
     public void Fire()
     {
         Ray r = new Ray(this.transform.position, this.transform.forward);

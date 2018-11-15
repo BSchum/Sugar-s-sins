@@ -3,39 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public delegate void HealthChanged(int value);
-
+public delegate void HealthChanged(float value);
+[RequireComponent(typeof(Stats))]
 public class Health : NetworkBehaviour {
-    [SerializeField]
-    int maxHealth;
-
-    int currentHealth;
+    Stats stats;
+    public void Start()
+    {
+        stats = GetComponent<Stats>();
+    }
 
     public event HealthChanged OnHealthChanged;
-	// Use this for initialization
-	void Start () {
-        currentHealth = maxHealth;
-	}
-    void Update()
-    {
-        Debug.Log(currentHealth);
-    }
+
+    // Use this for initialization
+
     public void TakeDamage(int amount)
     {
         Debug.Log("I took " + amount + "damage");
 
         if (!isServer)
             return;
-        //this.currentHealth -= amount;
         RpcTakeDamage(amount);
-
     }
+
     [ClientRpc]
     public void RpcTakeDamage(int amount)
     {
-        this.currentHealth -= amount;
-        OnHealthChanged(currentHealth);
-        if (currentHealth <= 0)
+        this.stats.AddHealth(amount);
+        OnHealthChanged(this.stats.GetHealth());
+        if (this.stats.GetHealth() <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -43,11 +38,11 @@ public class Health : NetworkBehaviour {
     public void Subscribe(HealthChanged callBack)
     {
         OnHealthChanged += callBack;
-        callBack(currentHealth);
+        callBack(stats.GetHealth());
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
-        return maxHealth;
+        return stats.GetMaxHealth();
     }
 }
