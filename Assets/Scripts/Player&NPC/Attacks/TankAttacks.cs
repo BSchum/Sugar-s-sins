@@ -22,13 +22,6 @@ public class TankAttacks : PlayerAttack {
         base.Update();
     }
 
-    void toto()
-    {
-        this.weapon = new Weapon();
-    }
-
-
-
 
 
 }

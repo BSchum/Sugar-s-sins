@@ -12,6 +12,16 @@ class KeyBoardInputHandler : InputHandler
         return Input.GetButtonDown("Fire1");
     }
 
+    public override bool FirstSkill()
+    {
+        return Input.GetButton("FirstSkill");
+    }
+
+    public override bool SecondeSkill()
+    {
+        return Input.GetButton("SecondeSkills");
+    }
+
     public override Vector3 ComputeMovement()
     {
         this.inputState = InputType.Keyboard;

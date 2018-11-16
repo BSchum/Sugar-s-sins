@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -915,13 +915,14 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1373761249453894, guid: 7be7eee588d38f6458e56fe463156953,
+  m_PlayerPrefab: {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
   m_OfflineScene: 
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1478518612388676, guid: 9bac76ff70a904448be892eaf599e7b0, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -1221,6 +1222,16 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_MaxSize
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534541657851714, guid: f4baa74f08ede3d438a5683e4d0a1183,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114748796031033770, guid: f4baa74f08ede3d438a5683e4d0a1183,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4baa74f08ede3d438a5683e4d0a1183, type: 2}
