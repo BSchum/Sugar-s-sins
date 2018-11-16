@@ -35,6 +35,7 @@ public class PlayerAttack : PlayerScript {
             }
         }
     }
+
     [Command]
     public void CmdAttack(GameObject target)
     {
