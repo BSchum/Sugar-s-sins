@@ -6,68 +6,98 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
-
+public delegate void HealthChanged(float value);
 public class Stats : NetworkBehaviour
 {
+    public event HealthChanged OnHealthChanged;
+
     [SerializeField]
-    float power;
+    float basePower;
     [SerializeField]
-    float defense;
+    float currentPower;
+
     [SerializeField]
-    float speed;
+    float baseDefense;
     [SerializeField]
-    float maxHealth;
-    float health;
+    float currentDefense;
+
+    [SerializeField]
+    float baseSpeed;
+    [SerializeField]
+    float currentSpeed;
+
+    [SerializeField]
+    float baseMaxHealth;
+    [SerializeField]
+    float currentMaxHealth;
+
+    [SerializeField]
+    float baseHealth;
+    [SerializeField]
+    float currentHealth;
+
 
     public void Start()
     {
-        health = maxHealth;
     }
 
-    public void AddPower(int amount)
+    void Update()
     {
-        power += amount;
-    }   
+    }
+
+    public void AddPower(float amount)
+    {
+        currentPower += amount;
+    }
     public float GetPower()
     {
-        return power;
+        return currentHealth;
     }
-    public void AddDefense(int amount)
+    public void AddDefense(float amount)
     {
-        defense += amount;
+        currentDefense += amount;
     }
     public float GetDefense()
     {
-        return defense;
+        return currentDefense;
     }
-    public void AddSpeed(int amount)
+    public void AddSpeed(float amount)
     {
-        speed += amount;
+        currentSpeed += amount;
     }
     public float GetSpeed()
     {
-        return speed;
+        return currentSpeed;
     }
-    public void AddHealth(int amount)
+    public void AddHealth(float amount)
     {
-        if (health + amount > maxHealth){
-            health = maxHealth;
+        Debug.Log("Je lance le AddHEalth");
+        if (currentHealth + amount > currentMaxHealth)
+        {
+            currentHealth = currentMaxHealth;
         }
-        else{
-            health += amount;
+        else
+        {
+            currentHealth += amount;
         }
+        OnHealthChanged(this.GetHealth());
     }
     public float GetHealth()
     {
-        return health;
+        return currentHealth;
     }
-    public void AddMaxHealth(int amount)
+    public void AddMaxHealth(float amount)
     {
-        maxHealth += amount;
+        currentMaxHealth += amount;
     }
     public float GetMaxHealth()
     {
-        return maxHealth;
+        return currentMaxHealth;
+    }
+    public void Subscribe(HealthChanged callBack)
+    {
+        OnHealthChanged += callBack;
+        callBack(GetHealth());
     }
 
 }

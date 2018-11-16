@@ -12,19 +12,19 @@ public class HealthUi : MonoBehaviour
     Slider healthBar;
     [SerializeField]
     Text healthText;
-    Health hp;
+    Stats stats;
 
     void Start()
     {
-        hp = GetComponent<Health>();
-        healthBar.maxValue = hp.GetMaxHealth();
+        stats = GetComponent<Stats>();
+        healthBar.maxValue = stats.GetMaxHealth();
         HealthChanged sliderValue = ChangeUIHealthValues;
-        hp.Subscribe(sliderValue);
+        stats.Subscribe(sliderValue);
     }
 
     void ChangeUIHealthValues(float value)
     {
-        Debug.Log("Je change la valeur de mon UI");
+        Debug.Log("Je change la valeur de mon UI a"+value);
         healthBar.value = value;
         healthText.text = value.ToString();
     }

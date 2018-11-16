@@ -6,5 +6,15 @@ using System.Text;
 public static class Constants
 {
     public static string ENEMY_TAG = "Enemy";
+
+    //Tank stats
+    public const float MAX_ATTACK_MULTIPLICATOR_GELATIN = 0.5f;
+    public const float MIN_ATTACK_MULTIPLICATOR_GELATIN = 0f;
+
+    public const float MAX_DEFENSE_MULTIPLICATOR_GELATIN = 0.5f;
+    public const float MIN_DEFENSE_MULTIPLICATOR_GELATIN = 0f;
+
+    public const int MAX_GELATIN_STACK = 10;
+
 }
 
