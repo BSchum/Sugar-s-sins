@@ -349,6 +349,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 439835170}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &485683611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1227065912887476, guid: f4baa74f08ede3d438a5683e4d0a1183,
+    type: 2}
+  m_PrefabInternal: {fileID: 1825977228}
+--- !u!114 &485683619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485683611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePower: 10
+  currentPower: 10
+  baseDefense: 10
+  currentDefense: 10
+  baseSpeed: 10
+  currentSpeed: 10
+  baseMaxHealth: 100
+  currentMaxHealth: 100
+  baseHealth: 100
+  currentHealth: 100
 --- !u!1 &501021177
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +941,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1373761249453894, guid: 7be7eee588d38f6458e56fe463156953,
+  m_PlayerPrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
