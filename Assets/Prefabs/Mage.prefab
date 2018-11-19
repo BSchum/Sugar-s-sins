@@ -283,6 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fd464fb0c05364680b4d04583bcd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skills:
+  - {fileID: 0}
   skillProjectile: {fileID: 114127200121322762, guid: 9bac76ff70a904448be892eaf599e7b0,
     type: 2}
 --- !u!114 &114384889814986188
@@ -328,10 +330,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
-  defense: 0
-  speed: 0
-  maxHealth: 0
+  basePower: 0
+  currentPower: 0
+  baseDefense: 0
+  currentDefense: 0
+  baseSpeed: 0
+  currentSpeed: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
+  baseHealth: 0
+  currentHealth: 0
 --- !u!114 &114709457707875594
 MonoBehaviour:
   m_ObjectHideFlags: 1

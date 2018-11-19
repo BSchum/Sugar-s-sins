@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(Stats))]
-public class BurstAttack : PlayerAttack {
-
+public class MageAttack : PlayerAttack {
 
     float burstPassif = 0;
     private const int burstMaxPassif = 100;
 
+    [SerializeField]
     public List<Skill> skills = new List<Skill>();
+    //public List<string> skills_Name = new List<string>();
+
     public SkillProjectile skillProjectile;
+
 
     void BurstBehaviour(float damageDealt)
     {
@@ -28,34 +31,28 @@ public class BurstAttack : PlayerAttack {
     {
         base.Update();
 
-        if (ih.FirstSkill() && !skills.isCasting)
+        if (ih.FirstSkill() && skills[0].CanCast(this))
         {
-            StartCoroutine(Casting());
+            StartCoroutine(skills[0].Cast());
         }
-        if (ih.SecondeSkill() && )
+
+        if (ih.SecondeSkill())
         {
-            StartCoroutine(Casting());
+            Ray ray = new Ray(transform.position, transform.GetChild(0).transform.forward);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.transform.name);
+                //var newTornade = Instantiate(skills[1].skillPrefab, hit.point, Quaternion.identity);
+                //StartCoroutine(newTornade.GetComponent<SkillProjectile>().DieAfterSecond());
+            }
+
         }
     }
 
-    IEnumerator Casting()
+    public virtual float GetPassifVal()
     {
-        Debug.Log("yo");
-
-        skills.castStartTime = Time.time;
-
-        skills.isCasting = true;
-
-        yield return new WaitUntil(() => !ih.FirstSkill());
-
-        //Release the key
-        var pushTime = Time.time - skills.castStartTime + 1; //+1 => évite d'avoir un résultat = 0
-        pushTime = pushTime > 5 ? 5 : pushTime; //Si supérieur à 5, alors égal à 5
-
-        //Debug.Log(pushTime);
-        CmdSpawnPrefab(pushTime);
-
-        skills.isCasting = false;
+        return burstPassif;
     }
 
     [Command]
@@ -65,9 +62,9 @@ public class BurstAttack : PlayerAttack {
         NetworkServer.Spawn(p);
 
         var sp = p.GetComponent<SkillProjectile>();
-        Debug.Log((int)pushTime);
-        sp.projectileSpeed = (int)pushTime;
-        sp.Initiate();
+        //Debug.Log((int)pushTime);
+        sp.speed = (int)pushTime;
+        //sp.Initiate();
     }
 
 

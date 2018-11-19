@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SkillProjectile : NetworkBehaviour {
+[CreateAssetMenu(fileName = "Projectile", menuName = "New ¨Projectile", order = 2)]
+public class SkillProjectile : ScriptableObject {
 
-    public float projectileSpeed;
+    public float speed, damage, lifeTime;
 
-    public float projectileDamage;
-
+    public List<string> tagcollisionable = new List<string>();
     public GameObject projectilePrefab;
 
-
-    public void Initiate()
+    public void Initiate(Rigidbody rb, Transform t)
     {
-        var rb = GetComponent<Rigidbody>();
-
-        rb.AddForce(transform.forward * projectileSpeed * 250);
-        transform.localScale *= projectileSpeed;
+        rb.AddForce(t.forward * speed * 250);
+        t.localScale *= speed;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,7 +23,14 @@ public class SkillProjectile : NetworkBehaviour {
         if(hitEntity.tag == Constants.ENEMY_TAG)
         {
             //remove life
-            //self destroy
+            
         }
+    }
+
+    public IEnumerator DieAfterSecond (GameObject gameobject)
+    {
+        yield return new WaitForSeconds(lifeTime);
+
+        Destroy(gameobject);
     }
 }

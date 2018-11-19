@@ -21,6 +21,11 @@ public class PlayerAttack : PlayerScript {
         }
     }
 
+    public virtual float GetPassifVal ()
+    {
+        return 0f;
+    }
+
     public void Fire()
     {
         Ray r = new Ray(this.transform.position, this.transform.forward);
