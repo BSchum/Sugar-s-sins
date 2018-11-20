@@ -17,7 +17,7 @@ class KeyBoardInputHandler : InputHandler
         return Input.GetButton("FirstSkill");
     }
 
-    public override bool SecondeSkill()
+    public override bool SecondSkill()
     {
         return Input.GetButtonDown("SecondeSkill");
     }

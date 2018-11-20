@@ -7,24 +7,19 @@ public class SkillProjectile : NetworkBehaviour {
 
     public float speed, damage, lifeTime;
 
-    public GameObject projectilePrefab;
-
     private void Start()
     {
         Initiate();
     }
 
-    public IEnumerator DieAfterSecond (GameObject gameobject)
+    public void DieAfterLifeTime()
     {
-        yield return new WaitForSeconds(lifeTime);
-
-        Destroy(gameobject);
+        Destroy(this.gameObject, lifeTime);
     }
 
     public virtual void Initiate()
     {
         SpawnOnServer();
-        Debug.Log("Papa");
     }
 
     public virtual void SpawnOnServer()

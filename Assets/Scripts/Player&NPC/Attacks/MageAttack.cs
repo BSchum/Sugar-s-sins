@@ -8,10 +8,7 @@ public class MageAttack : PlayerAttack {
 
     float burstPassif = 0;
     private const int burstMaxPassif = 100;
-    
-    public List<Skill> skills = new List<Skill>();
-
-
+   
     void BurstBehaviour(float damageDealt)
     {
         burstPassif += damageDealt * Constants.BURST_PASSIF_MULTIPLICATEUR;
@@ -26,7 +23,7 @@ public class MageAttack : PlayerAttack {
     {
         base.Update();
 
-        if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isCooldown)
+        if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
         {
             Debug.Log("Je lance le sort numéro 1");
             StartCoroutine(skills[0].Cast());
@@ -38,7 +35,7 @@ public class MageAttack : PlayerAttack {
             //Debug.Log(!skills[0].isCooldown);
         }
 
-        if (ih.SecondeSkill())
+        if (ih.SecondSkill())
         {
             Ray ray = new Ray(transform.position, transform.GetChild(0).transform.forward);
             RaycastHit hit;

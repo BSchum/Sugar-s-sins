@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_Mage_1 : Skill {
-
-    private void Update()
-    {
-        //Debug.Log(this.ih);
-    }
+public class FireBall : Skill {
 
     public override bool CanCast()
     {
@@ -17,7 +12,6 @@ public class Skill_Mage_1 : Skill {
     public override IEnumerator Cast()
     {
         ih = new InputHandlerBuilder().ChooseInputHandler().Build();
-        Debug.Log(ih);
 
         SpawnProjectile();
 
@@ -41,7 +35,7 @@ public class Skill_Mage_1 : Skill {
         Vector3 pos = Vector3.zero;
         Quaternion dir = Quaternion.identity;
 
-        var newProjectile =  (GameObject)Instantiate(skillProjectile.projectilePrefab, pos, dir);
+        var newProjectile =  (GameObject)Instantiate(skillProjectile.gameObject, pos, dir);
     }
 
     public void SetProjectile (float keyPushTime)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [System.Serializable]
-public abstract class Skill : MonoBehaviour {
+public abstract class Skill : NetworkBehaviour {
 
     public float cost;
 
@@ -20,21 +20,25 @@ public abstract class Skill : MonoBehaviour {
     protected float castStartTime;
 
     [HideInInspector]
-    public bool isCooldown = false;
+    public bool isOnCooldown = false;
     public float cooldown;
+    [HideInInspector]
+    public GameObject source;
 
-
-    public abstract bool CanCast();
+    public virtual bool CanCast()
+    {
+        return canCast && !isCasting;
+    }
     public abstract IEnumerator Cast();
+    public IEnumerator ProcessCoolDown()
+    {
+        isOnCooldown = true;
+        yield return new WaitForSeconds(cooldown);
+        isOnCooldown = false;
+
+    }
 
 
     InputHandlerBuilder builder;
     protected InputHandler ih;
-
-    public virtual void Start()
-    {
-        ih = new InputHandlerBuilder().ChooseInputHandler().Build();
-        
-        isCasting = false;
-    }
 }

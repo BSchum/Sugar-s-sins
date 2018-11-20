@@ -6,15 +6,17 @@ using UnityEngine.Networking;
 public class PlayerAttack : PlayerScript {
     protected Weapon weapon;
     protected Stats stats;
-    
-    
-	public void Start () {
+
+    Skill[] skills;
+
+    public void Start () {
         Initialize();
         weapon = GetComponentInChildren<Weapon>();
         stats = GetComponent<Stats>();
-	}
-	
-	public void Update () {
+        skills = GetComponents<Skill>();
+    }
+
+    public void Update () {
         if (ih.SimpleAttackInput())
         {
             Fire();

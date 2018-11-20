@@ -16,5 +16,5 @@ public abstract class InputHandler
     public abstract Vector3 ComputeRotation();
     public abstract bool SimpleAttackInput();
     public abstract bool FirstSkill();
-    public abstract bool SecondeSkill();
+    public abstract bool SecondSkill();
 }

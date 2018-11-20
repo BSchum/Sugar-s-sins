@@ -18,7 +18,7 @@ public class TankAttacks : PlayerAttack {
     }
     
     /*
-     * ComputeRatio(10, 0, 0.5, 0, 5) return 0,25;
+     * ComputeRatio(10, 0.5, 5) return 0,25;
      */
     float ComputeRatio(float maxA, float maxB, float currentValue)
     {
@@ -29,6 +29,22 @@ public class TankAttacks : PlayerAttack {
     {
         stats = GetComponent<Stats>();
         ApplyGelatinBehaviour();
+        base.Start();
+
+    }
+
+    public void Update()
+    {
+        if (isLocalPlayer)
+        {
+            base.Update();
+            if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
+            {
+                skills[0].source = this.gameObject;
+                StartCoroutine(skills[0].Cast());
+                StartCoroutine(skills[0].ProcessCoolDown());
+            }
+        }
     }
 
     public void AddGelatinStack(int gelatinStackAmount)
