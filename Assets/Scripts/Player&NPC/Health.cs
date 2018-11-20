@@ -23,7 +23,7 @@ public class Health : NetworkBehaviour {
     public void RpcTakeDamage(int amount)
     {
         Debug.Log("Je prend des degats");
-        this.stats.AddHealth(-amount);
+        this.stats.AddHealth(-amount * (1 - (this.stats.damageReductionInPercent/100)));
         if (this.stats.GetHealth() <= 0)
         {
             Destroy(this.gameObject);

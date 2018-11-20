@@ -8,7 +8,20 @@ public class PlayerAttack : PlayerScript {
     protected Stats stats;
 
     protected Skill[] skills;
+    protected List<Buff> buffs = new List<Buff>();
 
+    public void AddBuff(Buff buff)
+    {
+        buffs.Add(buff);
+    }
+
+    public void ApplyBuffs()
+    {
+        foreach (Buff buff in buffs)
+        {
+            buff.ApplyBuff();
+        }
+    }
     public void Start () {
         Initialize();
         weapon = GetComponentInChildren<Weapon>();

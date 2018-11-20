@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class TotemSkill : Skill
 {
-    float lastCast;
 
     public override IEnumerator Cast()
     {
@@ -33,5 +32,6 @@ public class TotemSkill : Skill
 
         GameObject totem = Instantiate(skillProjectile.gameObject, pos, Quaternion.identity);
         totem.GetComponent<TotemProjectile>().source = source;
+        source.GetComponent<TankAttacks>().lastActiveTotem = totem;
     }
 }

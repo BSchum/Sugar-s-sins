@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 114481255679566150}
   - component: {fileID: 114525149153911434}
   - component: {fileID: 114005688366228276}
+  - component: {fileID: 114963396591999276}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -369,9 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0081fb3d72f515499b530d12afc1a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - {fileID: 0}
-  gelatinStack: 0
+  gelatinStack: 6
+  lastActiveTotem: {fileID: 0}
 --- !u!114 &114616078427737290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,6 +418,26 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114963396591999276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823101347351276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cd19cb8b8518a439b466f89bbe8454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  canCast: 1
+  isCasting: 0
+  minCastTime: 0
+  maxCastTime: 0
+  skillProjectile: {fileID: 0}
+  isOnCooldown: 0
+  cooldown: 5
+  source: {fileID: 0}
 --- !u!136 &136910781700661378
 CapsuleCollider:
   m_ObjectHideFlags: 1

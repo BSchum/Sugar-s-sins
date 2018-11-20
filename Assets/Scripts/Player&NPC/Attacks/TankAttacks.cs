@@ -4,18 +4,18 @@ using UnityEngine;
 [RequireComponent(typeof(Stats))]
 public class TankAttacks : PlayerAttack {
     [SerializeField]
-    int gelatinStack = 10;
+    int gelatinStack = Constants.MAX_GELATIN_STACK;
     int maxGelatinStack = Constants.MAX_GELATIN_STACK;
     float attackRatio;
     float defenseRatio;
+    public GameObject lastActiveTotem;
 
-    void ApplyGelatinBehaviour()
+    public int GetGelatinStacks()
     {
-        attackRatio = ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_ATTACK_MULTIPLICATOR_GELATIN, gelatinStack);
-        defenseRatio = ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_DEFENSE_MULTIPLICATOR_GELATIN, gelatinStack);
-        stats.AddPower(stats.GetPower() * attackRatio);
-        stats.AddDefense(stats.GetDefense() * defenseRatio);
+        return gelatinStack;
     }
+
+
     
     /*
      * ComputeRatio(10, 0.5, 5) return 0,25;
@@ -27,14 +27,17 @@ public class TankAttacks : PlayerAttack {
     
     public void Start()
     {
-        stats = GetComponent<Stats>();
-        ApplyGelatinBehaviour();
         base.Start();
 
+        stats = GetComponent<Stats>();
+        buffs.Add(new GelatinBuff(this.gameObject));
+        ApplyBuffs();
     }
 
     public void Update()
     {
+        base.Update();
+
         if (isLocalPlayer)
         {
             base.Update();
@@ -43,6 +46,12 @@ public class TankAttacks : PlayerAttack {
                 skills[0].source = this.gameObject;
                 StartCoroutine(skills[0].Cast());
                 StartCoroutine(skills[0].ProcessCoolDown());
+            }
+            else if(ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown)
+            {
+                skills[1].source = this.gameObject;
+                StartCoroutine(skills[1].Cast());
+                StartCoroutine(skills[1].ProcessCoolDown());
             }
         }
     }
@@ -60,6 +69,5 @@ public class TankAttacks : PlayerAttack {
         {
             gelatinStack += gelatinStackAmount;
         }
-        ApplyGelatinBehaviour();
     }
 }

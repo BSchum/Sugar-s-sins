@@ -365,58 +365,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePower: 0
-  currentPower: 0
-  baseDefense: 0
-  currentDefense: 0
-  baseSpeed: 0
-  currentSpeed: 0
-  baseMaxHealth: 0
-  currentMaxHealth: 0
-  baseHealth: 0
-  currentHealth: 0
---- !u!1001 &495596309
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.2392997
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.50557
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -14.046406
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
-  m_IsPrefabAsset: 0
+  basePower: 10
+  currentPower: 10
+  baseDefense: 10
+  currentDefense: 10
+  baseSpeed: 10
+  currentSpeed: 10
+  baseMaxHealth: 100
+  currentMaxHealth: 100
+  baseHealth: 100
+  currentHealth: 100
 --- !u!1 &501021177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,12 +1254,12 @@ Prefab:
     - target: {fileID: 114534541657851714, guid: f4baa74f08ede3d438a5683e4d0a1183,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114748796031033770, guid: f4baa74f08ede3d438a5683e4d0a1183,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4baa74f08ede3d438a5683e4d0a1183, type: 2}

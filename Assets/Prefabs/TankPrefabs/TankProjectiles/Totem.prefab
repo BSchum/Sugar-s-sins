@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 114667763590301368}
   - component: {fileID: 114563823203138628}
   - component: {fileID: 114524225529960212}
+  - component: {fileID: 114718542993742328}
+  - component: {fileID: 114041032156160458}
   m_Layer: 0
   m_Name: Totem
   m_TagString: Untagged
@@ -231,6 +233,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114041032156160458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305259824661208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e68e8ae6708c643b14c207d7456664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114524225529960212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,6 +282,8 @@ MonoBehaviour:
   source: {fileID: 0}
   gelatinStacksAmount: 1
   gelatinStacksRate: 1
+  attackRate: 3
+  range: 20
 --- !u!114 &114667763590301368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,6 +316,27 @@ MonoBehaviour:
     i15: 15
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114718542993742328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305259824661208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePower: 0
+  currentPower: 0
+  baseDefense: 0
+  currentDefense: 0
+  baseSpeed: 0
+  currentSpeed: 0
+  baseMaxHealth: 0
+  currentMaxHealth: 0
+  baseHealth: 0
+  currentHealth: 0
 --- !u!136 &136336144894303958
 CapsuleCollider:
   m_ObjectHideFlags: 1
