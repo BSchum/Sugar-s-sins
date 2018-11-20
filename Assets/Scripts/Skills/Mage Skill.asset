@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98002841433212543bbb4e38b61e81c0, type: 3}
   m_Name: Mage Skill
   m_EditorClassIdentifier: 
-  isCasting: 0
-  castTime: 0
-  skillProjectile: {fileID: 0}
+  cost: 0
+  minCastTime: 0
+  skillProjectile: {fileID: 11400000, guid: f3dd4797c35821f4f8a6a3525994fc2e, type: 2}
+  isCooldown: 0
   cooldown: 0
-  skillPrefab: {fileID: 0}

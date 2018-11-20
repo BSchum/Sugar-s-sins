@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8479c564dbf10b34c9c5caaf397d5321, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  speed: 0
-  damage: 0
-  lifeTime: 0
+  speed: 100
+  damage: 1
+  lifeTime: -1
   tagcollisionable: []
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 1478518612388676, guid: 9bac76ff70a904448be892eaf599e7b0,
+    type: 2}

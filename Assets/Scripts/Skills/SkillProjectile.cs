@@ -7,8 +7,7 @@ using UnityEngine.Networking;
 public class SkillProjectile : ScriptableObject {
 
     public float speed, damage, lifeTime;
-
-    public List<string> tagcollisionable = new List<string>();
+    
     public GameObject projectilePrefab;
 
     public void Initiate(Rigidbody rb, Transform t)

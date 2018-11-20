@@ -8,8 +8,6 @@ public class Skill_Mage : Skill {
     InputHandlerBuilder builder;
     InputHandler ih;
 
-    MonoBehaviour m;
-
     public override bool CanCast(Stats stats)
     {
         // Check if current health >= max health as exemeple
@@ -33,8 +31,6 @@ public class Skill_Mage : Skill {
         yield return new WaitUntil(() => !ih.FirstSkill() && Time.time - castStartTime < castTime || Time.time - castStartTime >= minCastTime);
 
         isCasting = false;
-
-        m.StartCoroutine(OnCooldown());
 
         castTime = Time.time - castStartTime;
 

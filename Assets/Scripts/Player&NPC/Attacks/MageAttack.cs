@@ -8,10 +8,8 @@ public class MageAttack : PlayerAttack {
 
     float burstPassif = 0;
     private const int burstMaxPassif = 100;
-
-    [SerializeField]
+    
     public List<Skill> skills = new List<Skill>();
-    //public List<string> skills_Name = new List<string>();
 
     public SkillProjectile skillProjectile;
 
@@ -42,9 +40,7 @@ public class MageAttack : PlayerAttack {
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.name);
-                //var newTornade = Instantiate(skills[1].skillPrefab, hit.point, Quaternion.identity);
-                //StartCoroutine(newTornade.GetComponent<SkillProjectile>().DieAfterSecond());
+                
             }
 
         }
@@ -62,9 +58,8 @@ public class MageAttack : PlayerAttack {
         NetworkServer.Spawn(p);
 
         var sp = p.GetComponent<SkillProjectile>();
-        //Debug.Log((int)pushTime);
+        
         sp.speed = (int)pushTime;
-        //sp.Initiate();
     }
 
 
