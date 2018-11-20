@@ -7,7 +7,7 @@ public class PlayerAttack : PlayerScript {
     protected Weapon weapon;
     protected Stats stats;
 
-    Skill[] skills;
+    protected Skill[] skills;
 
     public void Start () {
         Initialize();
