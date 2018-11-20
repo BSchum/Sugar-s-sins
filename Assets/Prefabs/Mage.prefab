@@ -284,9 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills:
-  - {fileID: 0}
-  skillProjectile: {fileID: 114127200121322762, guid: 9bac76ff70a904448be892eaf599e7b0,
-    type: 2}
+  - {fileID: 114090433322668472, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
 --- !u!114 &114384889814986188
 MonoBehaviour:
   m_ObjectHideFlags: 1

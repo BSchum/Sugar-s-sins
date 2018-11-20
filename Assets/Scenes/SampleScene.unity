@@ -375,6 +375,48 @@ MonoBehaviour:
   currentMaxHealth: 0
   baseHealth: 0
   currentHealth: 0
+--- !u!1001 &495596309
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.2392997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.50557
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -14.046406
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052775383102038, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &501021177
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +817,7 @@ Prefab:
         type: 2}
       propertyPath: skills.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 10de18cb0df89bc498cf3bbf0f7f8483,
+      objectReference: {fileID: 114090433322668472, guid: aba0b401de85dca459aab8f4c55190a3,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb, type: 2}

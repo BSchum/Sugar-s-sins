@@ -3,27 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[CreateAssetMenu(fileName = "Projectile", menuName = "New ¨Projectile", order = 2)]
-public class SkillProjectile : ScriptableObject {
+public class SkillProjectile : NetworkBehaviour {
 
     public float speed, damage, lifeTime;
-    
+
     public GameObject projectilePrefab;
 
-    public void Initiate(Rigidbody rb, Transform t)
+    private void Start()
     {
-        rb.AddForce(t.forward * speed * 250);
-        t.localScale *= speed;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        var hitEntity = collision.transform.gameObject;
-        if(hitEntity.tag == Constants.ENEMY_TAG)
-        {
-            //remove life
-            
-        }
+        Initiate();
     }
 
     public IEnumerator DieAfterSecond (GameObject gameobject)
@@ -31,5 +19,21 @@ public class SkillProjectile : ScriptableObject {
         yield return new WaitForSeconds(lifeTime);
 
         Destroy(gameobject);
+    }
+
+    public virtual void Initiate()
+    {
+        SpawnOnServer();
+        Debug.Log("Papa");
+    }
+
+    public virtual void SpawnOnServer()
+    {
+        NetworkServer.Spawn(this.gameObject);
+    }
+
+    public virtual void ProjectileBehav ()
+    {
+
     }
 }

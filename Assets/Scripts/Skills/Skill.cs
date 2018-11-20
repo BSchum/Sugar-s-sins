@@ -4,25 +4,37 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [System.Serializable]
-public abstract class Skill : ScriptableObject {
+public abstract class Skill : MonoBehaviour {
 
     public float cost;
-    
+
     [HideInInspector]
-    protected bool isCasting;
-    public float minCastTime;
-    protected float castTime;
+    public bool canCast = true;
+    [SerializeField]
+    protected bool isCasting = false;
+    public float minCastTime = 0;
+    public float maxCastTime;
 
     public SkillProjectile skillProjectile;
 
     protected float castStartTime;
 
-    public bool isCooldown;
+    [HideInInspector]
+    public bool isCooldown = false;
     public float cooldown;
 
-    
-    public abstract bool CanCast(Stats pStats);
-    public abstract bool CanCast(PlayerAttack pInfo);
+
+    public abstract bool CanCast();
     public abstract IEnumerator Cast();
 
+
+    InputHandlerBuilder builder;
+    protected InputHandler ih;
+
+    public virtual void Start()
+    {
+        ih = new InputHandlerBuilder().ChooseInputHandler().Build();
+        
+        isCasting = false;
+    }
 }
