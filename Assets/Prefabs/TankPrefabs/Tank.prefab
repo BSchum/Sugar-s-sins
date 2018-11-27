@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 114963396591999276}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8879d99869e81594e85996a8c6c42c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 3
   canCast: 1
   isCasting: 0
   minCastTime: 0
@@ -349,16 +349,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePower: 10
-  currentPower: 10
-  baseDefense: 10
-  currentDefense: 10
-  baseSpeed: 10
-  currentSpeed: 10
-  baseMaxHealth: 10
-  currentMaxHealth: 10
-  baseHealth: 10
-  currentHealth: 10
+  baseStats:
+    power: 10
+    defense: 10
+    speed: 10
+    health: 100
+    maxHealth: 100
+    damage: 10
+  currentStats:
+    power: 10
+    defense: 10
+    speed: 10
+    health: 100
+    maxHealth: 100
+    damage: 10
+  damageReductionInPercent: 0
 --- !u!114 &114525149153911434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -429,14 +434,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cd19cb8b8518a439b466f89bbe8454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
+  cost: 3
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 5
+  cooldown: 1
   source: {fileID: 0}
 --- !u!136 &136910781700661378
 CapsuleCollider:

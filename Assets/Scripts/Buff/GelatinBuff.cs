@@ -16,16 +16,12 @@ public class GelatinBuff : Buff
     }
     public override void ApplyBuff()
     {
-        
         stats = target.GetComponent<Stats>();
         gelatinStacks = target.GetComponent<TankAttacks>().GetGelatinStacks();
         attackRatio = ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_ATTACK_MULTIPLICATOR_GELATIN, gelatinStacks);
         defenseRatio = ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_DEFENSE_MULTIPLICATOR_GELATIN, gelatinStacks, true);
-
-        stats.AddPower(stats.GetPower() * attackRatio);
-        stats.AddDefense(stats.GetDefense() * defenseRatio);
-        Debug.Log(stats.finalPower);
-        Debug.Log(stats.finalDefense);
+        stats.BuffPower(stats.GetCurrentPower() * attackRatio);
+        stats.BuffDefense(stats.GetCurrentDefense() * defenseRatio);
     }
 
     public override bool isEnded()

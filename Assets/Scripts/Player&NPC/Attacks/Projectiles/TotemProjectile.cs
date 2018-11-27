@@ -42,10 +42,12 @@ public class TotemProjectile : SkillProjectile {
         while (true)
         {
             Collider[] colliders = Physics.OverlapSphere(this.transform.position, range);
-            IEnumerable<Collider> sortedColls = colliders.Where(c => c != null).Where(c => c.tag == Constants.ENEMY_TAG).OrderBy(c => Vector3.Distance(this.transform.position, c.transform.position));
+            IEnumerable<Collider> sortedColls = colliders.Where(c => c != null)
+                                                         .Where(c => c.tag == Constants.ENEMY_TAG)
+                                                         .OrderBy(c => Vector3.Distance(this.transform.position, c.transform.position));
             if (sortedColls.Count() > 0)
             {
-                sortedColls.FirstOrDefault().GetComponent<Health>().TakeDamage((int)damage);
+                sortedColls.FirstOrDefault().GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage());
             }
             yield return new WaitForSeconds(attackRate);
         }

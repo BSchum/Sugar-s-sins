@@ -11,19 +11,18 @@ public class Health : NetworkBehaviour {
         stats = GetComponent<Stats>();
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        Debug.Log("I took " + amount + "damage");
         if (!isServer)
             return;
         RpcTakeDamage(amount);
     }
 
     [ClientRpc]
-    public void RpcTakeDamage(int amount)
+    public void RpcTakeDamage(float amount)
     {
-        Debug.Log("Je prend des degats");
-        this.stats.AddHealth(-amount * (1 - (this.stats.damageReductionInPercent/100)));
+        Debug.Log("Je prend -" + amount + "de degats");
+        this.stats.TakeDamage(-amount * (1 - (this.stats.damageReductionInPercent/100)));
         if (this.stats.GetHealth() <= 0)
         {
             Destroy(this.gameObject);

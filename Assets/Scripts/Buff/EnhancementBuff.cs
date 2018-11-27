@@ -14,10 +14,12 @@ public class EnhancementBuff : Buff
     {
         lastApply = Time.time;
         target.GetComponent<Stats>().SetDamageReductionInPercent(Constants.ENHANCEMENT_TANK_DAMAGE_REDUCTION);
-        target.GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().damage += 10;
-        TotemProjectile totem = target.GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>();
-        totem.damage += 10;
-        totem.GetComponent<Stats>().AddDefense(10);
+        if (target.GetComponent<TankAttacks>().lastActiveTotem != null)
+        {
+            TotemProjectile totem = target.GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>();
+            totem.GetComponent<Stats>().BuffDamage(10);
+            totem.GetComponent<Stats>().BuffDefense(10);
+        }
     }
 
     public override bool isEnded()

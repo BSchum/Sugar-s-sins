@@ -24,7 +24,6 @@ public class HealthUi : MonoBehaviour
 
     void ChangeUIHealthValues(float value)
     {
-        Debug.Log("Je change la valeur de mon UI a"+value);
         healthBar.value = value;
         healthText.text = value.ToString();
     }

@@ -38,9 +38,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4983577225095014}
   - component: {fileID: 114667763590301368}
+  - component: {fileID: 114718542993742328}
   - component: {fileID: 114563823203138628}
   - component: {fileID: 114524225529960212}
-  - component: {fileID: 114718542993742328}
   - component: {fileID: 114041032156160458}
   m_Layer: 0
   m_Name: Totem
@@ -327,16 +327,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePower: 0
-  currentPower: 0
-  baseDefense: 0
-  currentDefense: 0
-  baseSpeed: 0
-  currentSpeed: 0
-  baseMaxHealth: 0
-  currentMaxHealth: 0
-  baseHealth: 0
-  currentHealth: 0
+  baseStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  currentStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  damageReductionInPercent: 0
 --- !u!136 &136336144894303958
 CapsuleCollider:
   m_ObjectHideFlags: 1

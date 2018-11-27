@@ -36,10 +36,10 @@ public class TankAttacks : PlayerAttack {
 
     public void Update()
     {
-        base.Update();
-
         if (isLocalPlayer)
         {
+            if (lastActiveTotem != null)
+                this.lastActiveTotem.GetComponent<Stats>().ResetBonusStats();
             base.Update();
             if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
             {
@@ -49,6 +49,7 @@ public class TankAttacks : PlayerAttack {
             }
             else if(ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown)
             {
+                Debug.Log("Jsuis al mamene");
                 skills[1].source = this.gameObject;
                 StartCoroutine(skills[1].Cast());
                 StartCoroutine(skills[1].ProcessCoolDown());

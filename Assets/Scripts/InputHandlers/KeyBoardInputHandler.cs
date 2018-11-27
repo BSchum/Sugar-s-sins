@@ -19,7 +19,7 @@ class KeyBoardInputHandler : InputHandler
 
     public override bool SecondSkill()
     {
-        return Input.GetButtonDown("SecondeSkill");
+        return Input.GetButtonDown("SecondSkill");
     }
 
     public override Vector3 ComputeMovement()

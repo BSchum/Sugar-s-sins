@@ -43,4 +43,8 @@ public class FireBall : Skill {
         
     }
 
+    public override bool HasRessource()
+    {
+        throw new System.NotImplementedException();
+    }
 }

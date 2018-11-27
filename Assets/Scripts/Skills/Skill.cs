@@ -30,6 +30,7 @@ public abstract class Skill : NetworkBehaviour {
         return canCast && !isCasting;
     }
     public abstract IEnumerator Cast();
+    public abstract bool HasRessource();
     public IEnumerator ProcessCoolDown()
     {
         isOnCooldown = true;

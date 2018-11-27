@@ -30,10 +30,13 @@ public class PlayerAttack : PlayerScript {
     }
 
     public void Update () {
+        stats.ResetBonusStats();
+        ApplyBuffs();
         if (ih.SimpleAttackInput())
         {
             Fire();
         }
+
     }
 
     public virtual float GetPassifVal ()
@@ -62,7 +65,7 @@ public class PlayerAttack : PlayerScript {
         weapon = GetComponentInChildren<Weapon>();
         Debug.Log("Jattack "+target.name+" sur le server avec "+weapon.name);
         Health h = target.GetComponent<Health>();
-        h.TakeDamage(weapon.damage);
+        h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
 
 
