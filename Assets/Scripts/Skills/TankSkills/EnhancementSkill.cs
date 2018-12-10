@@ -8,9 +8,7 @@ public class EnhancementSkill : Skill
 {
     public override IEnumerator Cast()
     {
-        Debug.Log("Je cast l'amélio", this);
-        source.GetComponent<PlayerAttack>().AddBuff(new EnhancementBuff(source));
-        Debug.Log("Je buff mes alliés local");
+        this.gameObject.GetComponent<PlayerAttack>().AddBuff(new EnhancementBuff(this.gameObject));
         CmdBuffAllies();
         yield return null;
     }
@@ -25,7 +23,6 @@ public class EnhancementSkill : Skill
     [ClientRpc]
     public void RpcBuffAllies()
     {
-        Debug.Log("Je buff mes alliés");
         Collider[] colls = Physics.OverlapSphere(this.transform.position, 100f);
         IEnumerable<Collider> sortedColls = colls.Where(c => c != null && c.tag == Constants.PLAYER_TAG);
 

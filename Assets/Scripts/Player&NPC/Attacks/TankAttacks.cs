@@ -28,7 +28,6 @@ public class TankAttacks : PlayerAttack {
     public void Start()
     {
         base.Start();
-
         stats = GetComponent<Stats>();
         buffs.Add(new GelatinBuff(this.gameObject));
         ApplyBuffs();
@@ -38,19 +37,16 @@ public class TankAttacks : PlayerAttack {
     {
         if (isLocalPlayer)
         {
-            if (lastActiveTotem != null)
-                this.lastActiveTotem.GetComponent<Stats>().ResetBonusStats();
+            CmdInitializeSkills();
             base.Update();
+
             if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
             {
-                skills[0].source = this.gameObject;
                 StartCoroutine(skills[0].Cast());
                 StartCoroutine(skills[0].ProcessCoolDown());
             }
             else if(ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown)
             {
-                Debug.Log("Jsuis al mamene");
-                skills[1].source = this.gameObject;
                 StartCoroutine(skills[1].Cast());
                 StartCoroutine(skills[1].ProcessCoolDown());
             }

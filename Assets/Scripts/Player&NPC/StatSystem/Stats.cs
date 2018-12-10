@@ -30,19 +30,20 @@ public class Stats : NetworkBehaviour
     {
         finalStats = new BaseStats();
         bonusStats = new BaseStats();
-        if (this.gameObject.name == "Totem(Clone)")
-        {
-            Debug.Log(finalStats); 
-        }
         ResetBonusStats();
     }
 
     public void Update()
     {
+        if (name == "Totem(Clone)")
+        {
+            Debug.Log("Je compute pour " + gameObject.name);
+            Debug.Log(currentStats);
+            Debug.Log(bonusStats);
+        }
         ComputeFinalStats();
     }
-
-
+    
     public void TakeDamage(float amount)
     {
         if (currentStats.health > 0)
@@ -193,6 +194,7 @@ public class Stats : NetworkBehaviour
         bonusStats.speed = 0;
         bonusStats.defense = 0;
         bonusStats.damage = 0;
+        damageReductionInPercent = 0;
     }
 
     private void ComputeFinalStats()

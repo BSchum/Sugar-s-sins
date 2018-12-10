@@ -11,8 +11,8 @@ public class TotemSkill : Skill
     {
         if (HasRessource())
         {
-            Vector3 lookingRotation = source.GetComponentInChildren<Camera>().gameObject.transform.forward;
-            Ray ray = new Ray(source.transform.position, lookingRotation);
+            Vector3 lookingRotation = gameObject.GetComponentInChildren<Camera>().gameObject.transform.forward;
+            Ray ray = new Ray(gameObject.transform.position, lookingRotation);
             RaycastHit rHit;
             if (Physics.Raycast(ray, out rHit))
             {
@@ -25,9 +25,9 @@ public class TotemSkill : Skill
 
     public override bool HasRessource()
     {
-        if (source.GetComponent<TankAttacks>().GetGelatinStacks() > this.cost)
+        if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() > this.cost)
         {
-            source.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
+            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
             return true;
         }
         return false;    
@@ -43,7 +43,7 @@ public class TotemSkill : Skill
     void RpcSpawnProjectile(Vector3 pos)
     {
         GameObject totem = Instantiate(skillProjectile.gameObject, pos, Quaternion.identity);
-        totem.GetComponent<TotemProjectile>().source = source;
-        source.GetComponent<TankAttacks>().lastActiveTotem = totem;
+        totem.GetComponent<TotemProjectile>().source = gameObject;
+        gameObject.GetComponent<TankAttacks>().lastActiveTotem = totem;
     }
 }

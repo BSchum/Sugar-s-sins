@@ -376,7 +376,7 @@ MonoBehaviour:
     power: 10
     defense: 10
     speed: 10
-    health: 100
+    health: 10000
     maxHealth: 100
     damage: 0
   damageReductionInPercent: 0

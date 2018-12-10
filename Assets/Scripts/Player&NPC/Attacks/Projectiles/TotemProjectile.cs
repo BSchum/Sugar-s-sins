@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 public class TotemProjectile : SkillProjectile {
-
+    
+    List<Buff> buffs;
     public GameObject source;
     [SerializeField]
     int gelatinStacksAmount;
@@ -26,8 +27,27 @@ public class TotemProjectile : SkillProjectile {
 
     private void Update()
     {
+        ApplyBuffs();
+    }
+    public void AddBuff(Buff buff)
+    {
+        buffs.Add(buff);
     }
 
+    public void ApplyBuffs()
+    {
+        for (int i = 0; i < buffs.Count; i++)
+        {
+            if (buffs[i].isEnded())
+            {
+                buffs.Remove(buffs[i]);
+            }
+            else
+            {
+                buffs[i].ApplyBuff();
+            }
+        }
+    }
     IEnumerator GiveGelatinStack()
     {
         while (true)

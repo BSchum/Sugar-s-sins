@@ -7,11 +7,11 @@ class DamageReduceBuff : Buff
     float duration = 10f;
     public DamageReduceBuff(GameObject target) : base(target)
     {
+        lastApply = Time.time;
     }
 
     public override void ApplyBuff()
     {
-        lastApply = Time.time;
         this.target.GetComponent<Stats>().SetDamageReductionInPercent(Constants.ENHANCEMENT_TANK_DAMAGE_REDUCTION);
     }
 

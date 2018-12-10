@@ -8,6 +8,7 @@ public class PlayerAttack : PlayerScript {
     protected Stats stats;
 
     protected Skill[] skills;
+    [SerializeField]
     protected List<Buff> buffs = new List<Buff>();
 
     public void AddBuff(Buff buff)
@@ -17,28 +18,64 @@ public class PlayerAttack : PlayerScript {
 
     public void ApplyBuffs()
     {
-        foreach (Buff buff in buffs)
+        for (int i = 0; i < buffs.Count; i++)
         {
-            buff.ApplyBuff();
+            if (buffs[i].isEnded())
+            {
+                buffs.Remove(buffs[i]);
+            }
+            else
+            {
+                buffs[i].ApplyBuff();
+            }
         }
     }
     public void Start () {
+        this.gameObject.name = "Tank " + Random.Range(0, 10000);
         Initialize();
         weapon = GetComponentInChildren<Weapon>();
         stats = GetComponent<Stats>();
         skills = GetComponents<Skill>();
     }
+    [Command]
+    protected void CmdInitializeSkills()
+    {
+        RpcInitializeSkills();
+    }
+
+    [ClientRpc]
+    void RpcInitializeSkills()
+    {
+        this.skills = GetComponents<Skill>();
+    }
 
     public void Update () {
+        CmdApplyBuff();
         stats.ResetBonusStats();
-        ApplyBuffs();
+
+        int i = 0;
+        foreach (Buff buff in buffs)
+        {
+            //Debug.Log(gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType());
+            i++;
+        }
+
         if (ih.SimpleAttackInput())
         {
             Fire();
         }
 
     }
-
+    [Command]
+    void CmdApplyBuff()
+    {
+        RpcApplyBuff();
+    }
+    [ClientRpc]
+    void RpcApplyBuff()
+    {
+        ApplyBuffs();
+    }
     public virtual float GetPassifVal ()
     {
         return 0f;
@@ -67,6 +104,7 @@ public class PlayerAttack : PlayerScript {
         Health h = target.GetComponent<Health>();
         h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
+
 
 
 }

@@ -8,16 +8,16 @@ public class EnhancementBuff : Buff
     float duration = 10f;
     public EnhancementBuff(GameObject target) : base(target)
     {
+        lastApply = Time.time;
     }
 
     public override void ApplyBuff()
     {
-        lastApply = Time.time;
         target.GetComponent<Stats>().SetDamageReductionInPercent(Constants.ENHANCEMENT_TANK_DAMAGE_REDUCTION);
         if (target.GetComponent<TankAttacks>().lastActiveTotem != null)
         {
             TotemProjectile totem = target.GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>();
-            totem.GetComponent<Stats>().BuffDamage(10);
+            totem.GetComponent<TotemProjectile>().AddBuff(new DamageBuff(totem.gameObject));
             totem.GetComponent<Stats>().BuffDefense(10);
         }
     }

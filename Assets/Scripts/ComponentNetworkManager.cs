@@ -19,7 +19,7 @@ public class ComponentNetworkManager : MonoBehaviour
             cam.enabled = false;
             audio.enabled = false;
             movement.enabled = false;
-            attack.enabled = false;
+            //attack.enabled = false;
         }
         else
         {
