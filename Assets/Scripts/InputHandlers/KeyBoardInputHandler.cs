@@ -22,6 +22,16 @@ class KeyBoardInputHandler : InputHandler
         return Input.GetButtonDown("SecondSkill");
     }
 
+    public override bool ThirdSkill()
+    {
+        return Input.GetButtonDown("ThirdSkill");
+    }
+
+    public override bool Ultimate()
+    {
+        return Input.GetButtonDown("Ultimate");
+    }
+
     public override Vector3 ComputeMovement()
     {
         this.inputState = InputType.Keyboard;
@@ -39,6 +49,4 @@ class KeyBoardInputHandler : InputHandler
         return new Vector3(xRot, yRot);
     }
 
-
-    
 }

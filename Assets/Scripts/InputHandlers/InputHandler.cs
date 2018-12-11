@@ -17,4 +17,6 @@ public abstract class InputHandler
     public abstract bool SimpleAttackInput();
     public abstract bool FirstSkill();
     public abstract bool SecondSkill();
+    public abstract bool ThirdSkill();
+    public abstract bool Ultimate();
 }
