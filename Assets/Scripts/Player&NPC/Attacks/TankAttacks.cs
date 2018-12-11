@@ -39,7 +39,6 @@ public class TankAttacks : PlayerAttack {
         {
             CmdInitializeSkills();
             base.Update();
-
             if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
             {
                 StartCoroutine(skills[0].Cast());
@@ -49,6 +48,16 @@ public class TankAttacks : PlayerAttack {
             {
                 StartCoroutine(skills[1].Cast());
                 StartCoroutine(skills[1].ProcessCoolDown());
+            }
+            else if(ih.ThirdSkill() && skills[2].CanCast() && !skills[2].isOnCooldown)
+            {
+                StartCoroutine(skills[2].Cast());
+                StartCoroutine(skills[2].ProcessCoolDown());
+            }
+            else if(ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown)
+            {
+                StartCoroutine(skills[3].Cast());
+                StartCoroutine(skills[3].ProcessCoolDown());
             }
         }
     }
