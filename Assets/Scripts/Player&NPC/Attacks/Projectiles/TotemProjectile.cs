@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class TotemProjectile : SkillProjectile {
+public class TotemProjectile : SkillProjectile, IBuffable {
     
-    List<Buff> buffs = new List<Buff>();
     public GameObject source;
     [SerializeField]
     int gelatinStacksAmount;
@@ -19,6 +18,7 @@ public class TotemProjectile : SkillProjectile {
 
     bool isAttacking;
     // Use this for initialization
+    #region Unity's methods
     void Start () {
         DieAfterLifeTime();
         StartCoroutine(GiveGelatinStack());
@@ -39,25 +39,8 @@ public class TotemProjectile : SkillProjectile {
         }
         
     }
-    public void AddBuff(Buff buff)
-    {
-        buffs.Add(buff);
-    }
-
-    public void ApplyBuffs()
-    {
-        for (int i = 0; i < buffs.Count; i++)
-        {
-            if (buffs[i].isEnded())
-            {
-                buffs.Remove(buffs[i]);
-            }
-            else
-            {
-                buffs[i].ApplyBuff();
-            }
-        }
-    }
+    #endregion
+    #region Projectile Behaviour
     IEnumerator GiveGelatinStack()
     {
         while (true)
@@ -84,4 +67,5 @@ public class TotemProjectile : SkillProjectile {
         }
 
     }
+    #endregion
 }

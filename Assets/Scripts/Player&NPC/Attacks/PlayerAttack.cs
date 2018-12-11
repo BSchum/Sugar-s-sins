@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 [RequireComponent(typeof(Stats))]
-public class PlayerAttack : PlayerScript {
+public class PlayerAttack : PlayerScript, IBuffable {
     protected Weapon weapon;
     protected Stats stats;
 
     protected Skill[] skills;
     [SerializeField]
     protected List<Buff> buffs = new List<Buff>();
+
 
     public void AddBuff(Buff buff)
     {
@@ -67,7 +68,7 @@ public class PlayerAttack : PlayerScript {
 
     }
     [Command]
-    void CmdApplyBuff()
+    public void CmdApplyBuff()
     {
         RpcApplyBuff();
     }
@@ -104,4 +105,5 @@ public class PlayerAttack : PlayerScript {
         Health h = target.GetComponent<Health>();
         h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
+
 }
