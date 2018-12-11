@@ -104,7 +104,4 @@ public class PlayerAttack : PlayerScript {
         Health h = target.GetComponent<Health>();
         h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
-
-
-
 }

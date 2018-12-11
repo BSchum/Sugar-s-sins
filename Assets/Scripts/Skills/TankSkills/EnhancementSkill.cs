@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Linq;
+using System;
 
 public class EnhancementSkill : Skill
 {
     public override IEnumerator Cast()
     {
         this.gameObject.GetComponent<PlayerAttack>().AddBuff(new EnhancementBuff(this.gameObject));
+
+        CmdBuffTotem();
         CmdBuffAllies();
         yield return null;
     }
@@ -31,6 +34,20 @@ public class EnhancementSkill : Skill
             coll.GetComponent<PlayerAttack>().AddBuff(new DamageReduceBuff(coll.gameObject));
         }
     }
+
+    [Command]
+    public void CmdBuffTotem()
+    {
+        RpcBuffTotem();
+    }
+    [ClientRpc]
+    private void RpcBuffTotem()
+    {
+        TotemProjectile totem = this.gameObject.GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>();
+        totem.AddBuff(new DamageBuff(totem.gameObject));
+        totem.AddBuff(new DefenseBuff(totem.gameObject));
+    }
+
     public override bool HasRessource()
     {
         return true;

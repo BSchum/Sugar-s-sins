@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 public class TotemProjectile : SkillProjectile {
     
-    List<Buff> buffs;
+    List<Buff> buffs = new List<Buff>();
     public GameObject source;
     [SerializeField]
     int gelatinStacksAmount;
@@ -27,7 +27,17 @@ public class TotemProjectile : SkillProjectile {
 
     private void Update()
     {
+        this.GetComponent<Stats>().ResetBonusStats();
         ApplyBuffs();
+        int i = 0;
+        if (buffs.Count <= 0)
+            Debug.Log("No Buffs");
+        foreach (Buff buff in buffs)
+        {
+            Debug.Log(gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType());
+            i++;
+        }
+        
     }
     public void AddBuff(Buff buff)
     {
@@ -67,6 +77,7 @@ public class TotemProjectile : SkillProjectile {
                                                          .OrderBy(c => Vector3.Distance(this.transform.position, c.transform.position));
             if (sortedColls.Count() > 0)
             {
+                Debug.Log("Attaque du totem pour" + this.GetComponent<Stats>().GetDamage());
                 sortedColls.FirstOrDefault().GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage());
             }
             yield return new WaitForSeconds(attackRate);
