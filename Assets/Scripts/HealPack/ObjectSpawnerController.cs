@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ObjectSpawnerController : NetworkBehaviour {
-
-    public void SpawnObject(ObjectToSpawn obj)
-    {
-        CmdSpawnObject(obj);
-    }
-
+public class ObjectSpawnerController : NetworkBehaviour
+{
     [Command]
-    public void CmdSpawnObject(ObjectToSpawn obj)
+    public void CmdSpawnObject(GameObject obj)
     {
-        //cast sur le serveur
-        obj.RpcChangeState();
+        ObjectToSpawn ots = obj.GetComponent<ObjectToSpawn>();
+        ots.RpcChangeState();
     }
 }

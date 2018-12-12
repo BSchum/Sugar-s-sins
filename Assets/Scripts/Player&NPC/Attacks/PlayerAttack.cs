@@ -105,5 +105,4 @@ public class PlayerAttack : PlayerScript, IBuffable {
         Health h = target.GetComponent<Health>();
         h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
-
 }

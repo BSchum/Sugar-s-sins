@@ -1,33 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 [System.Serializable]
-public abstract class ObjectToSpawn : NetworkBehaviour {
+public abstract class ObjectToSpawn : NetworkBehaviour
+{
+    protected abstract void Destroy();
+    protected abstract void Spawn();
 
-    public ObjectSpawnerController osc;
-
-    public abstract void Destroy();
-    public abstract void Spawn();
-
-    protected delegate void OnChangeState();
-    protected event OnChangeState ChangingStateEvent;
+    protected delegate void ChangeState();
+    protected ChangeState changeState;
+    protected event ChangeState OnChangeState;
 
     [ClientRpc]
     public virtual void RpcChangeState()
     {
-        //cast sur les clients grace au cmd du joueur
-        if (ChangingStateEvent != null)
-            ChangingStateEvent();
-            ChangingStateEvent = null;
-        //execute l'event puis le reset
+        if (OnChangeState != null)
+            OnChangeState();
+        OnChangeState = null;
     }
 
-    protected virtual void SetState (OnChangeState newState)
+    protected virtual void SetState(ChangeState newState)
     {
-        if(ChangingStateEvent == null)
-        ChangingStateEvent += newState;
+        if (OnChangeState == null)
+            OnChangeState += newState;
     }
 
 }

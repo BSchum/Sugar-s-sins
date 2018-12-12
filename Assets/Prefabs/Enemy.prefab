@@ -52,11 +52,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4853198310010136}
   - component: {fileID: 136766715714829178}
-  - component: {fileID: 114534541657851714}
   - component: {fileID: 114742075898371684}
   - component: {fileID: 114912511823859070}
   - component: {fileID: 54548856247759174}
-  - component: {fileID: 114748796031033770}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -386,18 +384,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114534541657851714
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1227065912887476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e68e8ae6708c643b14c207d7456664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!114 &114675277542269708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,19 +432,6 @@ MonoBehaviour:
     i15: 131
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114748796031033770
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1227065912887476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b978e977f784534582c04f6b92b95c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 114530206034191658}
-  healthText: {fileID: 114757701968786198}
 --- !u!114 &114757701968786198
 MonoBehaviour:
   m_ObjectHideFlags: 1
