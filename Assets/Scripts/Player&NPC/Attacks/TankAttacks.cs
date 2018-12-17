@@ -10,11 +10,17 @@ public class TankAttacks : PlayerAttack {
     float defenseRatio;
     public GameObject lastActiveTotem;
 
+    int gelatinStackRatio;
+
     public int GetGelatinStacks()
     {
         return gelatinStack;
     }
 
+    public void SetGelatinStackRatio(int amount)
+    {
+        this.gelatinStackRatio = amount;
+    }
 
     
     /*
@@ -58,12 +64,19 @@ public class TankAttacks : PlayerAttack {
             {
                 StartCoroutine(skills[3].Cast());
                 StartCoroutine(skills[3].ProcessCoolDown());
+                Debug.Log("Je cast l'ultimate");
+            }else if(ih.Ultimate() && skills[3].isOnCooldown && !skills[4].isOnCooldown && skills[4].CanCast())
+            {
+                Debug.Log("Charge");
+                StartCoroutine(skills[4].Cast());
+                StartCoroutine(skills[4].ProcessCoolDown());
             }
         }
     }
 
     public void AddGelatinStack(int gelatinStackAmount)
     {
+        gelatinStackAmount *= gelatinStackRatio;
         if (gelatinStack + gelatinStackAmount >= maxGelatinStack)
         {
             gelatinStack = maxGelatinStack;
