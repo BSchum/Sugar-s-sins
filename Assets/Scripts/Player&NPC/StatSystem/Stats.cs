@@ -26,7 +26,7 @@ public class Stats : NetworkBehaviour
 
     public float damageReductionInPercent;
 
-    public void Start()
+    public void Awake()
     {
         finalStats = new BaseStats();
         bonusStats = new BaseStats();
@@ -35,12 +35,6 @@ public class Stats : NetworkBehaviour
 
     public void Update()
     {
-        if (name == "Totem(Clone)")
-        {
-            Debug.Log("Je compute pour " + gameObject.name);
-            Debug.Log(currentStats);
-            Debug.Log(bonusStats);
-        }
         ComputeFinalStats();
     }
     
@@ -54,6 +48,7 @@ public class Stats : NetworkBehaviour
         {
             bonusStats.health += amount;
         }
+        ComputeFinalStats();
         OnHealthChanged(finalStats.health);
     }
 
@@ -210,5 +205,10 @@ public class Stats : NetworkBehaviour
         callBack(GetHealth());
     }
     #endregion
+
+    public override string ToString()
+    {
+        return finalStats.ToString();
+    }
 }
 

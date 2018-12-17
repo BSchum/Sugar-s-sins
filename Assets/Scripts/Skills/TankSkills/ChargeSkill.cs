@@ -7,30 +7,38 @@ using UnityEngine.Networking;
 public class ChargeSkill : Skill {
     public override IEnumerator Cast()
     {
-        Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-        rb.AddForce(rb.transform.forward * 50, ForceMode.Impulse);
-        this.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
-        yield return new WaitForSeconds(0.5f);
-        this.gameObject.GetComponent<CapsuleCollider>().isTrigger = false;
-        rb.velocity = Vector3.zero;
+        float dashStartAt = Time.time;
+        float dashTime = 0.2f;
+        Motor motor = new Motor(this.gameObject);
+        while (Time.time < dashStartAt + dashTime)
+        {
+            motor.Move(Vector3.forward, Quaternion.identity.eulerAngles, 100);
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
+        
     }
 
     public override bool HasRessource()
     {
-        return true;
+        if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
+        {
+            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
+            return true;
+        }
+        return false;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionExit(Collision other)
     {
-        Debug.Log("triggered");
         if (other.transform.tag == Constants.ENEMY_TAG)
         {
-            CmdDealChargeDamage(other);
+            CmdDealChargeDamage(other.gameObject);
         }
     }
     [Command]
-    private void CmdDealChargeDamage(Collision other)
+    private void CmdDealChargeDamage(GameObject other)
     {
-        other.gameObject.GetComponent<Health>().TakeDamage(10);
+        other.GetComponent<Health>().TakeDamage(10);
     }
 }

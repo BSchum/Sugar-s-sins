@@ -45,6 +45,11 @@ public class BerserkSkill : Skill
 
     public override bool HasRessource()
     {
-        return true;
+        if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
+        {
+            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
+            return true;
+        }
+        return false;
     }
 }

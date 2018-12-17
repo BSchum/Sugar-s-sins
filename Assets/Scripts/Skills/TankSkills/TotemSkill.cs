@@ -9,23 +9,20 @@ public class TotemSkill : Skill
 
     public override IEnumerator Cast()
     {
-        if (HasRessource())
+        Vector3 lookingRotation = gameObject.GetComponentInChildren<Camera>().gameObject.transform.forward;
+        Ray ray = new Ray(gameObject.transform.position, lookingRotation);
+        RaycastHit rHit;
+        if (Physics.Raycast(ray, out rHit))
         {
-            Vector3 lookingRotation = gameObject.GetComponentInChildren<Camera>().gameObject.transform.forward;
-            Ray ray = new Ray(gameObject.transform.position, lookingRotation);
-            RaycastHit rHit;
-            if (Physics.Raycast(ray, out rHit))
-            {
-                CmdSpawnProjectile(rHit.point);
-            } 
-        }
-
+            CmdSpawnProjectile(rHit.point);
+        } 
+       
         yield return false;
     }
 
     public override bool HasRessource()
     {
-        if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() > this.cost)
+        if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
         {
             gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
             return true;
