@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Networking;
+
 public class TotemProjectile : SkillProjectile, IBuffable {
     
     public GameObject source;
@@ -86,10 +88,8 @@ public class TotemProjectile : SkillProjectile, IBuffable {
     }
     public IEnumerator LightningAttack()
     {
-        Debug.Log("Lighning hit");
         foreach(GameObject t in lightningTargets)
         {
-            Debug.Log("Je balance un tir");
             t.GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage() * lighting);
             yield return new WaitForSeconds(0.1f);
         }

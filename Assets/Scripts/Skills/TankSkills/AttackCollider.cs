@@ -9,7 +9,6 @@ public class AttackCollider : MonoBehaviour {
         if(other.tag == Constants.ENEMY_TAG)
         {
             GetComponentInParent<GelatinSmashSkill>().OnSmashHit(damage, other);
-            GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(other.gameObject);
         }
     }
 }

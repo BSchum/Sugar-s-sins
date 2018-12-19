@@ -20,7 +20,6 @@ public class GelatinSmashSkill : Skill {
     }
     [Command]
     void CmdTotemLightAttack() {
-        Debug.Log("CmdLight");
         StartCoroutine(GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().LightningAttack());
     }
 
@@ -38,10 +37,12 @@ public class GelatinSmashSkill : Skill {
     public void OnSmashHit(float damage, Collider target)
     {
         CmdOnSmashHit(damage, target.gameObject);
+
     }
     [Command]
     public void CmdOnSmashHit(float damage, GameObject target)
     {
         target.GetComponent<Health>().TakeDamage(damage);
+        GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
     }
 }
