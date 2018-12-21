@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class GelatinSmashSkill : Skill {
+public class GelatinSmashSkill : Skill , IThreatable{
     public Collider[] colliders;
     public override IEnumerator Cast()
     {
@@ -33,7 +33,7 @@ public class GelatinSmashSkill : Skill {
         }
         return false;
     }
-
+    
     public void OnSmashHit(float damage, Collider target)
     {
         CmdOnSmashHit(damage, target.gameObject);
@@ -43,6 +43,12 @@ public class GelatinSmashSkill : Skill {
     public void CmdOnSmashHit(float damage, GameObject target)
     {
         target.GetComponent<Health>().TakeDamage(damage);
+        GenerateThreat(target.GetComponent<EnemyController>());
         GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
+    }
+
+    public void GenerateThreat(EnemyController enemy)
+    {
+        enemy.AddThreatFor(this.gameObject, threat); 
     }
 }

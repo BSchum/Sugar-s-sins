@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 0
+  threat: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0
@@ -469,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 2
+  threat: 10
   canCast: 1
   isCasting: 0
   minCastTime: 0
@@ -502,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 3
+  threat: 10
   canCast: 1
   isCasting: 0
   minCastTime: 0
@@ -679,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
+  threat: 10
   canCast: 1
   isCasting: 0
   minCastTime: 0
@@ -688,6 +692,7 @@ MonoBehaviour:
   cooldown: 0
   internalCD: 0
   source: {fileID: 0}
+  range: 5
 --- !u!114 &114943730231423782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -700,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 0
+  threat: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0

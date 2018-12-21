@@ -6,14 +6,13 @@ using UnityEngine.Networking;
 public abstract class Skill : NetworkBehaviour {
 
     public float cost;
-
+    public float threat;
     [HideInInspector]
     public bool canCast = true;
     [SerializeField]
     protected bool isCasting = false;
     public float minCastTime = 0;
     public float maxCastTime;
-
     public SkillProjectile skillProjectile;
 
     protected float castStartTime;
@@ -33,6 +32,7 @@ public abstract class Skill : NetworkBehaviour {
     }
     public abstract IEnumerator Cast();
     public abstract bool HasRessource();
+
     public IEnumerator ProcessCoolDown()
     {
         isOnCooldown = true;
