@@ -14,10 +14,10 @@ public class Motor : MotorBase
         }
     }
 
-    public override void Move(Vector3 movement, Vector3 rotation)
+    public override void Move(Vector3 movement, Vector3 rotation, float speed)
     {
         MoveLookDirection(rotation);
-        MoveEntity(movement);
+        MoveEntity(movement, speed);
     }
 
     void MoveLookDirection(Vector3 rotation)

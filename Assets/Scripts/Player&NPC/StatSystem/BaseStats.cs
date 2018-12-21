@@ -38,6 +38,6 @@ public class BaseStats {
 
     public override string ToString()
     {
-        return "Power :" + power + " Defense : " + defense + "  Speed : " + speed + " Health :" + health + " MaxHealth : " + maxHealth + " Damage : " + damage;
+        return "\nPower :" + power + " \nDefense : " + defense + "  \nSpeed : " + speed + " \nHealth :" + health + " \nMaxHealth : " + maxHealth + " \nDamage : " + damage;
     }
 }

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4093602495802460}
   - component: {fileID: 33147472508664576}
   - component: {fileID: 23706699640332570}
-  - component: {fileID: 65577408237723668}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -42,9 +41,11 @@ GameObject:
   - component: {fileID: 114563823203138628}
   - component: {fileID: 114524225529960212}
   - component: {fileID: 114041032156160458}
+  - component: {fileID: 136889632415082692}
+  - component: {fileID: 65723216547072510}
   m_Layer: 0
   m_Name: Totem
-  m_TagString: Untagged
+  m_TagString: Totem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,6 @@ GameObject:
   - component: {fileID: 4181162984254838}
   - component: {fileID: 33216186584991344}
   - component: {fileID: 23143692295118422}
-  - component: {fileID: 136336144894303958}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -130,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305259824661208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.876833, y: 0.9833045, z: -7.6935883}
+  m_LocalPosition: {x: -2.0975428, y: 0.96830446, z: 2.0153446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4455375785394898}
@@ -221,18 +221,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959526599173372}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65577408237723668
+--- !u!65 &65723216547072510
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281984826755868}
+  m_GameObject: {fileID: 1305259824661208}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.50774086, y: 0.50839424, z: 0.52195466}
+  m_Center: {x: 0.0013942122, y: 0.9478015, z: -0.013386548}
 --- !u!114 &114041032156160458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,16 +342,16 @@ MonoBehaviour:
     maxHealth: 0
     damage: 0
   damageReductionInPercent: 0
---- !u!136 &136336144894303958
+--- !u!136 &136889632415082692
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1959526599173372}
+  m_GameObject: {fileID: 1305259824661208}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.26367164
+  m_Height: 1.0788414
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0.46057928, z: 0}

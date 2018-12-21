@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class DamageBuff : Buff
+class DefenseBuff : Buff
 {
-    public DamageBuff(GameObject target) : base(target)
+    private float amount;
+
+    public DefenseBuff(GameObject target, float amount) : base(target)
     {
+        this.amount = amount;
     }
 
     public override void ApplyBuff()
     {
-        target.GetComponent<Stats>().BuffDamage(10);
+        target.GetComponent<Stats>().BuffDefense(amount);
     }
 
     public override bool isEnded()
     {
-        //It ends when the totem is destroyed
         return false;
     }
 }

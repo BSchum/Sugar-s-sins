@@ -8,6 +8,7 @@ public static class Constants
     #region Tags
     public const string ENEMY_TAG = "Enemy";
     public const string PLAYER_TAG = "Player";
+    public const string TOTEM_TAG = "Totem";
     #endregion
     public static float BURST_PASSIF_MULTIPLICATEUR = 1f;
     #region Tank constants

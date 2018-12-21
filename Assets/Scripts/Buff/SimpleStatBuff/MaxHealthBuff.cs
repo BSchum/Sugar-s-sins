@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class DefenseBuff : Buff
+class MaxHealthBuff : Buff
 {
-    public DefenseBuff(GameObject target) : base(target)
+    private float amount;
+
+    public MaxHealthBuff(GameObject target, float amount) : base(target)
     {
+        this.amount = amount;
     }
 
     public override void ApplyBuff()
     {
-        target.GetComponent<Stats>().BuffDefense(10);
+        target.GetComponent<Stats>().BuffMaxHealth(amount);
     }
 
     public override bool isEnded()

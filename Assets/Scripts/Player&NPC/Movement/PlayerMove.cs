@@ -20,6 +20,6 @@ public class PlayerMove : PlayerScript{
     void Update () {
 
         //Move with ih vector
-        motor.Move(ih.ComputeMovement(), ih.ComputeRotation());
+        motor.Move(ih.ComputeMovement(), ih.ComputeRotation(), this.GetComponent<Stats>().GetSpeed());
     }
 }
