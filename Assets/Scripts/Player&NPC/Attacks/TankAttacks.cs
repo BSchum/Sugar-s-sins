@@ -57,11 +57,6 @@ public class TankAttacks : PlayerAttack {
                 StartCoroutine(skills[4].Cast());
                 StartCoroutine(skills[4].ProcessCoolDown());
             }
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Debug.Log("Je prend des degats");
-                this.GetComponent<Health>().TakeDamage(20);
-            }
         }
     }
     #endregion
