@@ -18,6 +18,8 @@ public class TauntSkill : Skill, IThreatable {
         {
             CmdGenerateThreat(coll.gameObject);
         }
+
+        GetComponent<PlayerAttack>().AddBuff(new HealOnDamageBuff(this.gameObject));
         yield return true;
     }
     [Command]

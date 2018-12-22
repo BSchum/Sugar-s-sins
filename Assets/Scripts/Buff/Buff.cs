@@ -17,5 +17,9 @@ public abstract class Buff
 
     protected bool isApplied = false;
 
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }
 

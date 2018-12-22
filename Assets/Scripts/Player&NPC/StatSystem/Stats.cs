@@ -7,9 +7,11 @@ using UnityEngine.Networking;
 
 
 public delegate void HealthChanged(float value);
+public delegate void DamageReceived(float damage);
 public class Stats : NetworkBehaviour
 {
     public event HealthChanged OnHealthChanged;
+    public event DamageReceived OnDamageReceived;
     //   /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
     // Base Stats are stats without any modification , base stats of the character.
     // Current stats are stats with stuff modification and other permanent modification.
@@ -35,7 +37,7 @@ public class Stats : NetworkBehaviour
 
     public void Update()
     {
-        ComputeFinalStats();
+        //Je calcule mes stats final
     }
     
     public void TakeDamage(float amount)
@@ -49,7 +51,13 @@ public class Stats : NetworkBehaviour
             bonusStats.health += amount;
         }
         ComputeFinalStats();
-        OnHealthChanged(finalStats.health);
+        if(OnHealthChanged != null)
+            OnHealthChanged(finalStats.health);
+        //Si je prend des degats
+        if(amount < 0 && OnDamageReceived != null)
+        {
+            OnDamageReceived(amount);
+        }
     }
 
     #region GetFinalsStats
@@ -192,7 +200,7 @@ public class Stats : NetworkBehaviour
         damageReductionInPercent = 0;
     }
 
-    private void ComputeFinalStats()
+    public void ComputeFinalStats()
     {
         finalStats = currentStats + bonusStats;
     }
@@ -203,6 +211,11 @@ public class Stats : NetworkBehaviour
     {
         OnHealthChanged += callBack;
         callBack(GetHealth());
+    }
+
+    public void Subscribe(DamageReceived callBack)
+    {
+        OnDamageReceived += callBack;
     }
     #endregion
 

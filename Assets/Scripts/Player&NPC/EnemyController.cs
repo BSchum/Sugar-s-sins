@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : NetworkBehaviour {
 
     Dictionary<GameObject, float> sources = new Dictionary<GameObject, float>();
     GameObject currentTarget;
@@ -16,9 +17,10 @@ public class EnemyController : MonoBehaviour {
     }
     private void Update()
     {
-        sources.OrderByDescending(c => c.Value);
-        currentTarget = sources.FirstOrDefault().Key;
-
+        this.GetComponent<Stats>().ResetBonusStats();
+        var sortedSources = sources.OrderByDescending(c => c.Value);
+        currentTarget = sortedSources.FirstOrDefault().Key;
+        Debug.Log("Current target :" + currentTarget);
         GameObject go = GameObject.Find("ThreathDebug");
         go.GetComponent<Text>().text = ToString();
     }
@@ -47,7 +49,5 @@ public class EnemyController : MonoBehaviour {
         }
         return text;
     }
-
-
 }
 

@@ -8,15 +8,43 @@ public class PlayerAttack : PlayerScript, IBuffable {
     protected Stats stats;
 
     protected Skill[] skills;
-    [SerializeField]
     protected List<Buff> buffs = new List<Buff>();
+
+    public void Start()
+    {
+        this.gameObject.name = "Tank " + Random.Range(0, 10000);
+        Initialize();
+        weapon = GetComponentInChildren<Weapon>();
+        stats = GetComponent<Stats>();
+        skills = GetComponents<Skill>();
+    }
+    public void Update()
+    {
+        CmdApplyBuff();
+        stats.ResetBonusStats();
+
+        if (ih.SimpleAttackInput())
+        {
+            Fire();
+        }
+
+    }
 
 
     public void AddBuff(Buff buff)
     {
         buffs.Add(buff);
     }
-
+    [Command]
+    public void CmdApplyBuff()
+    {
+        RpcApplyBuff();
+    }
+    [ClientRpc]
+    void RpcApplyBuff()
+    {
+        ApplyBuffs();
+    }
     public void ApplyBuffs()
     {
         for (int i = 0; i < buffs.Count; i++)
@@ -31,52 +59,20 @@ public class PlayerAttack : PlayerScript, IBuffable {
             }
         }
     }
-    public void Start () {
-        this.gameObject.name = "Tank " + Random.Range(0, 10000);
-        Initialize();
-        weapon = GetComponentInChildren<Weapon>();
-        stats = GetComponent<Stats>();
-        skills = GetComponents<Skill>();
-    }
+
     [Command]
     protected void CmdInitializeSkills()
     {
         RpcInitializeSkills();
     }
-
     [ClientRpc]
     void RpcInitializeSkills()
     {
         this.skills = GetComponents<Skill>();
     }
 
-    public void Update () {
-        CmdApplyBuff();
-        stats.ResetBonusStats();
+  
 
-        int i = 0;
-        foreach (Buff buff in buffs)
-        {
-            //Debug.Log(gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType());
-            i++;
-        }
-
-        if (ih.SimpleAttackInput())
-        {
-            Fire();
-        }
-
-    }
-    [Command]
-    public void CmdApplyBuff()
-    {
-        RpcApplyBuff();
-    }
-    [ClientRpc]
-    void RpcApplyBuff()
-    {
-        ApplyBuffs();
-    }
     public virtual float GetPassifVal ()
     {
         return 0f;

@@ -13,29 +13,17 @@ public class TankAttacks : PlayerAttack {
 
     int gelatinStackRatio;
 
-    public int GetGelatinStacks()
-    {
-        return gelatinStack;
-    }
-
-    public void SetGelatinStackRatio(int amount)
-    {
-        this.gelatinStackRatio = amount;
-    }
-
-    
     /*
      * ComputeRatio(10, 0.5, 5) return 0,25;
      */
-    float ComputeRatio(float maxA, float maxB, float currentValue)
-    {
-        return currentValue / maxA * maxB;
-    }
-    
+    #region Unity's method
     public void Start()
     {
         base.Start();
         stats = GetComponent<Stats>();
+        //TODO Ne plus utiliser le buff de gelatin comme un buff, mais du code précis pour le tank
+        //TODO Transformer le systeme de stats afin de les recalculer seulement si on les buff ou non.
+        //TODO Afin de palier au systeme de latence sur un calcul en temps reel
         buffs.Add(new GelatinBuff(this.gameObject));
         ApplyBuffs();
     }
@@ -72,9 +60,15 @@ public class TankAttacks : PlayerAttack {
                 StartCoroutine(skills[4].Cast());
                 StartCoroutine(skills[4].ProcessCoolDown());
             }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log("Je prend des degats");
+                this.GetComponent<Health>().TakeDamage(20);
+            }
         }
     }
-
+    #endregion
+    #region Gelatin behaviour
     public void AddGelatinStack(int gelatinStackAmount)
     {
         gelatinStackAmount *= gelatinStackRatio;
@@ -100,6 +94,17 @@ public class TankAttacks : PlayerAttack {
         }
     }
 
+    public int GetGelatinStacks()
+    {
+        return gelatinStack;
+    }
+
+    public void SetGelatinStackRatio(int amount)
+    {
+        this.gelatinStackRatio = amount;
+    }
+    #endregion
+    #region Helpers
     public void UIForDebug()
     {
         //STATS
@@ -124,5 +129,24 @@ public class TankAttacks : PlayerAttack {
         }
         skillUI.text = skilltext;
 
+        //BUFFS
+        Text BuffUI = GameObject.Find("BuffDebug").GetComponent<Text>();
+        string bufftext = "";
+        int i = 0;
+        foreach (Buff buff in buffs)
+        {
+            bufftext += "\n"+gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType();
+            i++;
+        }
+
+        BuffUI.text = bufftext;
+
+
     }
+    float ComputeRatio(float maxA, float maxB, float currentValue)
+    {
+        return currentValue / maxA * maxB;
+    }
+    #endregion
+
 }

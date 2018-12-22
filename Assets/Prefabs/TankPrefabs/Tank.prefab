@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 5
-  threat: 10
+  threat: 1000
   canCast: 1
   isCasting: 0
   minCastTime: 0
