@@ -33,6 +33,7 @@ public class ChargeSkill : Skill, IThreatable {
     {
         if (other.transform.tag == Constants.ENEMY_TAG)
         {
+            Debug.Log("Colliding with "+ other.gameObject.name);
             CmdDealChargeDamage(other.gameObject);
         }
     }

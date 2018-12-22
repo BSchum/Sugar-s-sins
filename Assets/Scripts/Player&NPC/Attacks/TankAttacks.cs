@@ -11,7 +11,7 @@ public class TankAttacks : PlayerAttack {
     float defenseRatio;
     public GameObject lastActiveTotem;
 
-    int gelatinStackRatio;
+    int gelatinStackRatio = 1;
 
     /*
      * ComputeRatio(10, 0.5, 5) return 0,25;
@@ -21,9 +21,6 @@ public class TankAttacks : PlayerAttack {
     {
         base.Start();
         stats = GetComponent<Stats>();
-        //TODO Ne plus utiliser le buff de gelatin comme un buff, mais du code précis pour le tank
-        //TODO Transformer le systeme de stats afin de les recalculer seulement si on les buff ou non.
-        //TODO Afin de palier au systeme de latence sur un calcul en temps reel
         buffs.Add(new GelatinBuff(this.gameObject));
         ApplyBuffs();
     }

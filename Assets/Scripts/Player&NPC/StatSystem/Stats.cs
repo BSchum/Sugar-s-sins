@@ -35,10 +35,6 @@ public class Stats : NetworkBehaviour
         ResetBonusStats();
     }
 
-    public void Update()
-    {
-        //Je calcule mes stats final
-    }
     
     public void TakeDamage(float amount)
     {

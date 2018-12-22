@@ -21,7 +21,7 @@ public class PlayerAttack : PlayerScript, IBuffable {
     public void Update()
     {
         CmdApplyBuff();
-        stats.ResetBonusStats();
+
 
         if (ih.SimpleAttackInput())
         {
@@ -44,6 +44,8 @@ public class PlayerAttack : PlayerScript, IBuffable {
     void RpcApplyBuff()
     {
         ApplyBuffs();
+        stats.ComputeFinalStats();
+        stats.ResetBonusStats();
     }
     public void ApplyBuffs()
     {
