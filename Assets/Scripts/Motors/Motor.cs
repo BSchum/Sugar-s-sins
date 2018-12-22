@@ -24,7 +24,20 @@ public class Motor : MotorBase
     {
         if (hasCamera)
         {
-            cam.transform.Rotate(new Vector3(-rotation.x, 0, 0));
+            if(cam.transform.parent.localRotation.x > -0.3)
+            {
+                if (cam.transform.parent.localRotation.x < 0.3)
+                {
+                    cam.transform.parent.Rotate(new Vector3(-rotation.x, 0, 0));
+                } else if(rotation.x > 0)
+                {
+                    cam.transform.parent.Rotate(new Vector3(-rotation.x, 0, 0));
+                }
+            }
+            else if (rotation.x < 0)
+            {
+                cam.transform.parent.Rotate(new Vector3(-rotation.x, 0, 0));
+            }
         }
         entity.transform.Rotate(new Vector3(0, rotation.y, 0));
     }

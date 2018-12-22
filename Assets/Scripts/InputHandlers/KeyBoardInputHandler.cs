@@ -46,7 +46,7 @@ class KeyBoardInputHandler : InputHandler
     {
         float xRot = Input.GetAxis("Mouse Y");
         float yRot = Input.GetAxis("Mouse X");
-        return new Vector3(xRot, yRot);
+        return new Vector3(xRot, yRot, 0);
     }
 
 }
