@@ -7,12 +7,10 @@ using UnityEngine;
 class PowerBuff : Buff
 {
     int amount;
-    float lastApply;
-    float duration = 10f;
     public PowerBuff(GameObject target, int amount) : base(target)
     {
         this.amount = amount;
-        lastApply = Time.time;
+        artwork = Resources.Load<Sprite>("Icons/Buffs/PowerBuff");
     }
 
     public override void ApplyBuff()

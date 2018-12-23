@@ -23,7 +23,7 @@ class HealOnDamageBuff : Buff
     }
     public override bool isEnded()
     {
-        return false;
+        return Time.time > lastApply + duration;
     }
 }
 

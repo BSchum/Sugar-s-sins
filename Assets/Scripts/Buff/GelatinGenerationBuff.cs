@@ -8,12 +8,10 @@ using UnityEngine;
 class GelatinGenerationBuff : Buff
 {
     int amount;
-    float lastApply;
-    float duration = 10f;
     public GelatinGenerationBuff(GameObject target, int amount) : base(target)
     {
         this.amount = amount;
-        lastApply = Time.time;
+        this.artwork = Resources.Load<Sprite>("Icons/Buffs/GelatinGenerationBuff");
     }
 
     public override void ApplyBuff()

@@ -11,6 +11,7 @@ class MaxHealthBuff : Buff
     public MaxHealthBuff(GameObject target, float amount) : base(target)
     {
         this.amount = amount;
+        this.artwork = Resources.Load<Sprite>("Icons/Buffs/MaxHealthBuff");
     }
 
     public override void ApplyBuff()
@@ -20,7 +21,7 @@ class MaxHealthBuff : Buff
 
     public override bool isEnded()
     {
-        return false;
+        return Time.time > lastApply + duration;
     }
 }
 

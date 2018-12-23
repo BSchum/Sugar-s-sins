@@ -12,7 +12,7 @@ public class GelatinBuff : Buff
 
     public GelatinBuff(GameObject target) : base(target)
     {
-
+        duration = 0;
     }
     public override void ApplyBuff()
     {

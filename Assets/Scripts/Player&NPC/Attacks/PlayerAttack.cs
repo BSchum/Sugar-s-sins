@@ -34,6 +34,7 @@ public class PlayerAttack : PlayerScript, IBuffable {
     public void AddBuff(Buff buff)
     {
         buffs.Add(buff);
+        BuffUIManager.instance.AddBuff(buff.GetBuffAsUIObject());
     }
     [Command]
     public void CmdApplyBuff()

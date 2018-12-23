@@ -21,7 +21,7 @@ public class TankAttacks : PlayerAttack {
     {
         base.Start();
         stats = GetComponent<Stats>();
-        buffs.Add(new GelatinBuff(this.gameObject));
+        AddBuff(new GelatinBuff(this.gameObject));
         ApplyBuffs();
     }
 

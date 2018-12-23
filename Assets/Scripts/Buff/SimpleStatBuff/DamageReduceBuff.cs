@@ -2,12 +2,9 @@
 
 class DamageReduceBuff : Buff
 {
-    float lastApply;
 
-    float duration = 10f;
     public DamageReduceBuff(GameObject target) : base(target)
     {
-        lastApply = Time.time;
     }
 
     public override void ApplyBuff()
