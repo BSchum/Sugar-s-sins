@@ -16,6 +16,7 @@ public class BerserkSkill : Skill
 {
     public override IEnumerator Cast()
     {
+        gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
         TankAttacks player = this.gameObject.GetComponent<TankAttacks>();
         player.AddBuff(new PowerBuff(this.gameObject, 10));
         player.AddBuff(new DefenseBuff(this.gameObject, 10));
@@ -47,7 +48,6 @@ public class BerserkSkill : Skill
     {
         if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
         {
-            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
             return true;
         }
         return false;

@@ -7,7 +7,9 @@ public class GelatinSmashSkill : Skill , IThreatable{
     public Collider[] colliders;
     public override IEnumerator Cast()
     {
-        for(int i =0; i< colliders.Length; i++)
+        gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
+
+        for (int i =0; i< colliders.Length; i++)
         {
             Debug.Log("Activation de ce coup : " + colliders[i].name);
             colliders[i].gameObject.SetActive(true);
@@ -28,7 +30,6 @@ public class GelatinSmashSkill : Skill , IThreatable{
     {
         if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
         {
-            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
             return true;
         }
         return false;

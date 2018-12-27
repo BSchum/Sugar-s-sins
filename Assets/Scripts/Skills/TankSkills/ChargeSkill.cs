@@ -7,6 +7,8 @@ using UnityEngine.Networking;
 public class ChargeSkill : Skill, IThreatable {
     public override IEnumerator Cast()
     {
+        gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
+
         float dashStartAt = Time.time;
         float dashTime = 0.2f;
         Motor motor = new Motor(this.gameObject);
@@ -23,7 +25,6 @@ public class ChargeSkill : Skill, IThreatable {
     {
         if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
         {
-            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
             return true;
         }
         return false;

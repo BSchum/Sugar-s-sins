@@ -65,6 +65,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
             }
             else if(ih.ThirdSkill() && skills[2].CanCast() && !skills[2].isOnCooldown && skills[2].HasRessource())
             {
+                Debug.Log("Lol");
                 StartCoroutine(skills[2].Cast());
                 StartCoroutine(skills[2].ProcessCoolDown());
             }

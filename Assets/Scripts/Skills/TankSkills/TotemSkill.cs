@@ -9,6 +9,8 @@ public class TotemSkill : Skill
 
     public override IEnumerator Cast()
     {
+        gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
+
         Vector3 lookingRotation = gameObject.GetComponentInChildren<Camera>().gameObject.transform.forward;
         Ray ray = new Ray(gameObject.transform.position, lookingRotation);
         RaycastHit rHit;
@@ -22,12 +24,7 @@ public class TotemSkill : Skill
 
     public override bool HasRessource()
     {
-        if (gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost)
-        {
-            gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
-            return true;
-        }
-        return false;    
+        return gameObject.GetComponent<TankAttacks>().GetGelatinStacks() >= this.cost;
     }
 
     [Command]
