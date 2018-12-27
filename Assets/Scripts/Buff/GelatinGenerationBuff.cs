@@ -11,7 +11,7 @@ class GelatinGenerationBuff : Buff
     public GelatinGenerationBuff(GameObject target, int amount) : base(target)
     {
         this.amount = amount;
-        this.artwork = Resources.Load<Sprite>("Icons/Buffs/GelatinGenerationBuff");
+        this.artwork = Resources.Load<Sprite>("Icons/Buffs/Buff_GelatinGeneration");
     }
 
     public override void ApplyBuff()

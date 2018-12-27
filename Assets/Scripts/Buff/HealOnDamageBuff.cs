@@ -10,6 +10,8 @@ class HealOnDamageBuff : Buff
     {
         DamageReceived damageReceived = HealFromDamagePercentage;
         target.GetComponent<Stats>().Subscribe(damageReceived);
+        this.artwork = Resources.Load<Sprite>("Icons/Buffs/Buff_HealOnDamage");
+
     }
 
     public override void ApplyBuff()

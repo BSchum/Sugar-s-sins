@@ -11,7 +11,7 @@ class DefenseBuff : Buff
     public DefenseBuff(GameObject target, float amount) : base(target)
     {
         this.amount = amount;
-        this.artwork = Resources.Load<Sprite>("Icons/Buffs/DefenseBuff");
+        this.artwork = Resources.Load<Sprite>("Icons/Buffs/Buff_Defense");
     }
 
     public override void ApplyBuff()

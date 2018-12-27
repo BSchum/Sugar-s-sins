@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 [System.Serializable]
 public abstract class Skill : NetworkBehaviour {
-
+    public Sprite artwork;
     public float cost;
     public float threat;
     [HideInInspector]
@@ -38,6 +38,7 @@ public abstract class Skill : NetworkBehaviour {
         isOnCooldown = true;
         for (internalCD = cooldown; internalCD > 0; internalCD -= Time.deltaTime)
             yield return null;
+        internalCD = 0;
         isOnCooldown = false;
 
     }

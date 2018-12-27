@@ -10,7 +10,7 @@ class PowerBuff : Buff
     public PowerBuff(GameObject target, int amount) : base(target)
     {
         this.amount = amount;
-        artwork = Resources.Load<Sprite>("Icons/Buffs/PowerBuff");
+        artwork = Resources.Load<Sprite>("Icons/Buffs/Buff_Power");
     }
 
     public override void ApplyBuff()

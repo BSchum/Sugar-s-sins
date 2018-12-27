@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
-public delegate void HealthChanged(float value);
+public delegate void HealthChanged(float value, float maxValue);
 public delegate void DamageReceived(float damage);
 public class Stats : NetworkBehaviour
 {
@@ -48,7 +48,7 @@ public class Stats : NetworkBehaviour
         }
         ComputeFinalStats();
         if(OnHealthChanged != null)
-            OnHealthChanged(finalStats.health);
+            OnHealthChanged(finalStats.health, finalStats.maxHealth);
         //Si je prend des degats
         if(amount < 0 && OnDamageReceived != null)
         {
@@ -206,7 +206,8 @@ public class Stats : NetworkBehaviour
     public void Subscribe(HealthChanged callBack)
     {
         OnHealthChanged += callBack;
-        callBack(GetHealth());
+        ComputeFinalStats();
+        OnHealthChanged(finalStats.health, finalStats.maxHealth);
     }
 
     public void Subscribe(DamageReceived callBack)

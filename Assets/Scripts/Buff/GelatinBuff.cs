@@ -18,8 +18,8 @@ public class GelatinBuff : Buff
     {
         stats = target.GetComponent<Stats>();
         gelatinStacks = target.GetComponent<TankAttacks>().GetGelatinStacks();
-        attackRatio = ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_ATTACK_MULTIPLICATOR_GELATIN, gelatinStacks);
-        defenseRatio = ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_DEFENSE_MULTIPLICATOR_GELATIN, gelatinStacks, true);
+        attackRatio = Helpers.ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_ATTACK_MULTIPLICATOR_GELATIN, gelatinStacks);
+        defenseRatio = Helpers.ComputeRatio(Constants.MAX_GELATIN_STACK, Constants.MAX_DEFENSE_MULTIPLICATOR_GELATIN, gelatinStacks, true);
         stats.BuffPower(stats.GetCurrentPower() * attackRatio);
         stats.BuffDefense(stats.GetCurrentDefense() * defenseRatio);
     }
@@ -31,16 +31,6 @@ public class GelatinBuff : Buff
     }
 
 
-    /*
-     * ComputeRatio(10, 0.5, 5) return 0,25;
-     */
-    float ComputeRatio(float maxA, float maxB, float currentValue, bool inverse = false)
-    {
-        float result = currentValue / maxA * maxB;
-        if (inverse)
-            return maxB - result;
-        else
-            return result;
-    }
+
 }
 

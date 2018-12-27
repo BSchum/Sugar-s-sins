@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+public delegate void RessourceChanged(float value, float maxValue);
 [RequireComponent(typeof(Stats))]
 public class PlayerAttack : PlayerScript, IBuffable {
     protected Weapon weapon;
@@ -9,7 +11,10 @@ public class PlayerAttack : PlayerScript, IBuffable {
 
     protected Skill[] skills;
     protected List<Buff> buffs = new List<Buff>();
+    public RessourceChanged OnRessourceChanged;
 
+
+    #region Unity's methods
     public void Start()
     {
         this.gameObject.name = "Tank " + Random.Range(0, 10000);
@@ -17,24 +22,27 @@ public class PlayerAttack : PlayerScript, IBuffable {
         weapon = GetComponentInChildren<Weapon>();
         stats = GetComponent<Stats>();
         skills = GetComponents<Skill>();
+        if (isLocalPlayer)
+        {
+            UIManager.instance.AddSkills(skills.Take(4).ToList());
+            UIManager.instance.Subscribe(this.stats);
+        }
     }
     public void Update()
     {
         CmdApplyBuff();
-
-
         if (ih.SimpleAttackInput())
         {
             Fire();
         }
 
     }
-
-
+    #endregion
+    #region Buff system
     public void AddBuff(Buff buff)
     {
         buffs.Add(buff);
-        BuffUIManager.instance.AddBuff(buff.GetBuffAsUIObject());
+        UIManager.instance.AddBuff(buff.GetBuffAsUIObject());
     }
     [Command]
     public void CmdApplyBuff()
@@ -62,7 +70,8 @@ public class PlayerAttack : PlayerScript, IBuffable {
             }
         }
     }
-
+    #endregion
+    #region Initialization
     [Command]
     protected void CmdInitializeSkills()
     {
@@ -73,14 +82,8 @@ public class PlayerAttack : PlayerScript, IBuffable {
     {
         this.skills = GetComponents<Skill>();
     }
-
-  
-
-    public virtual float GetPassifVal ()
-    {
-        return 0f;
-    }
-
+    #endregion
+    #region Basic Attack
     public void Fire()
     {
         Ray r = new Ray(this.transform.position, this.transform.forward);
@@ -104,5 +107,5 @@ public class PlayerAttack : PlayerScript, IBuffable {
         Health h = target.GetComponent<Health>();
         h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
-
+    #endregion
 }

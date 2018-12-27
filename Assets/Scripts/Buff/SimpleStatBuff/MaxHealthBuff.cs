@@ -11,7 +11,7 @@ class MaxHealthBuff : Buff
     public MaxHealthBuff(GameObject target, float amount) : base(target)
     {
         this.amount = amount;
-        this.artwork = Resources.Load<Sprite>("Icons/Buffs/MaxHealthBuff");
+        this.artwork = Resources.Load<Sprite>("Icons/Buffs/Buff_MaxHealth");
     }
 
     public override void ApplyBuff()

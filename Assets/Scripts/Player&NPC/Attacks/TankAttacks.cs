@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(Stats))]
-public class TankAttacks : PlayerAttack {
+public class TankAttacks : PlayerAttack, IRessourcesManipulator {
     [SerializeField]
     int gelatinStack = Constants.MAX_GELATIN_STACK;
     int maxGelatinStack = Constants.MAX_GELATIN_STACK;
@@ -13,6 +13,21 @@ public class TankAttacks : PlayerAttack {
 
     int gelatinStackRatio = 1;
 
+    public int CurrentRessourceValue
+    {
+        get
+        {
+            return gelatinStack;
+        }
+    }
+
+    public int MaxRessourceValue {
+        get
+        {
+            return maxGelatinStack;
+        }
+    }
+
     /*
      * ComputeRatio(10, 0.5, 5) return 0,25;
      */
@@ -20,8 +35,13 @@ public class TankAttacks : PlayerAttack {
     public void Start()
     {
         base.Start();
+        if (isLocalPlayer)
+        {
+            UIManager.instance.UpdateResourceBar(CurrentRessourceValue, MaxRessourceValue);
+            UIManager.instance.AddSkillOverAnother(3, skills[4]);
+            AddBuff(new GelatinBuff(this.gameObject));
+        }
         stats = GetComponent<Stats>();
-        AddBuff(new GelatinBuff(this.gameObject));
         ApplyBuffs();
     }
 
@@ -64,6 +84,8 @@ public class TankAttacks : PlayerAttack {
     public void AddGelatinStack(int gelatinStackAmount)
     {
         gelatinStackAmount *= gelatinStackRatio;
+        if(isLocalPlayer)
+            UIManager.instance.UpdateResourceBar(CurrentRessourceValue, MaxRessourceValue);
         if (gelatinStack + gelatinStackAmount >= maxGelatinStack)
         {
             gelatinStack = maxGelatinStack;
@@ -134,10 +156,6 @@ public class TankAttacks : PlayerAttack {
         BuffUI.text = bufftext;
 
 
-    }
-    float ComputeRatio(float maxA, float maxB, float currentValue)
-    {
-        return currentValue / maxA * maxB;
     }
     #endregion
 

@@ -99,6 +99,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1788640766124420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4217135071500210}
+  - component: {fileID: 20262523477209578}
+  - component: {fileID: 81805526449744528}
+  m_Layer: 0
+  m_Name: MinimapCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4119994259060292
 Transform:
   m_ObjectHideFlags: 1
@@ -113,6 +130,19 @@ Transform:
   m_Father: {fileID: 4861279986543512}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4217135071500210
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788640766124420}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 13.1, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4861279986543512}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4348636128882308
 Transform:
   m_ObjectHideFlags: 1
@@ -146,11 +176,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1373761249453894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.834, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4885170925715404}
   - {fileID: 4119994259060292}
+  - {fileID: 4217135071500210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,6 +230,46 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!20 &20262523477209578
+Camera:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788640766124420}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 12
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 31d991e6380eedb47823e2aeace86004, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -272,6 +343,13 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750984744134292}
   m_Enabled: 1
+--- !u!81 &81805526449744528
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788640766124420}
+  m_Enabled: 1
 --- !u!114 &114255630005887936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,16 +361,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePower: 10
-  currentPower: 10
-  baseDefense: 10
-  currentDefense: 10
-  baseSpeed: 10
-  currentSpeed: 10
-  baseMaxHealth: 10
-  currentMaxHealth: 10
-  baseHealth: 10
-  currentHealth: 10
+  baseStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  currentStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  damageReductionInPercent: 0
 --- !u!114 &114321991176077994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -336,9 +419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b2c570cc9d29449abf3c5f587d1bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillProjectile: {fileID: 114127200121322762, guid: 9bac76ff70a904448be892eaf599e7b0,
-    type: 2}
-  prefab: {fileID: 1478518612388676, guid: 9bac76ff70a904448be892eaf599e7b0, type: 2}
 --- !u!114 &114405085459402450
 MonoBehaviour:
   m_ObjectHideFlags: 1
