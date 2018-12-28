@@ -34,6 +34,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
     #region Unity's method
     public void Start()
     {
+        Debug.Log(CharaterManager.choosedCharacter);
         base.Start();
         if (isLocalPlayer)
         {
