@@ -615,6 +615,7 @@ MonoBehaviour:
   cooldown: 1
   internalCD: 0
   source: {fileID: 0}
+  cam: {fileID: 20142563076364998}
 --- !u!114 &114104671450142622
 MonoBehaviour:
   m_ObjectHideFlags: 1

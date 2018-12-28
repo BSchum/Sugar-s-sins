@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 public class ChargeSkill : Skill, IThreatable {
     public override IEnumerator Cast()
     {
+        StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
 
         float dashStartAt = Time.time;

@@ -7,6 +7,7 @@ public class GelatinSmashSkill : Skill , IThreatable{
     public Collider[] colliders;
     public override IEnumerator Cast()
     {
+        StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
 
         for (int i =0; i< colliders.Length; i++)

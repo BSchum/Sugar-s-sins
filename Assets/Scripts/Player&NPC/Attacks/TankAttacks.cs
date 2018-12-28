@@ -57,27 +57,21 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
             if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown && skills[0].HasRessource())
             {
                 StartCoroutine(skills[0].Cast());
-                StartCoroutine(skills[0].ProcessCoolDown());
             }
             else if(ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown && skills[1].HasRessource())
             {
                 StartCoroutine(skills[1].Cast());
-                StartCoroutine(skills[1].ProcessCoolDown());
             }
             else if(ih.ThirdSkill() && skills[2].CanCast() && !skills[2].isOnCooldown && skills[2].HasRessource())
             {
-                Debug.Log("Lol");
                 StartCoroutine(skills[2].Cast());
-                StartCoroutine(skills[2].ProcessCoolDown());
             }
             else if(ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && skills[3].HasRessource())
             {
                 StartCoroutine(skills[3].Cast());
-                StartCoroutine(skills[3].ProcessCoolDown());
             }else if(ih.Ultimate() && skills[3].isOnCooldown && !skills[4].isOnCooldown && skills[4].CanCast() && skills[4].HasRessource())
             {
                 StartCoroutine(skills[4].Cast());
-                StartCoroutine(skills[4].ProcessCoolDown());
             }
         }
     }

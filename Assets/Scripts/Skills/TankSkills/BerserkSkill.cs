@@ -16,6 +16,7 @@ public class BerserkSkill : Skill
 {
     public override IEnumerator Cast()
     {
+        StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
         TankAttacks player = this.gameObject.GetComponent<TankAttacks>();
         player.AddBuff(new PowerBuff(this.gameObject, 10));

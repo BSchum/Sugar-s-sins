@@ -13,8 +13,11 @@ public abstract class InputHandler
     public InputType inputState;
 
     public abstract Vector3 ComputeMovement();
+    public abstract Vector3 ComputeMovementFromMouse();
     public abstract Vector3 ComputeRotation();
     public abstract bool SimpleAttackInput();
+    public abstract bool RightClick();
+
     public abstract bool FirstSkill();
     public abstract bool SecondSkill();
     public abstract bool ThirdSkill();

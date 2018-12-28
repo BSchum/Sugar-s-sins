@@ -4,7 +4,10 @@ class CharacterNetworkManager : NetworkManager
 {
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        playerPrefab = CharaterManager.choosedCharacter;
+        if(CharaterManager.choosedCharacter != null)
+        {
+            playerPrefab = CharaterManager.choosedCharacter;
+        }
         base.OnServerAddPlayer(conn, playerControllerId);
     }
 }
