@@ -28,6 +28,9 @@ GameObject:
   - component: {fileID: 114914517370669974}
   - component: {fileID: 114565864773240342}
   - component: {fileID: 114209995211769546}
+  - component: {fileID: 114941276875109992}
+  - component: {fileID: 114078172295093174}
+  - component: {fileID: 114514772453345794}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -82,6 +85,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1731455982980766
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4196887766446318}
+  m_Layer: 0
+  m_Name: LeftHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1905654702365840
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +130,19 @@ Transform:
   m_Father: {fileID: 4943653973598208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4196887766446318
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731455982980766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.43, y: -0.29, z: 1.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4391047400313620}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4278366710529408
 Transform:
   m_ObjectHideFlags: 1
@@ -119,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409659851575592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8650465, y: 0.96830446, z: 1.8147078}
+  m_LocalPosition: {x: 1.042953, y: 3.24, z: -16.968727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943653973598208}
@@ -138,6 +169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4813667989757908}
+  - {fileID: 4196887766446318}
   m_Father: {fileID: 4278366710529408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,6 +304,27 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1905654702365840}
   m_Enabled: 1
+--- !u!114 &114078172295093174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409659851575592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7e437b43e48e645a18f77202f69542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  skillProjectile: {fileID: 114680329911139762, guid: 713f97027f6bed949a93c132ac6a8031,
+    type: 2}
+  canCast: 1
+  isCasting: 0
+  minCastTime: 0
+  maxCastTime: 0
+  isOnCooldown: 0
+  cooldown: 0
+  source: {fileID: 0}
 --- !u!114 &114209995211769546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,8 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fd464fb0c05364680b4d04583bcd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - {fileID: 114090433322668472, guid: aba0b401de85dca459aab8f4c55190a3, type: 2}
 --- !u!114 &114384889814986188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,6 +368,27 @@ MonoBehaviour:
     i15: 235
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114514772453345794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409659851575592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3747f9efe1a691349b53a27de6066c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  skillProjectile: {fileID: 114024248576147586, guid: 55ebd242f004d974780340a13b5b56b9,
+    type: 2}
+  canCast: 1
+  isCasting: 0
+  minCastTime: 0
+  maxCastTime: 0
+  isOnCooldown: 0
+  cooldown: 0
+  source: {fileID: 0}
 --- !u!114 &114565864773240342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,16 +400,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePower: 0
-  currentPower: 0
-  baseDefense: 0
-  currentDefense: 0
-  baseSpeed: 0
-  currentSpeed: 0
-  baseMaxHealth: 0
-  currentMaxHealth: 0
-  baseHealth: 0
-  currentHealth: 0
+  baseStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  currentStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  damageReductionInPercent: 0
 --- !u!114 &114709457707875594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,6 +472,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27277da3e3e1fb4884936c8f2dd20b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114941276875109992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409659851575592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98002841433212543bbb4e38b61e81c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  skillProjectile: {fileID: 114367465571509712, guid: 9bac76ff70a904448be892eaf599e7b0,
+    type: 2}
+  canCast: 1
+  isCasting: 0
+  minCastTime: 0
+  maxCastTime: 3
+  isOnCooldown: 0
+  cooldown: 0
+  source: {fileID: 0}
+  fireBallScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.16849773
+      value: 1.0125198
+      inSlope: 0.24435274
+      outSlope: 0.24435274
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.21839266
+    - serializedVersion: 3
+      time: 4.9706726
+      value: 2.0172653
+      inSlope: 0.2822721
+      outSlope: 0.2822721
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21311317
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fireBallSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.030464172
+      value: 1.096695
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 4.8993506
+      value: 5.0211945
+      inSlope: 0.12930253
+      outSlope: 0.12930253
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.36714712
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  mageHand: {fileID: 4196887766446318}
 --- !u!136 &136127375141537656
 CapsuleCollider:
   m_ObjectHideFlags: 1

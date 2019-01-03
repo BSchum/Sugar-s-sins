@@ -23,27 +23,34 @@ public class MageAttack : PlayerAttack {
     {
         base.Update();
 
-        if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
+        if(isLocalPlayer)
         {
-            Debug.Log("Je lance le sort numéro 1");
-            StartCoroutine(skills[0].Cast());
-        }
-        else
-        {
-            //Debug.Log(ih.FirstSkill());
-            //Debug.Log(skills[0].CanCast());
-            //Debug.Log(!skills[0].isCooldown);
-        }
-
-        if (ih.SecondSkill())
-        {
-            Ray ray = new Ray(transform.position, transform.GetChild(0).transform.forward);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
+            CmdInitializeSkills();
+            if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
             {
-                
+                StartCoroutine(skills[0].Cast());
+            }
+            if (ih.FirstSkillUp() && skills[0].HasRessource())
+            {
+                FireBallSkill fbs = (FireBallSkill)skills[0];
+                fbs.CmdReleaseFireBall();
             }
 
+            if (ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown)
+            {
+                StartCoroutine(skills[1].Cast());
+            }
+
+            if (ih.ThirdSkill() && skills[2].CanCast() && !skills[2].isOnCooldown)
+            {
+                StartCoroutine(skills[2].Cast());
+            }
+
+            if (ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && skills[4].HasRessource())
+            {
+                StartCoroutine(skills[4].Cast());
+                StartCoroutine(skills[3].Cast());
+            }
         }
     }
 
@@ -51,17 +58,4 @@ public class MageAttack : PlayerAttack {
     {
         return burstPassif;
     }
-
-    [Command]
-    public void CmdSpawnPrefab(float pushTime)
-    {
-        //GameObject p = Instantiate(skillProjectile.projectilePrefab, transform.position + transform.forward, Quaternion.Euler(transform.forward));
-        //NetworkServer.Spawn(p);
-
-        //var sp = p.GetComponent<SkillProjectile>();
-        
-        //sp.speed = (int)pushTime;
-    }
-
-
 }

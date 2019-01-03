@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 public abstract class Skill : NetworkBehaviour {
 
     public float cost;
+    public SkillProjectile skillProjectile;
 
     [HideInInspector]
     public bool canCast = true;
@@ -14,8 +15,6 @@ public abstract class Skill : NetworkBehaviour {
     protected bool isCasting = false;
     public float minCastTime = 0;
     public float maxCastTime;
-
-    public SkillProjectile skillProjectile;
 
     protected float castStartTime;
 
@@ -38,8 +37,4 @@ public abstract class Skill : NetworkBehaviour {
         isOnCooldown = false;
 
     }
-
-
-    InputHandlerBuilder builder;
-    protected InputHandler ih;
 }

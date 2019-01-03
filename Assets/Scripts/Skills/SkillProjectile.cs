@@ -8,11 +8,6 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
     public float speed, damage, lifeTime;
     protected List<Buff> buffs = new List<Buff>();
 
-    private void Start()
-    {
-        Initiate();
-    }
-
     public void DieAfterLifeTime()
     {
         Destroy(this.gameObject, lifeTime);
@@ -29,6 +24,11 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
     }
 
     public virtual void ProjectileBehav ()
+    {
+
+    }
+
+    public virtual void Throw ()
     {
 
     }

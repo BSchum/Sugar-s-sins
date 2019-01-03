@@ -38,6 +38,7 @@ public class PlayerAttack : PlayerScript, IBuffable {
         stats = GetComponent<Stats>();
         skills = GetComponents<Skill>();
     }
+
     [Command]
     protected void CmdInitializeSkills()
     {

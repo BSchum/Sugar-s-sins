@@ -5,7 +5,7 @@ using UnityEngine;
 public class TauntSkill : Skill {
     public override IEnumerator Cast()
     {
-        yield return false;
+        yield return null;
     }
 
 
