@@ -16,16 +16,30 @@ public class TornadoSkill : Skill {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            GameObject newTornado = Instantiate(skillProjectile.gameObject, hit.point, Quaternion.Euler(transform.forward));
-            NetworkServer.Spawn(newTornado);
-            SkillProjectile tornadoProjectile = newTornado.GetComponent<SkillProjectile>();
-
-            tornadoProjectile.Initiate();
-
-            ProcessCoolDown();
+            CmdSpawnProjectile(hit.point);
         }
         
         yield return null;
+    }
+
+    [Command]
+    void CmdSpawnProjectile (Vector3 pos)
+    {
+        GameObject newTornado = Instantiate(skillProjectile.gameObject, pos, Quaternion.Euler(transform.forward));
+        NetworkServer.Spawn(newTornado);
+        TornadoProjectile tornadoProjectile = newTornado.GetComponent<TornadoProjectile>();
+        tornadoProjectile.source = this.gameObject;
+
+        MageAttack mage = GetComponent<MageAttack>();
+        if (mage.isOnUlt)
+        {
+            tornadoProjectile.speedBonus *= 1.5f;
+            tornadoProjectile.attractForce *= 2f;
+        }
+
+        tornadoProjectile.Initiate();
+
+        ProcessCoolDown();
     }
 
     public override bool HasRessource()

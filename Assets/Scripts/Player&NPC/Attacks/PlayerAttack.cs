@@ -55,13 +55,6 @@ public class PlayerAttack : PlayerScript, IBuffable {
         CmdApplyBuff();
         stats.ResetBonusStats();
 
-        int i = 0;
-        foreach (Buff buff in buffs)
-        {
-            //Debug.Log(gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType());
-            i++;
-        }
-
         if (ih.SimpleAttackInput())
         {
             Fire();

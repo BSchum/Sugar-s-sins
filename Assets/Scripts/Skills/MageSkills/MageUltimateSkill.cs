@@ -15,6 +15,8 @@ public class MageUltimateSkill : Skill {
 
     public override IEnumerator Cast()
     {
+        CmdBuff();
+
         yield return null;
     }
 
@@ -27,7 +29,8 @@ public class MageUltimateSkill : Skill {
     [ClientRpc]
     public void RpcBuff()
     {
-         GetComponent<PlayerAttack>().AddBuff(new DamageReduceBuff(gameObject));
+        MageUltimateBuff ultimateBuff = new MageUltimateBuff(this.gameObject, duration, lifeSteal);
+        GetComponent<PlayerAttack>().AddBuff(ultimateBuff);
     }
 
 }

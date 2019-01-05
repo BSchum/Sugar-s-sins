@@ -6,7 +6,8 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(Stats))]
 public class MageAttack : PlayerAttack {
 
-    float burstPassif = 0;
+    public float increasingPassifPercentage;
+    public float burstPassif = 0;
     private const int burstMaxPassif = 100;
    
     void BurstBehaviour(float damageDealt)
@@ -46,16 +47,26 @@ public class MageAttack : PlayerAttack {
                 StartCoroutine(skills[2].Cast());
             }
 
-            if (ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && skills[4].HasRessource())
+            if (ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && burstPassif >= burstMaxPassif)
             {
-                StartCoroutine(skills[4].Cast());
+                burstPassif = 0;
                 StartCoroutine(skills[3].Cast());
             }
         }
     }
 
-    public virtual float GetPassifVal()
+    [HideInInspector]
+    [SyncVar]
+    public bool isOnUlt = false;
+    public void AddBurstPassif (float damage)
     {
-        return burstPassif;
+        if(!isOnUlt)
+        {
+            burstPassif += damage * increasingPassifPercentage;
+            if (burstPassif > burstMaxPassif)
+            {
+                burstPassif = burstMaxPassif;
+            }
+        }
     }
 }

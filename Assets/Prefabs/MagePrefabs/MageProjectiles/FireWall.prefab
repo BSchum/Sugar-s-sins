@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114276677246331686}
   m_Layer: 0
   m_Name: FireWall
-  m_TagString: Untagged
+  m_TagString: AlliedProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,8 +240,10 @@ MonoBehaviour:
   speed: 0
   damage: 0
   lifeTime: 5
+  source: {fileID: 0}
   reducingSpeed: 0.7
   increasingSpeed: 1.3
+  upgraded: 0
 --- !u!114 &114276677246331686
 MonoBehaviour:
   m_ObjectHideFlags: 1

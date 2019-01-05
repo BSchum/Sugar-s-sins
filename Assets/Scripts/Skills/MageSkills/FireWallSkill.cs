@@ -16,15 +16,30 @@ public class FireWallSkill : Skill {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            GameObject newFireWall = Instantiate(skillProjectile.gameObject, hit.point, transform.rotation);
-            NetworkServer.Spawn(newFireWall);
-            SkillProjectile fireWallProjectile = newFireWall.GetComponent<SkillProjectile>();
-
-            fireWallProjectile.Initiate();
-
-            ProcessCoolDown();
+            CmdSpawnProjectile(hit.point);
         }
 
         yield return null;
     }
+
+    [Command]
+    void CmdSpawnProjectile(Vector3 pos)
+    {
+        GameObject newFireWall = Instantiate(skillProjectile.gameObject, pos, transform.rotation);
+        NetworkServer.Spawn(newFireWall);
+        FireWallProjectile fireWallProjectile = newFireWall.GetComponent<FireWallProjectile>();
+        fireWallProjectile.source = this.gameObject;
+
+        MageAttack mage = GetComponent<MageAttack>();
+        if (mage.isOnUlt)
+        {
+            fireWallProjectile.upgraded = true;
+        }
+
+        fireWallProjectile.Initiate();
+
+        ProcessCoolDown();
+    }
+
+
 }

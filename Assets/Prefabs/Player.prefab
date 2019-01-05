@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 114255630005887936}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Allied
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,16 +283,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6579a027764a4e99b0dd29beb288c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePower: 10
-  currentPower: 10
-  baseDefense: 10
-  currentDefense: 10
-  baseSpeed: 10
-  currentSpeed: 10
-  baseMaxHealth: 10
-  currentMaxHealth: 10
-  baseHealth: 10
-  currentHealth: 10
+  baseStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  currentStats:
+    power: 0
+    defense: 0
+    speed: 0
+    health: 0
+    maxHealth: 0
+    damage: 0
+  damageReductionInPercent: 0
 --- !u!114 &114321991176077994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -336,9 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b2c570cc9d29449abf3c5f587d1bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillProjectile: {fileID: 114127200121322762, guid: 9bac76ff70a904448be892eaf599e7b0,
-    type: 2}
-  prefab: {fileID: 1478518612388676, guid: 9bac76ff70a904448be892eaf599e7b0, type: 2}
 --- !u!114 &114405085459402450
 MonoBehaviour:
   m_ObjectHideFlags: 1

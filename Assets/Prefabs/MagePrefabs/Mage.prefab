@@ -11,6 +11,36 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1409659851575592}
   m_IsPrefabAsset: 1
+--- !u!1 &1303841283383088
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4210445568896634}
+  m_Layer: 0
+  m_Name: LeftHand On Ult
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1357659976526328
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4736586167765918}
+  m_Layer: 0
+  m_Name: LeftHand On Ult (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1409659851575592
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,9 +61,10 @@ GameObject:
   - component: {fileID: 114941276875109992}
   - component: {fileID: 114078172295093174}
   - component: {fileID: 114514772453345794}
+  - component: {fileID: 114648428704594470}
   m_Layer: 0
   m_Name: Mage
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,6 +101,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1644696837379854
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4313834269023398}
+  m_Layer: 0
+  m_Name: LeftHand On Ult (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1653721693073166
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4020033853419902}
+  m_Layer: 0
+  m_Name: LeftHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1728122860609232
 GameObject:
   m_ObjectHideFlags: 1
@@ -94,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4196887766446318}
   m_Layer: 0
-  m_Name: LeftHand
+  m_Name: LeftHand On Ult (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,6 +178,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4020033853419902
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1653721693073166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.43, y: -0.29, z: 1.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4391047400313620}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4087893245266180
 Transform:
   m_ObjectHideFlags: 1
@@ -136,12 +210,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1731455982980766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: -0.29, z: 1.79}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.13, y: 0.13, z: 0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 4210445568896634}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4210445568896634
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303841283383088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.43000007, y: -0.28999996, z: 1.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4313834269023398}
+  - {fileID: 4736586167765918}
+  - {fileID: 4196887766446318}
   m_Father: {fileID: 4391047400313620}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4278366710529408
 Transform:
@@ -150,12 +240,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409659851575592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.042953, y: 3.24, z: -16.968727}
+  m_LocalPosition: {x: -4.073357, y: 2.31, z: -6.4441214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4943653973598208}
   - {fileID: 4391047400313620}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4313834269023398
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644696837379854}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.22, y: -0.46, z: 0.61000013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4210445568896634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4391047400313620
@@ -169,8 +272,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4813667989757908}
-  - {fileID: 4196887766446318}
+  - {fileID: 4020033853419902}
+  - {fileID: 4210445568896634}
   m_Father: {fileID: 4278366710529408}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4736586167765918
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1357659976526328}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.23, z: 3.0600002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4210445568896634}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4813667989757908
@@ -336,6 +453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fd464fb0c05364680b4d04583bcd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasingPassifPercentage: 0.3
+  burstPassif: 0
+  isOnUlt: 0
 --- !u!114 &114384889814986188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +527,7 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
     damage: 0
+    lifeSteal: 0
   currentStats:
     power: 0
     defense: 0
@@ -414,7 +535,30 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
     damage: 0
+    lifeSteal: 0
   damageReductionInPercent: 0
+--- !u!114 &114648428704594470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409659851575592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1acb84c0c6b15d4f98b160868f0a719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  skillProjectile: {fileID: 0}
+  canCast: 1
+  isCasting: 0
+  minCastTime: 0
+  maxCastTime: 0
+  isOnCooldown: 0
+  cooldown: 0
+  source: {fileID: 0}
+  lifeSteal: 0.3
+  duration: 6
 --- !u!114 &114709457707875594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,7 +603,7 @@ MonoBehaviour:
   m_MovementTheshold: 0.001
   m_VelocityThreshold: 0.0001
   m_SnapThreshold: 5
-  m_InterpolateRotation: 1
+  m_InterpolateRotation: 10
   m_InterpolateMovement: 1
 --- !u!114 &114914517370669974
 MonoBehaviour:
@@ -541,7 +685,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  mageHand: {fileID: 4196887766446318}
+  mageHand: {fileID: 4020033853419902}
+  spawnFireBallUlt:
+  - {fileID: 4313834269023398}
+  - {fileID: 4736586167765918}
+  - {fileID: 4196887766446318}
 --- !u!136 &136127375141537656
 CapsuleCollider:
   m_ObjectHideFlags: 1

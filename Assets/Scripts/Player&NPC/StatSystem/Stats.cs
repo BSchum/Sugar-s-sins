@@ -88,6 +88,11 @@ public class Stats : NetworkBehaviour
         return finalStats.damage;
     }
 
+    public float GetLifeSteal ()
+    {
+        return finalStats.lifeSteal;
+    }
+
     #endregion
 
     #region GetCurrentStats
@@ -120,6 +125,11 @@ public class Stats : NetworkBehaviour
     {
         return currentStats.damage;
     }
+
+    public float GetCurrentLifeSteal()
+    {
+        return currentStats.lifeSteal;
+    }
     #endregion
 
     #region BuffStats
@@ -146,6 +156,11 @@ public class Stats : NetworkBehaviour
     public void BuffDamage(float buffAmount)
     {
         bonusStats.damage += buffAmount;
+    }
+
+    public void BuffLifeSteal(float lifeStealAmount)
+    {
+        bonusStats.lifeSteal += lifeStealAmount;
     }
     #endregion
 
@@ -175,6 +190,11 @@ public class Stats : NetworkBehaviour
         currentStats.defense += amount;
     }
 
+    public void AddLifeSteal(float amount)
+    {
+        currentStats.lifeSteal += amount;
+    }
+
     public void AddDamage(float amount)
     {
         currentStats.damage += amount;
@@ -194,6 +214,7 @@ public class Stats : NetworkBehaviour
         bonusStats.speed = 0;
         bonusStats.defense = 0;
         bonusStats.damage = 0;
+        bonusStats.lifeSteal = 0;
         damageReductionInPercent = 0;
     }
 

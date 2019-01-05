@@ -4,7 +4,6 @@ using UnityEngine;
 using System.Linq;
 public class TotemProjectile : SkillProjectile, IBuffable {
     
-    public GameObject source;
     [SerializeField]
     int gelatinStacksAmount;
     [SerializeField]

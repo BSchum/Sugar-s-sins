@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 public class SkillProjectile : NetworkBehaviour, IBuffable {
 
     public float speed, damage, lifeTime;
+    [HideInInspector]
+    public GameObject source;
     protected List<Buff> buffs = new List<Buff>();
 
     public void DieAfterLifeTime()

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 135999414102322896}
   m_Layer: 0
   m_Name: Tornade
-  m_TagString: Untagged
+  m_TagString: AlliedProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,8 +475,10 @@ MonoBehaviour:
   speed: 0.25
   damage: 0
   lifeTime: 5
+  source: {fileID: 0}
   rotateSpeed: 20
   attractForce: 1
+  speedBonus: 1.5
 --- !u!135 &135999414102322896
 SphereCollider:
   m_ObjectHideFlags: 1

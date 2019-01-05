@@ -286,12 +286,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 3
+  skillProjectile: {fileID: 114563823203138628, guid: d6c80cacc17c55044bd47d046039be0f,
+    type: 2}
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
-  skillProjectile: {fileID: 114563823203138628, guid: d6c80cacc17c55044bd47d046039be0f,
-    type: 2}
   isOnCooldown: 0
   cooldown: 1
   source: {fileID: 0}
@@ -435,11 +435,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 3
+  skillProjectile: {fileID: 0}
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
-  skillProjectile: {fileID: 0}
   isOnCooldown: 0
   cooldown: 1
   source: {fileID: 0}

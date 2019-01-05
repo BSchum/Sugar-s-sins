@@ -6,18 +6,20 @@ using UnityEngine.Networking;
 public class FireBallSkill : Skill {
 
     private float castTime = 0;
-
-    //[SyncVar(hook = "CmdSpawnProjectile")]
+    
     private GameObject fireBall = null;
+    private GameObject[] fireBalls = new GameObject[3];
     public AnimationCurve fireBallScale;
     public AnimationCurve fireBallSpeed;
     public Transform mageHand;
+    public Transform[] spawnFireBallUlt;
 
     public override bool CanCast()
     {
         return canCast && !isCasting;
     }
 
+    bool castedAsUlt = false;
     bool fireBallSpawned = false;
     public override IEnumerator Cast()
     {
@@ -55,12 +57,29 @@ public class FireBallSkill : Skill {
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
         float bonusSpeed = fireBallSpeed.Evaluate((castTime / maxCastTime) * maxTime);
 
-        SkillProjectile fireBallProjectile = fireBall.GetComponent<SkillProjectile>();
-        fireBallProjectile.speed *= bonusSpeed;
-        fireBallProjectile.damage *= bonusSpeed;
+        if(castedAsUlt)
+        {
+            SkillProjectile fireBallProjectile = fireBall.GetComponent<SkillProjectile>();
+            fireBallProjectile.speed *= bonusSpeed;
+            fireBallProjectile.damage *= bonusSpeed;
+            fireBallProjectile.source = this.gameObject;
 
-        fireBallProjectile.Throw();
-        fireBall = null;
+            fireBallProjectile.Throw();
+            fireBall = null;
+        }
+        else
+        {
+            for(int i=0; i<fireBalls.Length; i++)
+            {
+                SkillProjectile fireBallProjectile = fireBalls[i].GetComponent<SkillProjectile>();
+                fireBallProjectile.speed *= bonusSpeed;
+                fireBallProjectile.damage *= bonusSpeed;
+                fireBallProjectile.source = this.gameObject;
+
+                fireBallProjectile.Throw();
+                fireBalls[i] = null;
+            }
+        }
 
         fireBallSpawned = false;
         castTime = 0;
@@ -75,24 +94,46 @@ public class FireBallSkill : Skill {
 
     private void IncreaseFireBall (Vector3 s)
     {
-        if(fireBall != null)
+        if(castedAsUlt)
         {
-            this.scale = s;
-            fireBall.transform.localScale = s;
+            if (fireBall != null)
+            {
+                this.scale = s;
+                fireBall.transform.localScale = s;
+            }
+        }
+        else
+        {
+            if (fireBalls[0] != null && fireBalls[1] != null  && fireBalls[2] != null)
+            {
+                this.scale = s;
+                fireBalls[0].transform.localScale = s;
+                fireBalls[1].transform.localScale = s;
+                fireBalls[2].transform.localScale = s;
+            }
         }
     }
 
     [Command]
     void CmdSpawnProjectile ()
     {
-        //if(isServer)
-            RpcSpawnProjectile();
+        RpcSpawnProjectile();
     }
 
     [ClientRpc]
     void RpcSpawnProjectile ()
     {
-        fireBall = Instantiate(skillProjectile.gameObject, mageHand);
+        castedAsUlt = !GetComponent<MageAttack>().isOnUlt;
+        if (castedAsUlt)
+        {
+            fireBall = Instantiate(skillProjectile.gameObject, mageHand);
+        }
+        else
+        {
+            fireBalls[0] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[0]);
+            fireBalls[1] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[1]);
+            fireBalls[2] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[2]);
+        }
     }
 
     public override bool HasRessource()

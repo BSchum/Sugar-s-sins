@@ -6,6 +6,7 @@ public class TornadoProjectile : SkillProjectile {
 
     public float rotateSpeed = 20f;
     public float attractForce;
+    public float speedBonus;
 
     List<GameObject> attractedObjects = new List<GameObject>();
 
@@ -41,16 +42,22 @@ public class TornadoProjectile : SkillProjectile {
     {
         foreach (GameObject attractedObject in attractedObjects)
         {
-            Vector3 dir = (transform.position - attractedObject.transform.position) * attractForce * Time.deltaTime;
+            if(attractedObject.tag == "Enemy" || attractedObject.tag == "EnemyProjectile")
+            {
+                Vector3 dir = (transform.position - attractedObject.transform.position) * attractForce * Time.deltaTime;
 
-            attractedObject.transform.position += dir;
+                attractedObject.transform.position += dir;
+            }
+            else if (attractedObject.tag == "Player")
+            {
+                attractedObject.GetComponent<Rigidbody>().velocity *= speedBonus;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        SkillProjectile projectile = other.GetComponent<SkillProjectile>();
-        if (other.gameObject.tag == "Enemy" || projectile != null)
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyProjectile" || other.gameObject.tag == "Player")
         {
             if (!attractedObjects.Contains(other.gameObject))
             {
@@ -61,8 +68,7 @@ public class TornadoProjectile : SkillProjectile {
 
     private void OnTriggerExit(Collider other)
     {
-        SkillProjectile projectile = other.GetComponent<SkillProjectile>();
-        if (other.gameObject.tag == "Enemy" || projectile != null)
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyProjectile" || other.gameObject.tag == "Player")
         {
             if (!attractedObjects.Contains(other.gameObject))
             {
