@@ -14,17 +14,29 @@ public class Motor : MotorBase
         }
     }
 
-    public override void Move(Vector3 movement, Vector3 rotation)
+    public override void Move(Vector3 movement, Vector3 rotation, float speed)
     {
-        MoveLookDirection(rotation);
-        MoveEntity(movement);
+        MoveEntity(movement, speed);
     }
 
-    void MoveLookDirection(Vector3 rotation)
+    public void MoveLookDirection(Vector3 rotation)
     {
         if (hasCamera)
         {
-            cam.transform.Rotate(new Vector3(-rotation.x, 0, 0));
+            if(cam.transform.parent.localRotation.x > -0.3)
+            {
+                if (cam.transform.parent.localRotation.x < 0.3)
+                {
+                    cam.transform.parent.Rotate(new Vector3(-rotation.x, 0, 0));
+                } else if(rotation.x > 0)
+                {
+                    cam.transform.parent.Rotate(new Vector3(-rotation.x, 0, 0));
+                }
+            }
+            else if (rotation.x < 0)
+            {
+                cam.transform.parent.Rotate(new Vector3(-rotation.x, 0, 0));
+            }
         }
         entity.transform.Rotate(new Vector3(0, rotation.y, 0));
     }

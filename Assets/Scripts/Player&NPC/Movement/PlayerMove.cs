@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(NetworkIdentity))]
 public class PlayerMove : PlayerScript{
 
-    public MotorBase motor;
+    public Motor motor;
     NetworkIdentity netIdentity;
 
     // Use this for initialization
@@ -18,8 +18,18 @@ public class PlayerMove : PlayerScript{
 
     // Update is called once per frame
     void Update () {
-
         //Move with ih vector
-        motor.Move(ih.ComputeMovement(), ih.ComputeRotation());
+        motor.Move(ih.ComputeMovement(), ih.ComputeRotation(), this.GetComponent<Stats>().GetSpeed());
+
+        if (ih.RightClick()) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            motor.MoveLookDirection(ih.ComputeRotation());
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }

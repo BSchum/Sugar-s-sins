@@ -6,10 +6,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 
-public delegate void HealthChanged(float value);
+public delegate void HealthChanged(float value, float maxValue);
+public delegate void DamageReceived(float damage);
 public class Stats : NetworkBehaviour
 {
     public event HealthChanged OnHealthChanged;
+    public event DamageReceived OnDamageReceived;
     //   /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
     // Base Stats are stats without any modification , base stats of the character.
     // Current stats are stats with stuff modification and other permanent modification.
@@ -26,23 +28,13 @@ public class Stats : NetworkBehaviour
 
     public float damageReductionInPercent;
 
-    public void Start()
+    public void Awake()
     {
         finalStats = new BaseStats();
         bonusStats = new BaseStats();
         ResetBonusStats();
     }
 
-    public void Update()
-    {
-        if (name == "Totem(Clone)")
-        {
-            Debug.Log("Je compute pour " + gameObject.name);
-            Debug.Log(currentStats);
-            Debug.Log(bonusStats);
-        }
-        ComputeFinalStats();
-    }
     
     public void TakeDamage(float amount)
     {
@@ -54,7 +46,14 @@ public class Stats : NetworkBehaviour
         {
             bonusStats.health += amount;
         }
-        OnHealthChanged(finalStats.health);
+        ComputeFinalStats();
+        if(OnHealthChanged != null)
+            OnHealthChanged(finalStats.health, finalStats.maxHealth);
+        //Si je prend des degats
+        if(amount < 0 && OnDamageReceived != null)
+        {
+            OnDamageReceived(amount);
+        }
     }
 
     #region GetFinalsStats
@@ -218,7 +217,7 @@ public class Stats : NetworkBehaviour
         damageReductionInPercent = 0;
     }
 
-    private void ComputeFinalStats()
+    public void ComputeFinalStats()
     {
         finalStats = currentStats + bonusStats;
     }
@@ -228,8 +227,19 @@ public class Stats : NetworkBehaviour
     public void Subscribe(HealthChanged callBack)
     {
         OnHealthChanged += callBack;
-        callBack(GetHealth());
+        ComputeFinalStats();
+        OnHealthChanged(finalStats.health, finalStats.maxHealth);
+    }
+
+    public void Subscribe(DamageReceived callBack)
+    {
+        OnDamageReceived += callBack;
     }
     #endregion
+
+    public override string ToString()
+    {
+        return finalStats.ToString();
+    }
 }
 
