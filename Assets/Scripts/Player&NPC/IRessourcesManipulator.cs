@@ -7,8 +7,8 @@ interface IRessourcesManipulator
 {
 
 
-    int CurrentRessourceValue{ get; }
-    int MaxRessourceValue{ get; }
+    float CurrentRessourceValue{ get; }
+    float MaxRessourceValue{ get; }
 
 }
 

@@ -4,12 +4,21 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(Stats))]
-public class MageAttack : PlayerAttack {
+public class MageAttack : PlayerAttack, IRessourcesManipulator
+{
 
     public float increasingPassifPercentage;
     public float burstPassif = 0;
-    private const int burstMaxPassif = 100;
-   
+    public int burstMaxPassif = 100;
+
+    void Start()
+    {
+        base.Start();
+        if (isLocalPlayer)
+        {
+            UIManager.instance.UpdateResourceBar(CurrentRessourceValue, MaxRessourceValue);
+        }
+    }
     void BurstBehaviour(float damageDealt)
     {
         burstPassif += damageDealt * Constants.BURST_PASSIF_MULTIPLICATEUR;
@@ -49,7 +58,6 @@ public class MageAttack : PlayerAttack {
 
             if (ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && burstPassif >= burstMaxPassif)
             {
-                burstPassif = 0;
                 StartCoroutine(skills[3].Cast());
             }
         }
@@ -58,6 +66,22 @@ public class MageAttack : PlayerAttack {
     [HideInInspector]
     [SyncVar]
     public bool isOnUlt = false;
+
+    public float CurrentRessourceValue
+    {
+        get
+        {
+            return burstPassif;
+        }
+    }
+
+    public float MaxRessourceValue
+    {
+        get
+        {
+            return burstMaxPassif;
+        }
+    }
     public void AddBurstPassif (float damage)
     {
         if(!isOnUlt)

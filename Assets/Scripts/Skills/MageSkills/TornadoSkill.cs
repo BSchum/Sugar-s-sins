@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class TornadoSkill : Skill {
+    public Camera cam;
 
     public override bool CanCast()
     {
@@ -12,7 +13,9 @@ public class TornadoSkill : Skill {
 
     public override IEnumerator Cast()
     {
-        Ray ray = new Ray(transform.position, transform.GetChild(0).transform.forward);
+        StartCoroutine(ProcessCoolDown());
+
+        Ray ray = new Ray(transform.position, cam.transform.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {

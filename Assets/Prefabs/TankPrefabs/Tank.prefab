@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4162772006243282}
   - component: {fileID: 212492280768454704}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: PlayerIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 223061650342186982}
   - component: {fileID: 114908781545890536}
   - component: {fileID: 114315153989084328}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1335
+    m_Bits: 8247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -472,7 +472,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 12288
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 31d991e6380eedb47823e2aeace86004, type: 2}
   m_TargetDisplay: 0
@@ -609,6 +609,7 @@ MonoBehaviour:
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
+  skillProjectile: {fileID: 0}
   isOnCooldown: 0
   cooldown: 1
   internalCD: 0
@@ -753,6 +754,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damage: 10
+    lifeSteal: 0
   currentStats:
     power: 10
     defense: 10
@@ -760,6 +762,7 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     damage: 10
+    lifeSteal: 0
   damageReductionInPercent: 0
 --- !u!114 &114525149153911434
 MonoBehaviour:
@@ -862,6 +865,7 @@ MonoBehaviour:
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
+  skillProjectile: {fileID: 0}
   isOnCooldown: 0
   cooldown: 5
   internalCD: 0

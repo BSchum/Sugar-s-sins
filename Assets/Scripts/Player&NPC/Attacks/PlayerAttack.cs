@@ -17,7 +17,6 @@ public class PlayerAttack : PlayerScript, IBuffable {
     #region Unity's methods
     public void Start()
     {
-        this.gameObject.name = "Tank " + Random.Range(0, 10000);
         Initialize();
         weapon = GetComponentInChildren<Weapon>();
         stats = GetComponent<Stats>();

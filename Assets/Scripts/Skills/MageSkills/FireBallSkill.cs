@@ -6,7 +6,6 @@ using UnityEngine.Networking;
 public class FireBallSkill : Skill {
 
     private float castTime = 0;
-    
     private GameObject fireBall = null;
     private GameObject[] fireBalls = new GameObject[3];
     public AnimationCurve fireBallScale;
@@ -23,7 +22,7 @@ public class FireBallSkill : Skill {
     bool fireBallSpawned = false;
     public override IEnumerator Cast()
     {
-        if(!fireBallSpawned)
+        if (!fireBallSpawned)
         {
             fireBallSpawned = true;
             CmdSpawnProjectile();
@@ -138,6 +137,6 @@ public class FireBallSkill : Skill {
 
     public override bool HasRessource()
     {
-        return castTime > 0;
+        return true;
     }
 }

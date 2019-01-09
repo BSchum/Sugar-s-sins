@@ -12,6 +12,7 @@ public abstract class MotorBase
 
     protected void MoveEntity(Vector3 movement, float speed)
     {
+        Debug.Log(movement);
         entity.transform.Translate(new Vector3(movement.x * Time.deltaTime * speed, 0, movement.z * Time.deltaTime * speed));
     }
 }

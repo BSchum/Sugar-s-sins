@@ -71,7 +71,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224009840217248160}
-  - component: {fileID: 114071831715837294}
   m_Layer: 0
   m_Name: SingleCharacter
   m_TagString: Untagged
@@ -79,18 +78,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114071831715837294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1810064045684120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556137a6f5608094e90d769722577212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3, type: 2}
 --- !u!114 &114197954181219816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +150,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114071831715837294}
+      - m_Target: {fileID: 0}
         m_MethodName: ChooseCharacter
         m_Mode: 1
         m_Arguments:

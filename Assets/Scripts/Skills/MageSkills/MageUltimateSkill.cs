@@ -10,11 +10,16 @@ public class MageUltimateSkill : Skill {
 
     public override bool HasRessource()
     {
-        return true;
+        MageAttack mage = GetComponent<MageAttack>();
+        return mage.burstPassif >= cost;
     }
 
     public override IEnumerator Cast()
     {
+        StartCoroutine(ProcessCoolDown());
+
+        GetComponent<MageAttack>().burstPassif -= cost;
+
         CmdBuff();
 
         yield return null;

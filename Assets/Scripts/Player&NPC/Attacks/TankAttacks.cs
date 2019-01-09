@@ -13,7 +13,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
 
     int gelatinStackRatio = 1;
 
-    public int CurrentRessourceValue
+    public float CurrentRessourceValue
     {
         get
         {
@@ -21,7 +21,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
         }
     }
 
-    public int MaxRessourceValue {
+    public float MaxRessourceValue {
         get
         {
             return maxGelatinStack;
@@ -34,7 +34,6 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
     #region Unity's method
     public void Start()
     {
-        Debug.Log(CharaterManager.choosedCharacter);
         base.Start();
         if (isLocalPlayer)
         {

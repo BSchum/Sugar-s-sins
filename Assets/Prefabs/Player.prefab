@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4217135071500210}
   - component: {fileID: 20262523477209578}
   - component: {fileID: 81805526449744528}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MinimapCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,6 +368,7 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
     damage: 0
+    lifeSteal: 0
   currentStats:
     power: 0
     defense: 0
@@ -375,6 +376,7 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
     damage: 0
+    lifeSteal: 0
   damageReductionInPercent: 0
 --- !u!114 &114321991176077994
 MonoBehaviour:
