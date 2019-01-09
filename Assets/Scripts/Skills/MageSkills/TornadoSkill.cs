@@ -26,14 +26,14 @@ public class TornadoSkill : Skill {
     void CmdSpawnProjectile (Vector3 pos)
     {
         GameObject newTornado = Instantiate(skillProjectile.gameObject, pos, Quaternion.Euler(transform.forward));
-        NetworkServer.Spawn(newTornado);
+        
         TornadoProjectile tornadoProjectile = newTornado.GetComponent<TornadoProjectile>();
         tornadoProjectile.source = this.gameObject;
 
         MageAttack mage = GetComponent<MageAttack>();
         if (mage.isOnUlt)
         {
-            tornadoProjectile.speedBonus *= 1.5f;
+            tornadoProjectile.bonusSpeed *= 1.5f;
             tornadoProjectile.attractForce *= 2f;
         }
 

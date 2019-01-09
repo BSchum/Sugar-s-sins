@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TornadoProjectile : SkillProjectile {
 
+    public bool drawAttractSphere;
+    public Color attractSphereColor;
     public float rotateSpeed = 20f;
     public float attractForce;
-    public float speedBonus;
+    public float attractRange;
 
-    List<GameObject> attractedObjects = new List<GameObject>();
+    public bool drawSpeedSphere;
+    public Color speedSphereColor;
+    public float bonusSpeed;
+    public float bonusRange;
 
     public override void Initiate ()
     {
@@ -23,12 +29,12 @@ public class TornadoProjectile : SkillProjectile {
 
         while (spawnTime > 0)
         {
-            transform.position += transform.forward * speed;
+            //transform.position += transform.forward * speed;
             transform.Rotate(Vector3.up * (rotateSpeed /** (movingForward ? 1 : -1)*/ / lifeTime));
 
             spawnTime -= Time.deltaTime;
 
-            movingForward = spawnTime < lifeTime / 2 ? false : true;
+            //movingForward = spawnTime < lifeTime / 2 ? false : true;
 
             Attracts();
 
@@ -40,40 +46,46 @@ public class TornadoProjectile : SkillProjectile {
 
     void Attracts ()
     {
-        foreach (GameObject attractedObject in attractedObjects)
-        {
-            if(attractedObject.tag == "Enemy" || attractedObject.tag == "EnemyProjectile")
+       Collider[] colliders = Physics.OverlapSphere(transform.position, attractRange);
+       foreach (Collider c in colliders)
+       {
+            if (c.tag == "Enemy" || c.tag == "EnemyProjectile")
             {
-                Vector3 dir = (transform.position - attractedObject.transform.position) * attractForce * Time.deltaTime;
+                Vector3 dir = (transform.position - c.transform.position) * attractForce * Time.deltaTime;
 
-                attractedObject.transform.position += dir;
+                c.transform.position += dir;
             }
-            else if (attractedObject.tag == "Player")
-            {
-                attractedObject.GetComponent<Rigidbody>().velocity *= speedBonus;
-            }
-        }
+       }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyProjectile" || other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            if (!attractedObjects.Contains(other.gameObject))
-            {
-                attractedObjects.Add(other.gameObject);
-            }
+            other.GetComponent<Rigidbody>().velocity += Vector3.one * bonusSpeed;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyProjectile" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if (!attractedObjects.Contains(other.gameObject))
-            {
-                attractedObjects.Add(other.gameObject);
-            }
+            other.GetComponent<Rigidbody>().velocity -= Vector3.one * bonusSpeed;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (drawAttractSphere)
+        {
+            Gizmos.color = attractSphereColor;
+            Gizmos.DrawWireSphere(transform.position, attractRange);
+        }
+        if(drawSpeedSphere)
+        {
+            Gizmos.color = speedSphereColor;
+            Gizmos.DrawWireSphere(transform.position, bonusRange);
+        }
+        
     }
 }

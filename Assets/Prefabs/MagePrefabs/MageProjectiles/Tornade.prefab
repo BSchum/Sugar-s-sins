@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 114391690437132472}
   - component: {fileID: 114340487448961632}
   - component: {fileID: 114680329911139762}
-  - component: {fileID: 135999414102322896}
   m_Layer: 0
   m_Name: Tornade
   m_TagString: AlliedProjectile
@@ -161,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950900534816228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9809303, y: 1.09, z: -12.59436}
+  m_LocalPosition: {x: 0.8333564, y: 1.18, z: -17.16357}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4899846962533810}
@@ -476,18 +475,12 @@ MonoBehaviour:
   damage: 0
   lifeTime: 5
   source: {fileID: 0}
+  drawAttractSphere: 0
+  attractSphereColor: {r: 1, g: 1, b: 1, a: 1}
   rotateSpeed: 20
   attractForce: 1
-  speedBonus: 1.5
---- !u!135 &135999414102322896
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1950900534816228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
+  attractRange: 3
+  drawSpeedSphere: 0
+  speedSphereColor: {r: 1, g: 0, b: 0, a: 1}
+  bonusSpeed: 10
+  bonusRange: 5

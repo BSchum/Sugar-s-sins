@@ -25,8 +25,11 @@ public class FireWallSkill : Skill {
     [Command]
     void CmdSpawnProjectile(Vector3 pos)
     {
-        GameObject newFireWall = Instantiate(skillProjectile.gameObject, pos, transform.rotation);
-        NetworkServer.Spawn(newFireWall);
+        GameObject newFireWall = Instantiate(skillProjectile.gameObject, pos, Quaternion.identity);
+        Vector3 fireWallPos = transform.position;
+        fireWallPos.y = newFireWall.transform.position.y;
+        newFireWall.transform.LookAt(fireWallPos);
+       
         FireWallProjectile fireWallProjectile = newFireWall.GetComponent<FireWallProjectile>();
         fireWallProjectile.source = this.gameObject;
 
