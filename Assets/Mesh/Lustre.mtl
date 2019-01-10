@@ -1,0 +1,14 @@
+newmtl ExtrusiFBXASC195FBXASC179n_Cubo_Cubo_Cubo_CuboSG
+illum 4
+Kd 0.80 0.80 0.80
+Ka 0.00 0.00 0.00
+Tf 0.08 0.07 0.00
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 48.00
+newmtl initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00

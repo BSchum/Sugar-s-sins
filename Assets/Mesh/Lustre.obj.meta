@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 9c4ac585e96ace846b6df73c9017f608
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Lustre_pCylinder1
+    100004: Lustre_pCylinder10
+    100006: Lustre_pCylinder11
+    100008: Lustre_pCylinder12
+    100010: Lustre_pCylinder13
+    100012: Lustre_pCylinder14
+    100014: Lustre_pCylinder15
+    100016: Lustre_pCylinder16
+    100018: Lustre_pCylinder17
+    100020: Lustre_pCylinder18
+    100022: Lustre_pCylinder2
+    100024: Lustre_pCylinder3
+    100026: Lustre_pCylinder4
+    100028: Lustre_pCylinder5
+    100030: Lustre_pCylinder6
+    100032: Lustre_pCylinder7
+    100034: Lustre_pCylinder8
+    100036: Lustre_pCylinder9
+    100038: pCylinder19_Lustre
+    400000: //RootNode
+    400002: Lustre_pCylinder1
+    400004: Lustre_pCylinder10
+    400006: Lustre_pCylinder11
+    400008: Lustre_pCylinder12
+    400010: Lustre_pCylinder13
+    400012: Lustre_pCylinder14
+    400014: Lustre_pCylinder15
+    400016: Lustre_pCylinder16
+    400018: Lustre_pCylinder17
+    400020: Lustre_pCylinder18
+    400022: Lustre_pCylinder2
+    400024: Lustre_pCylinder3
+    400026: Lustre_pCylinder4
+    400028: Lustre_pCylinder5
+    400030: Lustre_pCylinder6
+    400032: Lustre_pCylinder7
+    400034: Lustre_pCylinder8
+    400036: Lustre_pCylinder9
+    400038: pCylinder19_Lustre
+    2100000: initialShadingGroup
+    2300000: Lustre_pCylinder1
+    2300002: Lustre_pCylinder10
+    2300004: Lustre_pCylinder11
+    2300006: Lustre_pCylinder12
+    2300008: Lustre_pCylinder13
+    2300010: Lustre_pCylinder14
+    2300012: Lustre_pCylinder15
+    2300014: Lustre_pCylinder16
+    2300016: Lustre_pCylinder17
+    2300018: Lustre_pCylinder18
+    2300020: Lustre_pCylinder2
+    2300022: Lustre_pCylinder3
+    2300024: Lustre_pCylinder4
+    2300026: Lustre_pCylinder5
+    2300028: Lustre_pCylinder6
+    2300030: Lustre_pCylinder7
+    2300032: Lustre_pCylinder8
+    2300034: Lustre_pCylinder9
+    2300036: pCylinder19_Lustre
+    3300000: Lustre_pCylinder1
+    3300002: Lustre_pCylinder10
+    3300004: Lustre_pCylinder11
+    3300006: Lustre_pCylinder12
+    3300008: Lustre_pCylinder13
+    3300010: Lustre_pCylinder14
+    3300012: Lustre_pCylinder15
+    3300014: Lustre_pCylinder16
+    3300016: Lustre_pCylinder17
+    3300018: Lustre_pCylinder18
+    3300020: Lustre_pCylinder2
+    3300022: Lustre_pCylinder3
+    3300024: Lustre_pCylinder4
+    3300026: Lustre_pCylinder5
+    3300028: Lustre_pCylinder6
+    3300030: Lustre_pCylinder7
+    3300032: Lustre_pCylinder8
+    3300034: Lustre_pCylinder9
+    3300036: pCylinder19_Lustre
+    4300000: Lustre_pCylinder1
+    4300002: Lustre_pCylinder10
+    4300004: Lustre_pCylinder11
+    4300006: Lustre_pCylinder12
+    4300008: Lustre_pCylinder13
+    4300010: Lustre_pCylinder14
+    4300012: Lustre_pCylinder15
+    4300014: Lustre_pCylinder16
+    4300016: Lustre_pCylinder17
+    4300018: Lustre_pCylinder18
+    4300020: Lustre_pCylinder2
+    4300022: Lustre_pCylinder3
+    4300024: Lustre_pCylinder4
+    4300026: Lustre_pCylinder5
+    4300028: Lustre_pCylinder6
+    4300030: Lustre_pCylinder7
+    4300032: Lustre_pCylinder8
+    4300034: Lustre_pCylinder9
+    4300036: pCylinder19_Lustre
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
