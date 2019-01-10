@@ -17,17 +17,6 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
 
     public virtual void Initiate()
     {
-        SpawnOnServer();
-    }
-
-    public virtual void SpawnOnServer()
-    {
-        NetworkServer.Spawn(this.gameObject);
-    }
-
-    public virtual void ProjectileBehav ()
-    {
-
     }
 
     public virtual void Throw ()

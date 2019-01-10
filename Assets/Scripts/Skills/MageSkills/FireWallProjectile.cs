@@ -25,6 +25,7 @@ public class FireWallProjectile : SkillProjectile {
     {
         if(other.gameObject.tag == "EnemyProjectile")
         {
+            Debug.Log("Enemy Projectile");
             if(upgraded)
             {
                 Destroy(other.gameObject);
@@ -36,6 +37,8 @@ public class FireWallProjectile : SkillProjectile {
         }
         else if (other.gameObject.tag == "AlliedProjectile")
         {
+            Debug.Log("Allied Projectile");
+
             other.GetComponent<Rigidbody>().velocity *= increasingSpeed;
         }
     }
