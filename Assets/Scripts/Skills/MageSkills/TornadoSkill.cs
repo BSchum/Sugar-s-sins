@@ -42,7 +42,7 @@ public class TornadoSkill : Skill {
 
         tornadoProjectile.Initiate();
 
-        ProcessCoolDown();
+        StartCoroutine(ProcessCoolDown());
     }
 
     public override bool HasRessource()

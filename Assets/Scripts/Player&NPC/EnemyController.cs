@@ -21,7 +21,7 @@ public class EnemyController : NetworkBehaviour {
         var sortedSources = sources.OrderByDescending(c => c.Value);
         currentTarget = sortedSources.FirstOrDefault().Key;
         GameObject go = GameObject.Find("ThreathDebug");
-        go.GetComponent<Text>().text = ToString();
+        //go.GetComponent<Text>().text = ToString();
     }
     #endregion
     #region ThreatSystem

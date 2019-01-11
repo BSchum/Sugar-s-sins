@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class FireBallSkill : Skill {
-
+    
     private float castTime = 0;
     private GameObject fireBall = null;
     private GameObject[] fireBalls = new GameObject[3];
@@ -29,32 +29,37 @@ public class FireBallSkill : Skill {
         }
         else
         {
-            float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
-            Vector3 newScale = Vector3.one * fireBallScale.Evaluate((castTime / maxCastTime) * maxTime);
-            CmdIncreaseFireBall(newScale);
+            CmdIncreaseFireBall();
         }
 
-        castTime += 1 * Time.deltaTime;
-        
-        if(castTime > maxCastTime)
-        {
-            castTime = maxCastTime;
-        }
+        CmdIncreaseCastTime();
 
         yield return null;
     }
 
     [Command]
-    public void CmdReleaseFireBall()
+    private void CmdIncreaseCastTime ()
     {
-        RpcReleaseFireBall();
+        castTime += 1 * Time.deltaTime;
+
+        if (castTime > maxCastTime)
+        {
+            castTime = maxCastTime;
+        }
     }
 
+    [Command]
+    public void CmdReleaseFireBall()
+    {
+        RpcReleaseFireBall(castTime);
+    }
+    
+    float bonusSpeed;
     [ClientRpc]
-    public void RpcReleaseFireBall()
+    public void RpcReleaseFireBall(float cast)
     {
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
-        float bonusSpeed = fireBallSpeed.Evaluate((castTime / maxCastTime) * maxTime);
+        bonusSpeed = fireBallSpeed.Evaluate((cast / maxCastTime) * maxTime);
 
         if(castedAsUlt)
         {
@@ -82,33 +87,35 @@ public class FireBallSkill : Skill {
 
         fireBallSpawned = false;
         castTime = 0;
+        StartCoroutine(ProcessCoolDown());
     }
 
-    [SyncVar(hook = "IncreaseFireBall")] private Vector3 scale;
+    private Vector3 scale;
     [Command]
-    void CmdIncreaseFireBall (Vector3 newScale)
+    void CmdIncreaseFireBall ()
     {
-        scale = newScale;
+        float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
+        scale = Vector3.one * fireBallScale.Evaluate((castTime / maxCastTime) * maxTime);
+        RpcIncreaseFireBall(scale);
     }
 
-    private void IncreaseFireBall (Vector3 s)
+    [ClientRpc]
+    private void RpcIncreaseFireBall (Vector3 newScale)
     {
-        if(castedAsUlt)
+        if (castedAsUlt)
         {
             if (fireBall != null)
             {
-                this.scale = s;
-                fireBall.transform.localScale = s;
+                fireBall.transform.localScale = newScale;
             }
         }
         else
         {
             if (fireBalls[0] != null && fireBalls[1] != null  && fireBalls[2] != null)
             {
-                this.scale = s;
-                fireBalls[0].transform.localScale = s;
-                fireBalls[1].transform.localScale = s;
-                fireBalls[2].transform.localScale = s;
+                fireBalls[0].transform.localScale = newScale;
+                fireBalls[1].transform.localScale = newScale;
+                fireBalls[2].transform.localScale = newScale;
             }
         }
     }

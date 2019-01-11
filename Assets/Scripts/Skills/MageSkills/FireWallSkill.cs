@@ -43,7 +43,7 @@ public class FireWallSkill : Skill {
 
         fireWallProjectile.Initiate();
 
-        ProcessCoolDown();
+        StartCoroutine(ProcessCoolDown());
     }
 
 

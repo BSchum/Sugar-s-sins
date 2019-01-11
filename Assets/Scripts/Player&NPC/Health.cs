@@ -21,7 +21,7 @@ public class Health : NetworkBehaviour {
     [ClientRpc]
     public void RpcTakeDamage(float amount)
     {
-        Debug.Log("Je prend -" + amount + "de degats");
+        //Debug.Log("Je prend -" + amount + "de degats");
         this.stats.TakeDamage(-amount * (1 - (this.stats.damageReductionInPercent / 100)));
         if (this.stats.GetHealth() <= 0)
         {
