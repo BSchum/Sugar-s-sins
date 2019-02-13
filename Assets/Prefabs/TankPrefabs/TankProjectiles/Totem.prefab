@@ -280,10 +280,12 @@ MonoBehaviour:
   damage: 0
   lifeTime: 10
   source: {fileID: 0}
+  isMoltable: 1
   gelatinStacksAmount: 1
   gelatinStacksRate: 1
   attackRate: 1
   range: 20
+  lighting: 0
 --- !u!114 &114667763590301368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,6 +336,7 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
     damage: 0
+    lifeSteal: 0
   currentStats:
     power: 0
     defense: 0
@@ -341,6 +344,7 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
     damage: 0
+    lifeSteal: 0
   damageReductionInPercent: 0
 --- !u!136 &136889632415082692
 CapsuleCollider:

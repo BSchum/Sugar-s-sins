@@ -11,6 +11,23 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1409659851575592}
   m_IsPrefabAsset: 1
+--- !u!1 &1033688122690436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4397928900166684}
+  - component: {fileID: 119194862868450404}
+  - component: {fileID: 114735035975630644}
+  m_Layer: 0
+  m_Name: TargetProjector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1069378929556064
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,7 +57,7 @@ GameObject:
   - component: {fileID: 81750442925902604}
   m_Layer: 0
   m_Name: PlayerCam
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,13 +309,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409659851575592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.073357, y: 2.31, z: -6.4441214}
+  m_LocalPosition: {x: -8.052909, y: 2.06, z: -11.116016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4391047400313620}
   - {fileID: 4535867224758364}
   - {fileID: 4632458161090794}
   - {fileID: 224118766584985418}
+  - {fileID: 4397928900166684}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -331,6 +349,19 @@ Transform:
   m_Father: {fileID: 4278366710529408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4397928900166684
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033688122690436}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 5.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4278366710529408}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4535867224758364
 Transform:
   m_ObjectHideFlags: 1
@@ -562,10 +593,14 @@ MonoBehaviour:
   artwork: {fileID: 0}
   cost: 0
   threat: 0
+  isMeltable: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
+  useProjectors: 1
+  area: {fileID: 2100000, guid: a11b0ddfac3b6da4c89997be71ecb6ef, type: 2}
+  hasProjected: 0
   skillProjectile: {fileID: 114680329911139762, guid: 713f97027f6bed949a93c132ac6a8031,
     type: 2}
   isOnCooldown: 0
@@ -584,8 +619,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fd464fb0c05364680b4d04583bcd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projector: {fileID: 114735035975630644}
   increasingPassifPercentage: 0.3
   burstPassif: 0
+  burstMaxPassif: 100
   isOnUlt: 0
 --- !u!114 &114241701250308558
 MonoBehaviour:
@@ -654,10 +691,14 @@ MonoBehaviour:
   artwork: {fileID: 0}
   cost: 0
   threat: 0
+  isMeltable: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
+  useProjectors: 1
+  area: {fileID: 2100000, guid: f41fe725c668aab4aaebd2a1c4fd7a55, type: 2}
+  hasProjected: 0
   skillProjectile: {fileID: 114024248576147586, guid: 55ebd242f004d974780340a13b5b56b9,
     type: 2}
   isOnCooldown: 0
@@ -718,16 +759,19 @@ MonoBehaviour:
   artwork: {fileID: 0}
   cost: 0
   threat: 0
+  isMeltable: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 0
+  useProjectors: 0
+  area: {fileID: 0}
+  hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
   cooldown: 20
   internalCD: 0
   source: {fileID: 0}
-  cam: {fileID: 0}
   lifeSteal: 0.3
   duration: 6
 --- !u!114 &114665938490624712
@@ -760,6 +804,20 @@ MonoBehaviour:
   weaponPrefab: {fileID: 1800633372837704, guid: d1b43d83e0c74614d8441f95958afd89,
     type: 2}
   weaponHolder: {fileID: 0}
+--- !u!114 &114735035975630644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033688122690436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56135492d20f5da45bb77cf5b4079fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 114209995211769546}
+  cam: {fileID: 20546570432858572}
+  distance: 5
 --- !u!114 &114788059250554548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -817,17 +875,20 @@ MonoBehaviour:
   artwork: {fileID: 0}
   cost: 0
   threat: 0
+  isMeltable: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0
   maxCastTime: 3
+  useProjectors: 0
+  area: {fileID: 0}
+  hasProjected: 0
   skillProjectile: {fileID: 114367465571509712, guid: 9bac76ff70a904448be892eaf599e7b0,
     type: 2}
   isOnCooldown: 0
   cooldown: 0
   internalCD: 0
   source: {fileID: 0}
-  cam: {fileID: 20546570432858572}
   fireBallScale:
     serializedVersion: 2
     m_Curve:
@@ -881,6 +942,24 @@ MonoBehaviour:
   - {fileID: 4313834269023398}
   - {fileID: 4736586167765918}
   - {fileID: 4196887766446318}
+--- !u!119 &119194862868450404
+Projector:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033688122690436}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_NearClipPlane: 1.09
+  m_FarClipPlane: 50
+  m_FieldOfView: 30
+  m_AspectRatio: 1
+  m_Orthographic: 0
+  m_OrthographicSize: 2
+  m_Material: {fileID: 2100000, guid: a11b0ddfac3b6da4c89997be71ecb6ef, type: 2}
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!136 &136127375141537656
 CapsuleCollider:
   m_ObjectHideFlags: 1

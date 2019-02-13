@@ -10,6 +10,8 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
     public GameObject source;
     protected List<Buff> buffs = new List<Buff>();
 
+    public bool isMoltable;
+
     public void DieAfterLifeTime()
     {
         Destroy(this.gameObject, lifeTime);

@@ -13,6 +13,9 @@ public class PlayerAttack : PlayerScript, IBuffable {
     protected List<Buff> buffs = new List<Buff>();
     public RessourceChanged OnRessourceChanged;
 
+    public Projectors projector;
+    protected string skillProjector;
+
 
     #region Unity's methods
     public void Start()

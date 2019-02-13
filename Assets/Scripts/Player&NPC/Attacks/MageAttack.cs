@@ -48,17 +48,47 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
 
             if (ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown)
             {
-                StartCoroutine(skills[1].Cast());
+                if (skills[1].useProjectors && skillProjector != skills[1].ToString() || !projector.gameObject.activeSelf)
+                {
+                    skillProjector = skills[1].ToString();
+                    projector.gameObject.SetActive(true);
+                    projector.SetProjector(skills[1]);
+                }
+                else
+                {
+                    projector.gameObject.SetActive(false);
+                    StartCoroutine(skills[1].Cast());
+                }
             }
 
             if (ih.ThirdSkill() && skills[2].CanCast() && !skills[2].isOnCooldown)
             {
-                StartCoroutine(skills[2].Cast());
+                if (skills[1].useProjectors && skillProjector != skills[2].ToString() || !projector.gameObject.activeSelf)
+                {
+                    skillProjector = skills[2].ToString();
+                    projector.gameObject.SetActive(true);
+                    projector.SetProjector(skills[2]);
+                }
+                else
+                {
+                    projector.gameObject.SetActive(false);
+                    StartCoroutine(skills[2].Cast());
+                }
             }
 
             if (ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && burstPassif >= burstMaxPassif)
             {
-                StartCoroutine(skills[3].Cast());
+                if (skills[1].useProjectors && skillProjector != skills[3].ToString() || !projector.gameObject.activeSelf)
+                {
+                    skillProjector = skills[3].ToString();
+                    projector.gameObject.SetActive(true);
+                    projector.SetProjector(skills[3]);
+                }
+                else
+                {
+                    projector.gameObject.SetActive(false);
+                    StartCoroutine(skills[3].Cast());
+                }
             }
         }
     }

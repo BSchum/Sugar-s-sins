@@ -8,12 +8,19 @@ public abstract class Skill : NetworkBehaviour {
     public float cost;
     public float threat;
 
+    public bool isMeltable;
+
     [HideInInspector]
     public bool canCast = true;
     [SerializeField]
     protected bool isCasting = false;
     public float minCastTime = 0;
     public float maxCastTime;
+
+    public bool useProjectors;
+    public Material area;
+    [HideInInspector]
+    public bool hasProjected;
     public SkillProjectile skillProjectile;
 
     protected float castStartTime;
@@ -24,7 +31,6 @@ public abstract class Skill : NetworkBehaviour {
     public float internalCD;
     [HideInInspector]
     public GameObject source;
-
 
     float startProcessCoolDown;
     public virtual bool CanCast()
@@ -44,6 +50,10 @@ public abstract class Skill : NetworkBehaviour {
 
     }
 
+    public void CastProjector ()
+    {
+        
+    }
 
     InputHandlerBuilder builder;
     protected InputHandler ih;

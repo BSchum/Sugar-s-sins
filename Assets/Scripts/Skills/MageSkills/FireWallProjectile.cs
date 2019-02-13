@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class FireWallProjectile : SkillProjectile {
 
@@ -38,5 +39,16 @@ public class FireWallProjectile : SkillProjectile {
         {
             other.GetComponent<Rigidbody>().velocity *= increasingSpeed;
         }
+
+        if(other.GetComponent<SkillProjectile>().isMoltable)
+        {
+            Debug.Log("fusion");
+        }
+    }
+
+    [Command]
+    private void CmdTest()
+    {
+        Debug.Log("ON SERVER");
     }
 }
