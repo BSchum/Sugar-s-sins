@@ -33,7 +33,7 @@ public class ChargeSkill : Skill, IThreatable {
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.transform.tag == Constants.ENEMY_TAG)
+        if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == "Boss")
         {
             Debug.Log("Colliding with "+ other.gameObject.name);
             CmdDealChargeDamage(other.gameObject);
@@ -54,6 +54,7 @@ public class ChargeSkill : Skill, IThreatable {
 
     public void GenerateThreat(EnemyController enemy)
     {
+        Debug.Log("Je prend de la menace");
         enemy.AddThreatFor(this.gameObject, threat);
     }
 }

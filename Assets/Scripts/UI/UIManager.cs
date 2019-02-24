@@ -52,7 +52,6 @@ public class UIManager : MonoBehaviour {
         stats.Subscribe(cb);
     }
 
-
     public void UpdatePlayerHealthBar(float value, float maxValue)
     {
         playerHealthBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
@@ -77,7 +76,6 @@ public class UIManager : MonoBehaviour {
     #region UI Skills system
     public void AddSkills(List<Skill> skills)
     {
-        //TODO Add all skill to UI
         this.skills = skills;
         uiSkills = new List<GameObject>();
         foreach (Skill skill in skills)

@@ -139,16 +139,16 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
         skillUI.text = skilltext;
 
         //BUFFS
-        Text BuffUI = GameObject.Find("BuffDebug").GetComponent<Text>();
-        string bufftext = "";
-        int i = 0;
-        foreach (Buff buff in buffs)
-        {
-            bufftext += "\n"+gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType();
-            i++;
-        }
+        //Text BuffUI = GameObject.Find("BuffDebug").GetComponent<Text>();
+        //string bufftext = "";
+        //int i = 0;
+        //foreach (Buff buff in buffs)
+        //{
+        //    bufftext += "\n"+gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType();
+        //    i++;
+        //}
 
-        BuffUI.text = bufftext;
+        //BuffUI.text = bufftext;
 
 
     }
