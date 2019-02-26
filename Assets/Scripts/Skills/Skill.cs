@@ -8,8 +8,6 @@ public abstract class Skill : NetworkBehaviour {
     public float cost;
     public float threat;
 
-    public bool isMeltable;
-
     [HideInInspector]
     public bool canCast = true;
     [SerializeField]
