@@ -22,8 +22,9 @@ public class FireWallProjectile : SkillProjectile {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
         if(other.gameObject.tag == "EnemyProjectile")
         {
             if(upgraded)
@@ -39,23 +40,5 @@ public class FireWallProjectile : SkillProjectile {
         {
             other.GetComponent<Rigidbody>().velocity *= increasingSpeed;
         }
-
-        var projectile = other.GetComponent<SkillProjectile>();
-        if (projectile != null && projectile.isMoltable)
-        {
-            Test();
-        }
-    }
-
-    private void Test()
-    {
-        if(!isServer)
-            Debug.Log("ON SERVER");
-    }
-
-    [ClientRpc]
-    private void RpcTest()
-    {
-        Debug.Log("ON CLIENT");
     }
 }
