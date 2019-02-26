@@ -40,15 +40,22 @@ public class FireWallProjectile : SkillProjectile {
             other.GetComponent<Rigidbody>().velocity *= increasingSpeed;
         }
 
-        if(other.GetComponent<SkillProjectile>().isMoltable)
+        var projectile = other.GetComponent<SkillProjectile>();
+        if (projectile != null && projectile.isMoltable)
         {
-            Debug.Log("fusion");
+            Test();
         }
     }
 
-    [Command]
-    private void CmdTest()
+    private void Test()
     {
-        Debug.Log("ON SERVER");
+        if(!isServer)
+            Debug.Log("ON SERVER");
+    }
+
+    [ClientRpc]
+    private void RpcTest()
+    {
+        Debug.Log("ON CLIENT");
     }
 }

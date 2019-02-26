@@ -8,6 +8,9 @@ public class Projectors : MonoBehaviour {
     public PlayerAttack player;
     public Camera cam;
 
+    //[HideInInspector]
+    public Skill skill;
+
     public float distance = 5;
 
     private void Awake()
@@ -16,9 +19,11 @@ public class Projectors : MonoBehaviour {
     }
     
     void Update () {
-		if(Input.GetKeyDown(KeyCode.Mouse1))
+		if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            gameObject.SetActive(false);
+            StartCoroutine(skill.Cast());
+            skill = null;
+            this.gameObject.SetActive(false);
         }
         
         RaycastHit hit;
@@ -34,6 +39,7 @@ public class Projectors : MonoBehaviour {
 
     public void SetProjector (Skill skill)
     {
+        this.skill = skill;
         projector.material = skill.area;
     }
 }

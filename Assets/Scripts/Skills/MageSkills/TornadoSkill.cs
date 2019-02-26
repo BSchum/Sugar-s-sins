@@ -15,13 +15,13 @@ public class TornadoSkill : Skill {
     {
         StartCoroutine(ProcessCoolDown());
 
-        Ray ray = new Ray(transform.position, cam.transform.forward);
         RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
             CmdSpawnProjectile(hit.point);
         }
-        
+
         yield return null;
     }
 

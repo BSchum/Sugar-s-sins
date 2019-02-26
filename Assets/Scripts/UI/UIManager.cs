@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour {
 
     internal void Subscribe(Stats stats)
     {
-        Debug.Log("Je subscribe");
         HealthChanged cb = UpdateHealthBar;
         stats.Subscribe(cb);
     }

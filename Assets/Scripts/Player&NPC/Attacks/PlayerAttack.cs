@@ -14,8 +14,6 @@ public class PlayerAttack : PlayerScript, IBuffable {
     public RessourceChanged OnRessourceChanged;
 
     public Projectors projector;
-    protected string skillProjector;
-
 
     #region Unity's methods
     public void Start()

@@ -6,7 +6,6 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(Stats))]
 public class MageAttack : PlayerAttack, IRessourcesManipulator
 {
-
     public float increasingPassifPercentage;
     public float burstPassif = 0;
     public int burstMaxPassif = 100;
@@ -48,47 +47,47 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
 
             if (ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown)
             {
-                if (skills[1].useProjectors && skillProjector != skills[1].ToString() || !projector.gameObject.activeSelf)
+                if (skills[1].useProjectors)
                 {
-                    skillProjector = skills[1].ToString();
-                    projector.gameObject.SetActive(true);
-                    projector.SetProjector(skills[1]);
+                    if(!projector.gameObject.activeSelf || projector.skill != skills[1])
+                    {
+                        projector.gameObject.SetActive(true);
+                        projector.SetProjector(skills[1]);
+                    }
+                    else
+                    {
+                        projector.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
-                    projector.gameObject.SetActive(false);
                     StartCoroutine(skills[1].Cast());
                 }
             }
 
             if (ih.ThirdSkill() && skills[2].CanCast() && !skills[2].isOnCooldown)
             {
-                if (skills[1].useProjectors && skillProjector != skills[2].ToString() || !projector.gameObject.activeSelf)
+                if (skills[2].useProjectors)
                 {
-                    skillProjector = skills[2].ToString();
-                    projector.gameObject.SetActive(true);
-                    projector.SetProjector(skills[2]);
+                    if (!projector.gameObject.activeSelf || projector.skill != skills[2])
+                    {
+                        projector.gameObject.SetActive(true);
+                        projector.SetProjector(skills[2]);
+                    }
+                    else
+                    {
+                        projector.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
-                    projector.gameObject.SetActive(false);
                     StartCoroutine(skills[2].Cast());
                 }
             }
 
             if (ih.Ultimate() && skills[3].CanCast() && !skills[3].isOnCooldown && burstPassif >= burstMaxPassif)
             {
-                if (skills[1].useProjectors && skillProjector != skills[3].ToString() || !projector.gameObject.activeSelf)
-                {
-                    skillProjector = skills[3].ToString();
-                    projector.gameObject.SetActive(true);
-                    projector.SetProjector(skills[3]);
-                }
-                else
-                {
-                    projector.gameObject.SetActive(false);
-                    StartCoroutine(skills[3].Cast());
-                }
+                StartCoroutine(skills[3].Cast());
             }
         }
     }
