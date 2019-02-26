@@ -309,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409659851575592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7881737, y: 0.96830446, z: -16.634937}
+  m_LocalPosition: {x: -8.052909, y: 2.06, z: -11.116016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4391047400313620}
@@ -691,7 +691,7 @@ MonoBehaviour:
   artwork: {fileID: 0}
   cost: 0
   threat: 0
-  isMeltable: 1
+  isMeltable: 0
   canCast: 1
   isCasting: 0
   minCastTime: 0
@@ -817,7 +817,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 114209995211769546}
   cam: {fileID: 20546570432858572}
-  skill: {fileID: 0}
   distance: 5
 --- !u!114 &114788059250554548
 MonoBehaviour:

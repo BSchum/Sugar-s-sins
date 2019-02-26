@@ -60,7 +60,6 @@ public class TornadoProjectile : SkillProjectile {
 
     private void OnTriggerEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
         if(other.gameObject.tag == "Player")
         {
             other.GetComponent<Rigidbody>().velocity += Vector3.one * bonusSpeed;
