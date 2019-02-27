@@ -34,7 +34,7 @@ public class MeltableSkillManager : NetworkBehaviour {
         {
             if((skillOne || skillTwo) == meltableSkill.skillTwo && (skillOne || skillTwo) == meltableSkill.skillTwo)
             {
-                meltableSkill.Merge();
+                meltableSkill.Merge(skillOne, skillTwo);
             }
         }
     } 

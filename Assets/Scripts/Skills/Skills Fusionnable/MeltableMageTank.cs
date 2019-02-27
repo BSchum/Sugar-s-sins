@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class MeltableMageTank : MeltableSkill {
 
-    [Header("Temps en seconde avant l'application des dégats")]
+    [Header("skillOne => totem, skillTwo => fireWall")]
     public float timeToAbsorb;
     public float damage;
     public float range;
 
-    public override void Merge()
+    private GameObject firstSkill;
+    private GameObject secondSkill;
+
+    public override void Merge(GameObject firstSkill, GameObject secondSkill)
     {
+        this.firstSkill = firstSkill;
+        this.secondSkill = secondSkill;
         Invoke("CastDamage", timeToAbsorb);
     }
 
@@ -26,6 +31,8 @@ public class MeltableMageTank : MeltableSkill {
                 enemyStats.TakeDamage(damage);
             }
         }
+
+        Destroy(firstSkill.GetComponent<FireWallProjectile>() != null ? firstSkill.gameObject : secondSkill.gameObject);
     }
 
 }

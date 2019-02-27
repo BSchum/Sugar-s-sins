@@ -37,11 +37,16 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
 
     #region Metlable Skills
     //Add base.OnTriggerEnter(collider) pour les projectiles qui utilisent le trigger enter
+    //Les projectiles doivent avoir 1 collider sur le gameobject ou le script "skillProjectile" est
 
     private Collider lastCollider = null;
     public void OnTriggerEnter (Collider collider)
     {
         var projectile = collider.GetComponent<SkillProjectile>();
+        if(lastCollider != null && lastCollider.name != collider.name)
+        {
+            lastCollider = null;
+        }
         if (projectile != null && lastCollider == null)
         {
             lastCollider = collider;

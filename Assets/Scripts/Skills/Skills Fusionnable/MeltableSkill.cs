@@ -9,5 +9,5 @@ public abstract class MeltableSkill : NetworkBehaviour{
     public SkillProjectile skillOne;
     public SkillProjectile skillTwo;
 
-    public abstract void Merge();
+    public abstract void Merge(GameObject firstSkill, GameObject secondSkill);
 }

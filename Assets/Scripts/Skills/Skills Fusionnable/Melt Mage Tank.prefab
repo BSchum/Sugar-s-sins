@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50310cd93bc8ce04a89ca37db1dff1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillOne: {fileID: 114024248576147586, guid: 55ebd242f004d974780340a13b5b56b9, type: 2}
+  skillOne: {fileID: 114563823203138628, guid: d6c80cacc17c55044bd47d046039be0f, type: 2}
   skillTwo: {fileID: 114680329911139762, guid: 713f97027f6bed949a93c132ac6a8031, type: 2}
   timeToAbsorb: 3
   damage: 10
