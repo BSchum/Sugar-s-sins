@@ -22,12 +22,13 @@ GameObject:
   - component: {fileID: 114024248576147586}
   - component: {fileID: 65293774011112536}
   - component: {fileID: 114276677246331686}
+  - component: {fileID: 54283938915752502}
   m_Layer: 0
   m_Name: FireWall
   m_TagString: AlliedProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1542307232443172
 GameObject:
@@ -45,7 +46,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1965062597414726
 GameObject:
@@ -63,7 +64,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4150757858426848
 Transform:
@@ -98,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346391600227952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4974043, y: 0.96830446, z: -2.1611996}
+  m_LocalPosition: {x: -2.57, y: 0.96830446, z: -9.894428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4197729716437012}
@@ -190,6 +191,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542307232443172}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54283938915752502
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346391600227952}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65054792830563082
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -239,8 +255,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   damage: 0
-  lifeTime: 5
+  lifeTime: 60
   source: {fileID: 0}
+  isMeltable: 1
   reducingSpeed: 0.7
   increasingSpeed: 1.3
   upgraded: 0

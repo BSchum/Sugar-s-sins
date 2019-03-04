@@ -14,10 +14,12 @@ public class FireWallSkill : Skill {
     {
         StartCoroutine(ProcessCoolDown());
 
-        Ray ray = new Ray(transform.position, cam.transform.forward);
         RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
+            source = transform.gameObject;
+
             CmdSpawnProjectile(hit.point);
         }
 
@@ -27,7 +29,7 @@ public class FireWallSkill : Skill {
     [Command]
     void CmdSpawnProjectile(Vector3 pos)
     {
-        GameObject newFireWall = Instantiate(skillProjectile.gameObject, pos, Quaternion.identity);
+        GameObject newFireWall = Instantiate(skillProjectile.gameObject, pos, source.transform.rotation);
         Vector3 fireWallPos = transform.position;
         fireWallPos.y = newFireWall.transform.position.y;
         newFireWall.transform.LookAt(fireWallPos);
@@ -45,6 +47,4 @@ public class FireWallSkill : Skill {
 
         StartCoroutine(ProcessCoolDown());
     }
-
-
 }

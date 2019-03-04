@@ -24,6 +24,21 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
 
     }
 
+    #region Metlable Skills
+    //Add base.OnTriggerEnter(collider) pour les projectiles qui utilisent le trigger enter
+
+    private Collider lastCollider = null;
+    public void OnTriggerEnter (Collider collider)
+    {
+        var projectile = collider.GetComponent<SkillProjectile>();
+        if (projectile != null && lastCollider == null)
+        {
+            lastCollider = collider;
+            MeltableSkillManager.GetSkillMelting(this.gameObject);
+        }
+    }
+    #endregion
+
     #region IBuffable Implementation
     public void AddBuff(Buff buff)
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class FireWallProjectile : SkillProjectile {
 
@@ -21,8 +22,9 @@ public class FireWallProjectile : SkillProjectile {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
         if(other.gameObject.tag == "EnemyProjectile")
         {
             Debug.Log("Enemy Projectile");

@@ -475,6 +475,7 @@ MonoBehaviour:
   damage: 0
   lifeTime: 5
   source: {fileID: 0}
+  isMoltable: 0
   drawAttractSphere: 0
   attractSphereColor: {r: 1, g: 1, b: 1, a: 1}
   rotateSpeed: 20

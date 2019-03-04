@@ -14,6 +14,11 @@ public abstract class Skill : NetworkBehaviour {
     protected bool isCasting = false;
     public float minCastTime = 0;
     public float maxCastTime;
+
+    public bool useProjectors;
+    public Material area;
+    [HideInInspector]
+    public bool hasProjected;
     public SkillProjectile skillProjectile;
 
     protected float castStartTime;
@@ -24,7 +29,6 @@ public abstract class Skill : NetworkBehaviour {
     public float internalCD;
     [HideInInspector]
     public GameObject source;
-
 
     float startProcessCoolDown;
     public virtual bool CanCast()
@@ -44,6 +48,10 @@ public abstract class Skill : NetworkBehaviour {
 
     }
 
+    public void CastProjector ()
+    {
+        
+    }
 
     InputHandlerBuilder builder;
     protected InputHandler ih;
