@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class FireBallSkill : Skill {
@@ -12,6 +13,16 @@ public class FireBallSkill : Skill {
     public AnimationCurve fireBallSpeed;
     public Transform mageHand;
     public Transform[] spawnFireBallUlt;
+
+    public Canvas canvas;
+    public GameObject loadingSkillPrefab;
+    private GameObject loadingSkill;
+
+    private void Start()
+    {
+        loadingSkill = Instantiate(loadingSkillPrefab, canvas.transform);
+        loadingSkill.SetActive(false);
+    }
 
     public override bool CanCast()
     {
@@ -26,10 +37,13 @@ public class FireBallSkill : Skill {
         {
             fireBallSpawned = true;
             CmdSpawnProjectile();
+            loadingSkill.SetActive(true);
         }
         else
         {
             CmdIncreaseFireBall();
+            loadingSkill.GetComponent<Image>().fillAmount = (castTime / maxCastTime);
+            Debug.Log((castTime / maxCastTime));
         }
 
         CmdIncreaseCastTime();
@@ -58,6 +72,8 @@ public class FireBallSkill : Skill {
     [ClientRpc]
     public void RpcReleaseFireBall(float cast)
     {
+        loadingSkill.SetActive(false);
+
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
         bonusSpeed = fireBallSpeed.Evaluate((cast / maxCastTime) * maxTime);
 
