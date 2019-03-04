@@ -11,6 +11,7 @@ TagManager:
   - Self
   - Totem
   - Boss
+  - Mirror
   layers:
   - Default
   - TransparentFX

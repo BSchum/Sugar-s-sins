@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class GelatinSmashSkill : Skill , IThreatable{
     public Collider[] colliders;
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject target = null)
     {
         StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
@@ -46,7 +46,8 @@ public class GelatinSmashSkill : Skill , IThreatable{
     {
         target.GetComponent<Health>().TakeDamage(damage);
         GenerateThreat(target.GetComponent<EnemyController>());
-        GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
+        if(GetComponentInParent<TankAttacks>().lastActiveTotem != null)
+            GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
     }
 
     public void GenerateThreat(EnemyController enemy)

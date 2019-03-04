@@ -69,6 +69,18 @@ public class PlayerAttack : PlayerScript, IBuffable {
             }
         }
     }
+
+    public bool BuffExists<T>() where T : Buff
+    {
+        foreach(Buff buff in buffs)
+        {
+            if(typeof(T) == typeof(Buff))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     #endregion
     #region Initialization
 
@@ -109,5 +121,7 @@ public class PlayerAttack : PlayerScript, IBuffable {
         Health h = target.GetComponent<Health>();
         h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
+
+
     #endregion
 }

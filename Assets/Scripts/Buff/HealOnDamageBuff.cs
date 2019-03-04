@@ -21,7 +21,7 @@ class HealOnDamageBuff : Buff
     public void HealFromDamagePercentage(float amount)
     {
         Debug.Log("Je recupere 10% de "+amount);
-        target.GetComponent<Stats>().TakeDamage(-amount * 10 / 100);
+        target.GetComponent<Stats>().TakeDamage(-amount * 15 / 100);
     }
     public override bool isEnded()
     {

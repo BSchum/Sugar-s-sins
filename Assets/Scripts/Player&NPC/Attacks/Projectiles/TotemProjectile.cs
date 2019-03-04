@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Networking;
 
-public class TotemProjectile : SkillProjectile, IBuffable {
+public class TotemProjectile : SkillProjectile {
     
     [SerializeField]
     int gelatinStacksAmount;
@@ -28,24 +28,23 @@ public class TotemProjectile : SkillProjectile, IBuffable {
         lightningTargets = new List<GameObject>();
     }
     void Start () {
+        this.stats = GetComponent<Stats>();
         DieAfterLifeTime();
         StartCoroutine(GiveGelatinStack());
         StartCoroutine(Attack());
+        ApplyBuffs();
     }
 
     private void Update()
     {
-        this.GetComponent<Stats>().ResetBonusStats();
-        ApplyBuffs();
         int i = 0;
         if (buffs.Count <= 0)
-            //Debug.Log("No Buffs");
+            Debug.Log("No Buffs");
         foreach (Buff buff in buffs)
         {
             //Debug.Log(gameObject.name+" -- Buff n" + i + " -- Nom : " + buff.GetType());
             i++;
         }
-        
     }
     #endregion
     #region Projectile Behaviour
@@ -87,11 +86,16 @@ public class TotemProjectile : SkillProjectile, IBuffable {
     }
     public IEnumerator LightningAttack()
     {
+
         foreach(GameObject t in lightningTargets)
         {
+            Debug.Log("Lightning attack");
+            Debug.Log(this.GetComponent<Stats>().GetDamage());
             t.GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage() * lighting);
             yield return new WaitForSeconds(0.1f);
         }
     }
     #endregion
+
+
 }

@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class EnemyController : NetworkBehaviour {
 
     protected Dictionary<GameObject, float> sources = new Dictionary<GameObject, float>();
-    GameObject currentTarget;
+    protected GameObject currentTarget;
 
     protected Stats stats;
     protected Motor motor;
@@ -25,8 +25,6 @@ public class EnemyController : NetworkBehaviour {
         currentTarget = sortedSources.FirstOrDefault().Key;
         GameObject go = GameObject.Find("ThreathDebug");
         go.GetComponent<Text>().text = ToString();
-
-        motor = new Motor(this.gameObject);
     }
     #endregion
     #region ThreatSystem
@@ -35,29 +33,24 @@ public class EnemyController : NetworkBehaviour {
         if (!sources.ContainsKey(source))
             sources.Add(source, 0);
         sources[source] += threat;
-
-        Debug.Log(sources[source]);
-        
     }
 
-    public void LookHightestThreat()
+    public void GoToHightestThreat()
     {
-        var sortedSources = sources.OrderByDescending(c => c.Value);
-        currentTarget = sortedSources.FirstOrDefault().Key;
-        Debug.Log(this.gameObject.name + "||" + currentTarget);
         if (currentTarget)
         {
-            Debug.Log("Je me tourne");
             if(isServer)
-                RpcLookHightestThreat(currentTarget);
+                RpcGoToHightestThreat(currentTarget);
         }
     }
 
     [ClientRpc]
-    public void RpcLookHightestThreat(GameObject target)
+    public void RpcGoToHightestThreat(GameObject target)
     {
-        Debug.Log("Je me tourne");
-        this.transform.LookAt(target.transform);
+        
+        transform.LookAt(target.transform.position);
+        if((transform.position - target.transform.position).magnitude > 5)
+            transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
     }
     #endregion
 

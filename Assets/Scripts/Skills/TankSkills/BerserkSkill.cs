@@ -14,7 +14,7 @@ using System;
 /// </summary>
 public class BerserkSkill : Skill
 {
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject target = null)
     {
         StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
@@ -38,6 +38,7 @@ public class BerserkSkill : Skill
     {
         if(this.gameObject.GetComponent<TankAttacks>().lastActiveTotem != null)
         {
+            Debug.Log("Jbuff mon totem");
             TotemProjectile totem = this.gameObject.GetComponent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>();
             totem.AddBuff(new DamageBuff(totem.gameObject, 10));
             totem.AddBuff(new DefenseBuff(totem.gameObject, 10));

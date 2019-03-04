@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class ChargeSkill : Skill, IThreatable {
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject target = null)
     {
         StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
@@ -33,7 +33,7 @@ public class ChargeSkill : Skill, IThreatable {
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == "Boss")
+        if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == Constants.BOSS_TAG)
         {
             Debug.Log("Colliding with "+ other.gameObject.name);
             CmdDealChargeDamage(other.gameObject);

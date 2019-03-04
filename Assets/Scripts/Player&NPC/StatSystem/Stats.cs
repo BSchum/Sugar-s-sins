@@ -154,6 +154,7 @@ public class Stats : NetworkBehaviour
 
     public void BuffDamage(float buffAmount)
     {
+        Debug.Log("je buff les damage ");
         bonusStats.damage += buffAmount;
     }
 

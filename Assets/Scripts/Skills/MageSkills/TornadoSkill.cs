@@ -11,7 +11,7 @@ public class TornadoSkill : Skill {
         return base.CanCast();
     }
 
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject target = null)
     {
         StartCoroutine(ProcessCoolDown());
 

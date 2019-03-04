@@ -6,21 +6,21 @@ using UnityEngine.Networking;
 
 public class TauntSkill : Skill, IThreatable {
     public int range = 5;
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject target = null)
     {
         StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, range);
-        IEnumerable<Collider> sortedColls = colliders.Where(c => c != null)
-                                                     .Where(c => c.tag == Constants.ENEMY_TAG)
+        IEnumerable<Collider> sortedColls = colliders.Where(c => c != null) 
+                                                     .Where(c => c.tag == Constants.ENEMY_TAG || c.tag == Constants.BOSS_TAG)
                                                      .OrderBy(c => Vector3.Distance(this.transform.position, c.transform.position));
 
         foreach(Collider coll in sortedColls)
         {
             CmdGenerateThreat(coll.gameObject);
         }
-
-        GetComponent<PlayerAttack>().AddBuff(new HealOnDamageBuff(this.gameObject));
+        if(!GetComponent<PlayerAttack>().BuffExists<HealOnDamageBuff>())
+            GetComponent<PlayerAttack>().AddBuff(new HealOnDamageBuff(this.gameObject));
         yield return true;
     }
     [Command]

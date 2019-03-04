@@ -14,6 +14,7 @@ public class DamageBuff : Buff
 
     public override void ApplyBuff()
     {
+        Debug.Log("Apply buff");
         target.GetComponent<Stats>().BuffDamage(amount);
     }
 

@@ -20,7 +20,7 @@ public class FireBallSkill : Skill {
 
     bool castedAsUlt = false;
     bool fireBallSpawned = false;
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject target = null)
     {
         if (!fireBallSpawned)
         {
