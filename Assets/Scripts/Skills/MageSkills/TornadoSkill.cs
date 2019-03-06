@@ -16,7 +16,7 @@ public class TornadoSkill : Skill {
         return true;
     }
 
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
 

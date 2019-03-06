@@ -488,11 +488,11 @@ MonoBehaviour:
   damage: 0
   lifeTime: 7
   source: {fileID: 0}
-  drawAttractSphere: 0
-  attractSphereColor: {r: 1, g: 1, b: 1, a: 1}
+  drawAttractSphere: 1
+  attractSphereColor: {r: 1, g: 0, b: 0, a: 1}
   rotateSpeed: 20
   attractForce: 1
-  attractRange: 3
+  attractRange: 10
   drawSpeedSphere: 0
   speedSphereColor: {r: 1, g: 0, b: 0, a: 1}
   bonusSpeed: 10

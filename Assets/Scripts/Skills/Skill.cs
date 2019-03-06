@@ -33,7 +33,7 @@ public abstract class Skill : NetworkBehaviour {
     {
         return canCast && !isCasting;
     }
-    public abstract IEnumerator Cast();
+    public abstract IEnumerator Cast(GameObject currentTarget = null);
     public abstract bool HasRessource();
 
     public IEnumerator ProcessCoolDown()

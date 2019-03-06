@@ -64,7 +64,7 @@ public class TotemProjectile : SkillProjectile, IBuffable {
         {
             Collider[] colliders = Physics.OverlapSphere(this.transform.position, range);
             IEnumerable<Collider> sortedColls = colliders.Where(c => c != null)
-                                                         .Where(c => c.tag == Constants.ENEMY_TAG)
+                                                         .Where(c => c.tag == Constants.ENEMY_TAG || c.tag == Constants.BOSS_TAG)
                                                          .OrderBy(c => Vector3.Distance(this.transform.position, c.transform.position));
             if (sortedColls.Count() > 0)
             {
@@ -89,6 +89,7 @@ public class TotemProjectile : SkillProjectile, IBuffable {
     {
         foreach(GameObject t in lightningTargets)
         {
+            Debug.Log("Attaque!");
             t.GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage() * lighting);
             yield return new WaitForSeconds(0.1f);
         }

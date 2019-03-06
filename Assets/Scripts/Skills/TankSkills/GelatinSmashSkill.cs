@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class GelatinSmashSkill : Skill , IThreatable{
     public Collider[] colliders;
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
         gameObject.GetComponent<TankAttacks>().AddGelatinStack((int)-this.cost);

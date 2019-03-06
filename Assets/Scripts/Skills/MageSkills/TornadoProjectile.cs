@@ -49,7 +49,7 @@ public class TornadoProjectile : SkillProjectile {
        Collider[] colliders = Physics.OverlapSphere(transform.position, attractRange);
        foreach (Collider c in colliders)
        {
-            if (c.tag == "Enemy" || c.tag == "EnemyProjectile")
+            if (c.tag == Constants.ENEMY_TAG || c.tag == "EnemyProjectile" )
             {
                 Vector3 dir = (transform.position - c.transform.position) * attractForce * Time.deltaTime;
 

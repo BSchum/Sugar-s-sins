@@ -14,7 +14,7 @@ public class MageUltimateSkill : Skill {
         return mage.burstPassif >= cost;
     }
 
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
 

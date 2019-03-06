@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class FireBallProjectile : SkillProjectile {
+public class FireBallProjectile : SkillProjectile, IThreatable {
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class FireBallProjectile : SkillProjectile {
     {
 
         //Calcul des dégats
-        if(collision.gameObject.tag == Constants.ENEMY_TAG)
+        if(collision.gameObject.tag == Constants.ENEMY_TAG || collision.gameObject.tag == Constants.BOSS_TAG)
         {
             Vector3 vel = GetComponent<Rigidbody>().velocity;
             float velSpeed = (Mathf.Abs(vel.x) + Mathf.Abs(vel.y) + Mathf.Abs(vel.z)) + (speed / 10);
@@ -35,12 +35,15 @@ public class FireBallProjectile : SkillProjectile {
                 source.GetComponent<MageAttack>().AddBurstPassif(damage);
                 source.GetComponent<Stats>().AddCurrentHealth(damage * source.GetComponent<Stats>().GetLifeSteal());
             }
-
-
+            GenerateThreat(collision.GetComponent<EnemyController>());
+            Debug.Log(damage);
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }
 
-    
+    public void GenerateThreat(EnemyController enemy)
+    {
+        enemy.AddThreatFor(source, 10);
+    }
 }

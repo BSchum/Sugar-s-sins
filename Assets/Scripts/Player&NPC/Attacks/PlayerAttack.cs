@@ -31,11 +31,6 @@ public class PlayerAttack : PlayerScript, IBuffable {
     public void Update()
     {
         CmdApplyBuff();
-        if (ih.SimpleAttackInput())
-        {
-            Fire();
-        }
-
     }
     #endregion
     #region Buff system
@@ -86,30 +81,5 @@ public class PlayerAttack : PlayerScript, IBuffable {
     }
 
     #endregion
-    #region Basic Attack
 
-    public void Fire()
-    {
-        Ray r = new Ray(this.transform.position, this.transform.forward);
-        RaycastHit rHit;
-        if(Physics.Raycast(r, out rHit))
-        {
-            GameObject target = rHit.transform.gameObject;
-
-            if(target.tag == Constants.ENEMY_TAG)
-            {
-                CmdAttack(target);
-            }
-        }
-    }
-
-    [Command]
-    public void CmdAttack(GameObject target)
-    {
-        weapon = GetComponentInChildren<Weapon>();
-        Health h = target.GetComponent<Health>();
-        if(h != null)
-            h.TakeDamage(weapon.damage + this.stats.GetDamage());
-    }
-    #endregion
 }

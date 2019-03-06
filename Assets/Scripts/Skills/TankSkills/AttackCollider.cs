@@ -6,7 +6,7 @@ public class AttackCollider : MonoBehaviour {
     public int damage;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == Constants.ENEMY_TAG)
+        if(other.tag == Constants.ENEMY_TAG || other.tag == Constants.BOSS_TAG)
         {
             GetComponentInParent<GelatinSmashSkill>().OnSmashHit(damage, other);
         }

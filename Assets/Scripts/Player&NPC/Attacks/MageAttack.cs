@@ -120,6 +120,7 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
             {
                 burstPassif = burstMaxPassif;
             }
+            UIManager.instance.UpdatePlayerResourceBar(CurrentRessourceValue, MaxRessourceValue);
         }
     }
 }

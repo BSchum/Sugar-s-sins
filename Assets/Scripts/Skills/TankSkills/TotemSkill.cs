@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 public class TotemSkill : Skill
 {
     public Camera cam;
-    public override IEnumerator Cast()
+    public override IEnumerator Cast(GameObject currentTarget = null)
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 
