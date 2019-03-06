@@ -241,8 +241,8 @@ MonoBehaviour:
   damage: 0
   lifeTime: 5
   source: {fileID: 0}
-  reducingSpeed: 0.7
-  increasingSpeed: 1.3
+  reducingSpeed: 0.6
+  increasingSpeed: 2
   upgraded: 0
 --- !u!114 &114276677246331686
 MonoBehaviour:

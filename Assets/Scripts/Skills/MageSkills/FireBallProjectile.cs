@@ -22,7 +22,7 @@ public class FireBallProjectile : SkillProjectile {
     {
 
         //Calcul des dégats
-        if(collision.gameObject.tag == Constants.ENEMY_TAG)
+        if(collision.gameObject.tag == Constants.BOSS_TAG)
         {
             Vector3 vel = GetComponent<Rigidbody>().velocity;
             float velSpeed = (Mathf.Abs(vel.x) + Mathf.Abs(vel.y) + Mathf.Abs(vel.z)) + (speed / 10);

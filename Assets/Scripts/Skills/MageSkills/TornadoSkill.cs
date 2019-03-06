@@ -11,6 +11,11 @@ public class TornadoSkill : Skill {
         return base.CanCast();
     }
 
+    public override bool HasRessource()
+    {
+        return true;
+    }
+
     public override IEnumerator Cast(GameObject target = null)
     {
         StartCoroutine(ProcessCoolDown());
@@ -28,8 +33,14 @@ public class TornadoSkill : Skill {
     [Command]
     void CmdSpawnProjectile (Vector3 pos)
     {
+        RpcSpawnProjectile(pos);
+    }
+
+    [ClientRpc]
+    void RpcSpawnProjectile(Vector3 pos)
+    {
         GameObject newTornado = Instantiate(skillProjectile.gameObject, pos, Quaternion.Euler(transform.forward));
-        
+
         TornadoProjectile tornadoProjectile = newTornado.GetComponent<TornadoProjectile>();
         tornadoProjectile.source = this.gameObject;
 
@@ -43,10 +54,5 @@ public class TornadoSkill : Skill {
         tornadoProjectile.Initiate();
 
         StartCoroutine(ProcessCoolDown());
-    }
-
-    public override bool HasRessource()
-    {
-        return true;
     }
 }

@@ -13,9 +13,14 @@ public class FireBallSkill : Skill {
     public Transform mageHand;
     public Transform[] spawnFireBallUlt;
 
+    public override bool HasRessource()
+    {
+        return true;
+    }
+
     public override bool CanCast()
     {
-        return canCast && !isCasting;
+        return base.CanCast();
     }
 
     bool castedAsUlt = false;
@@ -61,7 +66,7 @@ public class FireBallSkill : Skill {
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
         bonusSpeed = fireBallSpeed.Evaluate((cast / maxCastTime) * maxTime);
 
-        if(castedAsUlt)
+        if(castedAsUlt && fireBall != null)
         {
             SkillProjectile fireBallProjectile = fireBall.GetComponent<SkillProjectile>();
             fireBallProjectile.speed *= bonusSpeed;
@@ -73,15 +78,17 @@ public class FireBallSkill : Skill {
         }
         else
         {
-            for(int i=0; i<fireBalls.Length; i++)
+            foreach(GameObject fb in fireBalls)
             {
-                SkillProjectile fireBallProjectile = fireBalls[i].GetComponent<SkillProjectile>();
-                fireBallProjectile.speed *= bonusSpeed;
-                fireBallProjectile.damage *= bonusSpeed;
-                fireBallProjectile.source = this.gameObject;
+                if(fb != null)
+                {
+                    SkillProjectile fireBallProjectile = fb.GetComponent<SkillProjectile>();
+                    fireBallProjectile.speed *= bonusSpeed;
+                    fireBallProjectile.damage *= bonusSpeed;
+                    fireBallProjectile.source = this.gameObject;
 
-                fireBallProjectile.Throw();
-                fireBalls[i] = null;
+                    fireBallProjectile.Throw();
+                }
             }
         }
 
@@ -96,6 +103,7 @@ public class FireBallSkill : Skill {
     {
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
         scale = Vector3.one * fireBallScale.Evaluate((castTime / maxCastTime) * maxTime);
+        
         RpcIncreaseFireBall(scale);
     }
 
@@ -140,10 +148,5 @@ public class FireBallSkill : Skill {
             fireBalls[1] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[1]);
             fireBalls[2] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[2]);
         }
-    }
-
-    public override bool HasRessource()
-    {
-        return true;
     }
 }

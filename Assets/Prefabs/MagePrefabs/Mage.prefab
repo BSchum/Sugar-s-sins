@@ -569,7 +569,7 @@ MonoBehaviour:
   skillProjectile: {fileID: 114680329911139762, guid: 713f97027f6bed949a93c132ac6a8031,
     type: 2}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 14
   internalCD: 0
   source: {fileID: 0}
   cam: {fileID: 20546570432858572}
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fd464fb0c05364680b4d04583bcd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increasingPassifPercentage: 0.3
+  increasingPassifPercentage: 0.09
   burstPassif: 0
   burstMaxPassif: 100
   isOnUlt: 0
@@ -662,7 +662,7 @@ MonoBehaviour:
   skillProjectile: {fileID: 114024248576147586, guid: 55ebd242f004d974780340a13b5b56b9,
     type: 2}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 11
   internalCD: 0
   source: {fileID: 0}
   cam: {fileID: 20546570432858572}
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artwork: {fileID: 0}
-  cost: 0
+  cost: 100
   threat: 0
   canCast: 1
   isCasting: 0
@@ -819,12 +819,12 @@ MonoBehaviour:
   threat: 0
   canCast: 1
   isCasting: 0
-  minCastTime: 0
-  maxCastTime: 3
+  minCastTime: 0.2
+  maxCastTime: 2
   skillProjectile: {fileID: 114367465571509712, guid: 9bac76ff70a904448be892eaf599e7b0,
     type: 2}
   isOnCooldown: 0
-  cooldown: 0
+  cooldown: 0.1
   internalCD: 0
   source: {fileID: 0}
   fireBallScale:
@@ -879,7 +879,6 @@ MonoBehaviour:
   spawnFireBallUlt:
   - {fileID: 4313834269023398}
   - {fileID: 4736586167765918}
-  - {fileID: 4196887766446318}
 --- !u!136 &136127375141537656
 CapsuleCollider:
   m_ObjectHideFlags: 1

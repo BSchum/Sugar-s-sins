@@ -471,16 +471,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed7d39257b77ef489c1d150ff7f28da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.15
   damage: 0
-  lifeTime: 5
+  lifeTime: 6
   source: {fileID: 0}
   drawAttractSphere: 0
   attractSphereColor: {r: 1, g: 1, b: 1, a: 1}
-  rotateSpeed: 20
-  attractForce: 1
+  rotateSpeed: 30
+  attractForce: 2
   attractRange: 3
   drawSpeedSphere: 0
   speedSphereColor: {r: 1, g: 0, b: 0, a: 1}
-  bonusSpeed: 10
+  bonusSpeed: 20
   bonusRange: 5
