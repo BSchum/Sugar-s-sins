@@ -868,7 +868,7 @@ MonoBehaviour:
   skillProjectile: {fileID: 114367465571509712, guid: 9bac76ff70a904448be892eaf599e7b0,
     type: 2}
   isOnCooldown: 0
-  cooldown: 0
+  cooldown: 0.1
   internalCD: 0
   source: {fileID: 0}
   fireBallScale:
