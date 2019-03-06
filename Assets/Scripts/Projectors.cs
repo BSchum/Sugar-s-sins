@@ -19,7 +19,11 @@ public class Projectors : MonoBehaviour {
     }
     
     void Update () {
-		if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            gameObject.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             StartCoroutine(skill.Cast());
             skill = null;

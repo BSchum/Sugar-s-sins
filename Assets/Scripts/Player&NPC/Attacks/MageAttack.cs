@@ -30,10 +30,10 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
 
     void Update()
     {
-        base.Update();
 
         if(isLocalPlayer)
         {
+            base.Update();
             CmdInitializeSkills();
             if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown)
             {

@@ -53,6 +53,7 @@ public class PlayerAttack : PlayerScript, IBuffable {
     void RpcApplyBuff()
     {
         ApplyBuffs();
+        stats = this.GetComponent<Stats>();
         stats.ComputeFinalStats();
         stats.ResetBonusStats();
     }

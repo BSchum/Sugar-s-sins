@@ -2,12 +2,19 @@
 using UnityEngine.Networking;
 class CharacterNetworkManager : NetworkManager
 {
+    static int nbPlayers;
+    public GameObject tankPrefab;
+    public GameObject magePrefab;
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        if(CharaterManager.choosedCharacter != null)
+        if(nbPlayers % 2 == 0)
         {
-            playerPrefab = CharaterManager.choosedCharacter;
+            playerPrefab = tankPrefab;
         }
+        else {
+            playerPrefab = magePrefab;
+        }
+        nbPlayers++;
         base.OnServerAddPlayer(conn, playerControllerId);
     }
 }
