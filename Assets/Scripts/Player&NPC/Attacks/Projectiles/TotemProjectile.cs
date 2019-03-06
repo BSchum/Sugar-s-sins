@@ -27,10 +27,13 @@ public class TotemProjectile : SkillProjectile, IBuffable {
     {
         lightningTargets = new List<GameObject>();
     }
-    void Start () {
+    void Start()
+    {
+        this.stats = GetComponent<Stats>();
         DieAfterLifeTime();
         StartCoroutine(GiveGelatinStack());
         StartCoroutine(Attack());
+        ApplyBuffs();
     }
 
     private void Update()

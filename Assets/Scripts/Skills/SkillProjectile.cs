@@ -9,6 +9,7 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
     [HideInInspector]
     public GameObject source;
     protected List<Buff> buffs = new List<Buff>();
+    protected Stats stats;
 
     public void DieAfterLifeTime()
     {
@@ -43,8 +44,16 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
     public void AddBuff(Buff buff)
     {
         buffs.Add(buff);
+        UIManager.instance.AddBuff(buff.GetBuffAsUIObject());
     }
 
+    public void ComputeApplyBuff()
+    {
+        this.stats = GetComponent<Stats>();
+        ApplyBuffs();
+        stats.ComputeFinalStats();
+        stats.ResetBonusStats();
+    }
     public void ApplyBuffs()
     {
         for (int i = 0; i < buffs.Count; i++)
@@ -58,6 +67,18 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
                 buffs[i].ApplyBuff();
             }
         }
+    }
+
+    public bool BuffExists<T>() where T : Buff
+    {
+        foreach (Buff buff in buffs)
+        {
+            if (typeof(T) == typeof(Buff))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     #endregion
 }

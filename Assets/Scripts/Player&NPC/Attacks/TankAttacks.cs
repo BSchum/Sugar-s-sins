@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 [RequireComponent(typeof(Stats))]
 public class TankAttacks : PlayerAttack, IRessourcesManipulator {
@@ -88,6 +89,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
                 StartCoroutine(skills[4].Cast());
             }
         }
+        CmdBuffTotem();
     }
     #endregion
     #region Gelatin behaviour
@@ -168,5 +170,17 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
 
     }
     #endregion
-
+    [Command]
+    void CmdBuffTotem()
+    {
+        if (lastActiveTotem != null)
+        {
+            RpcBuffTotem();
+        }
+    }
+    [ClientRpc]
+    void RpcBuffTotem()
+    {
+        this.lastActiveTotem.GetComponent<TotemProjectile>().ComputeApplyBuff();
+    }
 }

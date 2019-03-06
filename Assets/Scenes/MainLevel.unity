@@ -4948,7 +4948,7 @@ MonoBehaviour:
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   tankPrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3, type: 2}
-  magePrefab: {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb, type: 2}
+  magePrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3, type: 2}
 --- !u!4 &1514998549
 Transform:
   m_ObjectHideFlags: 0
