@@ -107,9 +107,9 @@ public class PlayerAttack : PlayerScript, IBuffable {
     public void CmdAttack(GameObject target)
     {
         weapon = GetComponentInChildren<Weapon>();
-        Debug.Log("Jattack "+target.name+" sur le server avec "+weapon.name);
         Health h = target.GetComponent<Health>();
-        h.TakeDamage(weapon.damage + this.stats.GetDamage());
+        if(h != null)
+            h.TakeDamage(weapon.damage + this.stats.GetDamage());
     }
     #endregion
 }

@@ -588,7 +588,7 @@ MonoBehaviour:
   skillProjectile: {fileID: 114680329911139762, guid: 713f97027f6bed949a93c132ac6a8031,
     type: 2}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 14
   internalCD: 0
   source: {fileID: 0}
   cam: {fileID: 20546570432858572}
@@ -685,7 +685,7 @@ MonoBehaviour:
   skillProjectile: {fileID: 114024248576147586, guid: 55ebd242f004d974780340a13b5b56b9,
     type: 2}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 12
   internalCD: 0
   source: {fileID: 0}
   cam: {fileID: 20546570432858572}
@@ -871,6 +871,8 @@ MonoBehaviour:
   cooldown: 0.1
   internalCD: 0
   source: {fileID: 0}
+  minCastTime: 0
+  maxCastTime: 3
   fireBallScale:
     serializedVersion: 2
     m_Curve:

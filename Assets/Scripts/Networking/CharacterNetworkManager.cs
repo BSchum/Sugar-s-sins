@@ -9,10 +9,10 @@ class CharacterNetworkManager : NetworkManager
     {
         if(nbPlayers % 2 == 0)
         {
-            playerPrefab = tankPrefab;
+            playerPrefab = magePrefab;
         }
         else {
-            playerPrefab = magePrefab;
+            playerPrefab = tankPrefab;
         }
         nbPlayers++;
         base.OnServerAddPlayer(conn, playerControllerId);

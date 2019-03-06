@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1305259824661208
 GameObject:
@@ -42,12 +42,13 @@ GameObject:
   - component: {fileID: 114524225529960212}
   - component: {fileID: 114041032156160458}
   - component: {fileID: 65723216547072510}
+  - component: {fileID: 54910470435798344}
   m_Layer: 0
   m_Name: Totem
   m_TagString: Totem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1648749203525354
 GameObject:
@@ -62,7 +63,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1959526599173372
 GameObject:
@@ -79,7 +80,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4093602495802460
 Transform:
@@ -220,6 +221,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959526599173372}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54910470435798344
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305259824661208}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!65 &65723216547072510
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -279,7 +295,6 @@ MonoBehaviour:
   damage: 0
   lifeTime: 10000
   source: {fileID: 0}
-  isMeltable: 1
   gelatinStacksAmount: 1
   gelatinStacksRate: 1
   attackRate: 1

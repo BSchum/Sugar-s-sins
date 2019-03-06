@@ -12,8 +12,6 @@ public abstract class Skill : NetworkBehaviour {
     public bool canCast = true;
     [SerializeField]
     protected bool isCasting = false;
-    public float minCastTime = 0;
-    public float maxCastTime;
 
     public bool useProjectors;
     public Material area;

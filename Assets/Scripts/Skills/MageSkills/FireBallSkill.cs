@@ -7,6 +7,8 @@ using UnityEngine.Networking;
 public class FireBallSkill : Skill {
     
     private float castTime = 0;
+    public float minCastTime = 0;
+    public float maxCastTime;
     private GameObject fireBall = null;
     private GameObject[] fireBalls = new GameObject[3];
     public AnimationCurve fireBallScale;
@@ -43,7 +45,6 @@ public class FireBallSkill : Skill {
         {
             CmdIncreaseFireBall();
             loadingSkill.GetComponent<Image>().fillAmount = (castTime / maxCastTime);
-            Debug.Log((castTime / maxCastTime));
         }
 
         CmdIncreaseCastTime();
@@ -79,25 +80,27 @@ public class FireBallSkill : Skill {
 
         if(castedAsUlt)
         {
-            SkillProjectile fireBallProjectile = fireBall.GetComponent<SkillProjectile>();
-            fireBallProjectile.speed *= bonusSpeed;
-            fireBallProjectile.damage *= bonusSpeed;
-            fireBallProjectile.source = this.gameObject;
-
-            fireBallProjectile.Throw();
-            fireBall = null;
-        }
-        else
-        {
-            for(int i=0; i<fireBalls.Length; i++)
+            if(fireBall != null)
             {
-                SkillProjectile fireBallProjectile = fireBalls[i].GetComponent<SkillProjectile>();
+                SkillProjectile fireBallProjectile = fireBall.GetComponent<SkillProjectile>();
                 fireBallProjectile.speed *= bonusSpeed;
                 fireBallProjectile.damage *= bonusSpeed;
                 fireBallProjectile.source = this.gameObject;
 
                 fireBallProjectile.Throw();
-                fireBalls[i] = null;
+                fireBall = null;
+            }
+        }
+        else
+        {
+            foreach(GameObject fire in fireBalls)
+            {
+                SkillProjectile fireBallProjectile = fire.GetComponent<SkillProjectile>();
+                fireBallProjectile.speed *= bonusSpeed;
+                fireBallProjectile.damage *= bonusSpeed;
+                fireBallProjectile.source = this.gameObject;
+
+                fireBallProjectile.Throw();
             }
         }
 

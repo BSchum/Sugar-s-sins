@@ -10,6 +10,8 @@ public class SingleCharacter : MonoBehaviour {
     {
         CharaterManager.choosedCharacter = prefab;
         Debug.Log("J'ai choisi : " + CharaterManager.choosedCharacter);
+        
+        
     } 
    
 }

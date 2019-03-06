@@ -26,6 +26,15 @@ public class MeltableMageTank : MeltableSkill {
                 enemyStats.TakeDamage(damage);
             }
         }
+
+        if(MeltableSkillManager.skillOne.GetComponent<TornadoProjectile>())
+        {
+            Destroy(MeltableSkillManager.skillOne);
+        }
+        else
+        {
+            Destroy(MeltableSkillManager.skillTwo);
+        }
     }
 
 }
