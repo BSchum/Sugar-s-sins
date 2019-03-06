@@ -15,7 +15,7 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
         base.Start();
         if (isLocalPlayer)
         {
-            UIManager.instance.UpdateResourceBar(CurrentRessourceValue, MaxRessourceValue);
+            UIManager.instance.UpdatePlayerResourceBar(CurrentRessourceValue, MaxRessourceValue);
         }
     }
     void BurstBehaviour(float damageDealt)

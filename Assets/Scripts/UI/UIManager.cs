@@ -18,12 +18,15 @@ public class UIManager : MonoBehaviour {
     public List<Skill> skills;
     List<GameObject> uiSkills;
 
-    public Slider healthBar;
-    public Slider ressourceBar;
+    
+    public Slider playerHealthBar;
+    public Slider playerRessourceBar;
+
+    public Slider bossHealthBar;
 
     public Stats localPlayerStats;
 
-    
+    #region Unity's method
     private void Start()
     {
         instance = this;
@@ -33,27 +36,45 @@ public class UIManager : MonoBehaviour {
         GameObject singleB = Instantiate(SingleBuffPrefab, BuffsParent);
         singleB.GetComponent<SingleBuff>().buff = buff;
     }
-
+    #endregion
+    #region UI Slider Update system
     internal void Subscribe(Stats stats)
     {
-        HealthChanged cb = UpdateHealthBar;
+        Debug.Log("Je subscribe");
+        HealthChanged cb = UpdatePlayerHealthBar;
+        stats.Subscribe(cb);
+    }
+
+    public void BossHPSubscribe(Stats stats)
+    {
+        Debug.Log("le boss subscribe");
+        HealthChanged cb = UpdateBossHealthBar;
         stats.Subscribe(cb);
     }
 
 
-    public void UpdateHealthBar(float value, float maxValue)
+    public void UpdatePlayerHealthBar(float value, float maxValue)
     {
-        healthBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
-        healthBar.maxValue = maxValue;
-        healthBar.value = value;
+        playerHealthBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
+        playerHealthBar.maxValue = maxValue;
+        playerHealthBar.value = value;
     }
 
-    public void UpdateResourceBar(float value, float maxValue)
+    public void UpdatePlayerResourceBar(float value, float maxValue)
     {
-        ressourceBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
-        ressourceBar.maxValue = maxValue;
-        ressourceBar.value = value;
+        playerRessourceBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
+        playerRessourceBar.maxValue = maxValue;
+        playerRessourceBar.value = value;
     }
+
+    public void UpdateBossHealthBar(float value, float maxValue)
+    {
+        bossHealthBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
+        bossHealthBar.maxValue = maxValue;
+        bossHealthBar.value = value;
+    }
+    #endregion
+    #region UI Skills system
     public void AddSkills(List<Skill> skills)
     {
         //TODO Add all skill to UI
@@ -72,6 +93,6 @@ public class UIManager : MonoBehaviour {
     {
         uiSkills[skillIndex].GetComponent<SingleSkill>().afterUseSkill = skill;
     }
+    #endregion
 
-    
 }

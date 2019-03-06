@@ -37,7 +37,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
         base.Start();
         if (isLocalPlayer)
         {
-            UIManager.instance.UpdateResourceBar(CurrentRessourceValue, MaxRessourceValue);
+            UIManager.instance.UpdatePlayerResourceBar(CurrentRessourceValue, MaxRessourceValue);
             UIManager.instance.AddSkillOverAnother(3, skills[4]);
             AddBuff(new GelatinBuff(this.gameObject));
         }
@@ -80,7 +80,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
     {
         gelatinStackAmount *= gelatinStackRatio;
         if(isLocalPlayer)
-            UIManager.instance.UpdateResourceBar(CurrentRessourceValue, MaxRessourceValue);
+            UIManager.instance.UpdatePlayerResourceBar(CurrentRessourceValue, MaxRessourceValue);
         if (gelatinStack + gelatinStackAmount >= maxGelatinStack)
         {
             gelatinStack = maxGelatinStack;

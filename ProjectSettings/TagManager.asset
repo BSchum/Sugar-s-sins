@@ -10,6 +10,7 @@ TagManager:
   - Allied
   - Self
   - Totem
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -25,9 +26,6 @@ TagManager:
   - PostProcessing
   - MiniMap
   - Terrain
-  - 
-  - 
-  - 
   - 
   - 
   - 

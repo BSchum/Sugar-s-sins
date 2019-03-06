@@ -10,9 +10,12 @@ public class EnemyController : NetworkBehaviour {
     Dictionary<GameObject, float> sources = new Dictionary<GameObject, float>();
     GameObject currentTarget;
 
+    Stats stats;
     #region Unity's methods
     private void Start()
     {
+        stats = GetComponent<Stats>();
+        UIManager.instance.BossHPSubscribe(this.stats);
 
     }
     private void Update()
@@ -38,7 +41,7 @@ public class EnemyController : NetworkBehaviour {
     }
     #endregion
 
-
+    
     public override string ToString()
     {
         string text = "";
