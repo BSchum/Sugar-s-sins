@@ -55,7 +55,22 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
             base.Update();
             if (ih.FirstSkill() && skills[0].CanCast() && !skills[0].isOnCooldown && skills[0].HasRessource())
             {
-                StartCoroutine(skills[0].Cast());
+                if (skills[0].useProjectors)
+                {
+                    if (!projector.gameObject.activeSelf || projector.skill != skills[0])
+                    {
+                        projector.gameObject.SetActive(true);
+                        projector.SetProjector(skills[0]);
+                    }
+                    else
+                    {
+                        projector.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    StartCoroutine(skills[0].Cast());
+                }
             }
             else if(ih.SecondSkill() && skills[1].CanCast() && !skills[1].isOnCooldown && skills[1].HasRessource())
             {
