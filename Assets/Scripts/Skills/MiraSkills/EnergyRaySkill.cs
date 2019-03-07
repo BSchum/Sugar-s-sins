@@ -5,75 +5,122 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class EnergyRaySkill : Skill {
-    public GameObject mirror;
-    public LineRenderer bossRay;
+    public Transform mirrorsParent;
+    private Transform mirror;
+
     public LineRenderer mirrorRay;
-    public GameObject start;
-    public GameObject rayCastStart;
-    public override IEnumerator Cast(GameObject target = null)
+    public LineRenderer energyRay;
+
+    public Transform start;
+
+    public float damage;
+    public float range;
+
+    public float firstCastDuration = 4f;
+    public float secondeCastDuration = 1.5f;
+    public float energyLaserDuration = 0.5f;
+
+    public override IEnumerator Cast(GameObject target)
     {
         source.GetComponent<BossController>().isCasting = true;
+
+        //Nearest mirror
+        mirror = null;
+        float distance = Mathf.Infinity;
+        foreach(Transform m in mirrorsParent.GetComponentInChildren<Transform>())
+        {
+            float d = (m.position - transform.position).magnitude;
+            if (d < distance)
+            {
+                distance = d;
+                mirror = m;
+            }
+        }
+
         source.transform.LookAt(mirror.transform);
         isCasting = true;
+        
+        RpcDrawMirrorRay(start.position, mirror.position);
 
-        bossRay.gameObject.SetActive(true);
-        RpcDrawBossEnergyRay();
+        //Load laser from mirror
+        yield return new WaitForSeconds(firstCastDuration);
 
-        Vector3 direction = mirror.transform.position - rayCastStart.transform.position;
-        Ray ray = new Ray(rayCastStart.transform.position, direction);
-        RaycastHit[] infos = Physics.RaycastAll(ray, 1000000);
+        RpcUndrawMirrorRay();
 
-        IEnumerable<RaycastHit> playersHitted = infos.Where( c => c.collider.tag == Constants.PLAYER_TAG);
-        foreach(RaycastHit rHit in playersHitted)
+        source.transform.LookAt(target.transform);
+
+        Vector3 oldTargetPos = target.transform.position;
+
+        //Aim target
+        yield return new WaitForSeconds(secondeCastDuration);
+
+        //Cast laser
+        RpcDrawEnergyRay(start.position, oldTargetPos + source.transform.forward * range);
+
+        Ray ray = new Ray(source.transform.position, source.transform.forward);
+        RaycastHit[] hits;
+
+        float castTime = energyLaserDuration;
+        while (castTime > 0)
         {
-            rHit.collider.GetComponent<Health>().TakeDamage(50);
+            castTime -= 1 * Time.deltaTime;
+
+            yield return null;
+            
+            hits = Physics.RaycastAll(ray);
+
+            foreach (RaycastHit hit in hits)
+            {
+                if(hit.transform.tag == Constants.PLAYER_TAG)
+                {
+                    Health health = hit.transform.GetComponent<Health>();
+                    if (health != null)
+                        health.TakeDamage(damage);
+                }
+            }
         }
-        yield return new WaitForSeconds(1);
-        Vector3 pos = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
 
-        //Wait until the player can avoid
-        yield return new WaitForSeconds(1);
-        mirrorRay.gameObject.SetActive(true);
-        RpcDrawMirrorEnergyRay(pos);
+        yield return new WaitForSeconds(energyLaserDuration);
 
-        direction = pos - mirror.transform.position;
+        RpcUndrawEnergyRay();
 
-        ray = new Ray(mirror.transform.position, direction);
-        infos = Physics.RaycastAll(ray, 1000000);
-
-        playersHitted = infos.Where(c => c.collider.tag == Constants.PLAYER_TAG);
-
-        foreach (RaycastHit rHit in playersHitted)
-        {
-            rHit.collider.GetComponent<Health>().TakeDamage(50);
-        }
-        yield return new WaitForSeconds(0.5f);
         source.GetComponent<BossController>().isCasting = false;
-        RpcUnDrawRay();
+        
         StartCoroutine(this.ProcessCoolDown());
         isCasting = false;
     }
-    [ClientRpc]
-    public void RpcDrawBossEnergyRay()
-    {
-        bossRay.gameObject.SetActive(true);
-        bossRay.SetPosition(0, start.transform.position);
-        bossRay.SetPosition(1, mirror.transform.position);
-    }
 
     [ClientRpc]
-    public void RpcDrawMirrorEnergyRay(Vector3 pos)
+    void RpcDrawMirrorRay(Vector3 startPos, Vector3 mirrorPos)
     {
         mirrorRay.gameObject.SetActive(true);
-        mirrorRay.SetPosition(0, mirror.transform.position);
-        mirrorRay.SetPosition(1, pos);
+        mirrorRay.SetPosition(0, startPos);
+        mirrorRay.SetPosition(1, mirrorPos);
     }
 
     [ClientRpc]
-    public void RpcUnDrawRay()
+    void RpcDrawEnergyRay(Vector3 startPos, Vector3 impactPos)
     {
-        bossRay.gameObject.SetActive(false);
+        energyRay.gameObject.SetActive(true);
+        energyRay.SetPosition(0, startPos);
+        energyRay.SetPosition(1, impactPos);
+    }
+
+    [ClientRpc]
+    void RpcUndrawMirrorRay()
+    {
         mirrorRay.gameObject.SetActive(false);
+    }
+
+    [ClientRpc]
+    void RpcUndrawEnergyRay()
+    {
+        energyRay.gameObject.SetActive(false);
+    }
+
+    public override float GetRange()
+    {
+        return range;
     }
 
     public override bool HasRessource()

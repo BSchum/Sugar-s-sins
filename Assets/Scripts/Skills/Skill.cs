@@ -15,6 +15,8 @@ public abstract class Skill : NetworkBehaviour {
 
     public bool useProjectors;
     public Material area;
+    public Projectors projector;
+    public Vector3 projectorOffset;
     [HideInInspector]
     public bool hasProjected;
     public SkillProjectile skillProjectile;
@@ -24,6 +26,7 @@ public abstract class Skill : NetworkBehaviour {
     [HideInInspector]
     public bool isOnCooldown = false;
     public float cooldown;
+    [HideInInspector]
     public float internalCD;
     [HideInInspector]
     public GameObject source;
@@ -46,9 +49,15 @@ public abstract class Skill : NetworkBehaviour {
 
     }
 
-    public void CastProjector ()
+    public virtual float GetRange()
     {
-        
+        return 0;
+    }
+
+    public void CastProjector()
+    {
+        projector.gameObject.SetActive(true);
+        projector.SetProjector(this);
     }
 
     InputHandlerBuilder builder;

@@ -32,7 +32,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
     /*
      * ComputeRatio(10, 0.5, 5) return 0,25;
      */
-    #region Unity's method
+    #region Unity's methods
     public void Start()
     {
         base.Start();
@@ -58,15 +58,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
             {
                 if (skills[0].useProjectors)
                 {
-                    if (!projector.gameObject.activeSelf || projector.skill != skills[0])
-                    {
-                        projector.gameObject.SetActive(true);
-                        projector.SetProjector(skills[0]);
-                    }
-                    else
-                    {
-                        projector.gameObject.SetActive(false);
-                    }
+                    skills[0].CastProjector();
                 }
                 else
                 {

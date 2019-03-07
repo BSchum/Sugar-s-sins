@@ -36,7 +36,6 @@ public class FireBallProjectile : SkillProjectile, IThreatable {
                 source.GetComponent<Stats>().AddCurrentHealth(damage * source.GetComponent<Stats>().GetLifeSteal());
             }
             GenerateThreat(collision.GetComponent<EnemyController>());
-            Debug.Log(damage);
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
         }

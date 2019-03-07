@@ -1065,6 +1065,7 @@ MonoBehaviour:
   isCasting: 0
   useProjectors: 1
   area: {fileID: 2100000, guid: a11b0ddfac3b6da4c89997be71ecb6ef, type: 2}
+  projector: {fileID: 114624224425932646}
   hasProjected: 0
   skillProjectile: {fileID: 114563823203138628, guid: d6c80cacc17c55044bd47d046039be0f,
     type: 2}
@@ -1116,12 +1117,15 @@ MonoBehaviour:
   isCasting: 0
   useProjectors: 0
   area: {fileID: 0}
+  projector: {fileID: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
   cooldown: 2
   internalCD: 0
   source: {fileID: 0}
+  damage: 100
+  speed: 100
 --- !u!114 &114176418019594468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1152,6 +1156,7 @@ MonoBehaviour:
   isCasting: 0
   useProjectors: 0
   area: {fileID: 0}
+  projector: {fileID: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
@@ -1260,7 +1265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0081fb3d72f515499b530d12afc1a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projector: {fileID: 114624224425932646}
   gelatinStack: 6
   lastActiveTotem: {fileID: 0}
 --- !u!114 &114597997021013412
@@ -1297,10 +1301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56135492d20f5da45bb77cf5b4079fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 114525149153911434}
+  unit: {fileID: 4987955105400064}
   cam: {fileID: 20142563076364998}
   skill: {fileID: 0}
-  distance: 5
+  yOffset: 5
 --- !u!114 &114653148881792660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1366,6 +1370,7 @@ MonoBehaviour:
   isCasting: 0
   useProjectors: 0
   area: {fileID: 0}
+  projector: {fileID: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
@@ -1423,6 +1428,7 @@ MonoBehaviour:
   isCasting: 0
   useProjectors: 0
   area: {fileID: 0}
+  projector: {fileID: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0

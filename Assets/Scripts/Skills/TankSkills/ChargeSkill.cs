@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class ChargeSkill : Skill, IThreatable {
+    public float damage = 100;
+    public float speed = 100;
+
+    Motor motor = null;
+
     public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
@@ -12,12 +17,13 @@ public class ChargeSkill : Skill, IThreatable {
 
         float dashStartAt = Time.time;
         float dashTime = 0.2f;
-        Motor motor = new Motor(this.gameObject);
+        motor = new Motor(this.gameObject);
         while (Time.time < dashStartAt + dashTime)
         {
-            motor.Move(Vector3.forward, Quaternion.identity.eulerAngles, 100);
+            motor.Move(Vector3.forward, Quaternion.identity.eulerAngles, speed);
             yield return new WaitForEndOfFrame();
         }
+        motor = null;
         yield return null;
         
     }
@@ -33,17 +39,19 @@ public class ChargeSkill : Skill, IThreatable {
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == Constants.BOSS_TAG)
+        if(motor != null)
         {
-            Debug.Log("Colliding with "+ other.gameObject.name);
-            CmdDealChargeDamage(other.gameObject);
+            if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == Constants.BOSS_TAG)
+            {
+                CmdDealChargeDamage(other.gameObject);
+            }
         }
     }
 
     [Command]
     private void CmdDealChargeDamage(GameObject other)
     {
-        other.GetComponent<Health>().TakeDamage(100);
+        other.GetComponent<Health>().TakeDamage(damage);
         RpcGenerateThreat(other);
     }
     [ClientRpc]

@@ -27,7 +27,6 @@ public class BerserkSkill : Skill
         yield return null;
     }
 
-
     [Command]
     public void CmdBuffTotem()
     {

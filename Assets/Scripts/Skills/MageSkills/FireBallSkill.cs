@@ -17,13 +17,11 @@ public class FireBallSkill : Skill {
     public Transform[] spawnFireBallUlt;
 
     public Canvas canvas;
-    public GameObject loadingSkillPrefab;
-    private GameObject loadingSkill;
+    public GameObject loadingSkill;
 
     private void Start()
     {
-        loadingSkill = Instantiate(loadingSkillPrefab, canvas.transform);
-        loadingSkill.SetActive(false);
+        loadingSkill.transform.parent.gameObject.SetActive(false);
     }
 
     public override bool CanCast()
@@ -39,7 +37,8 @@ public class FireBallSkill : Skill {
         {
             fireBallSpawned = true;
             CmdSpawnProjectile();
-            loadingSkill.SetActive(true);
+            castTime = 0;
+            loadingSkill.transform.parent.gameObject.SetActive(true);
         }
         else
         {
@@ -73,7 +72,7 @@ public class FireBallSkill : Skill {
     [ClientRpc]
     public void RpcReleaseFireBall(float cast)
     {
-        loadingSkill.SetActive(false);
+        loadingSkill.transform.parent.gameObject.SetActive(false);
 
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
         bonusSpeed = fireBallSpeed.Evaluate((cast / maxCastTime) * maxTime);

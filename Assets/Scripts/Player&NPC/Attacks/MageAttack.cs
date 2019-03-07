@@ -49,15 +49,7 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
             {
                 if (skills[1].useProjectors)
                 {
-                    if(!projector.gameObject.activeSelf || projector.skill != skills[1])
-                    {
-                        projector.gameObject.SetActive(true);
-                        projector.SetProjector(skills[1]);
-                    }
-                    else
-                    {
-                        projector.gameObject.SetActive(false);
-                    }
+                    skills[1].CastProjector();
                 }
                 else
                 {
@@ -69,15 +61,7 @@ public class MageAttack : PlayerAttack, IRessourcesManipulator
             {
                 if (skills[2].useProjectors)
                 {
-                    if (!projector.gameObject.activeSelf || projector.skill != skills[2])
-                    {
-                        projector.gameObject.SetActive(true);
-                        projector.SetProjector(skills[2]);
-                    }
-                    else
-                    {
-                        projector.gameObject.SetActive(false);
-                    }
+                    skills[2].CastProjector();
                 }
                 else
                 {

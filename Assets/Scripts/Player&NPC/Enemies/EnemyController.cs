@@ -13,6 +13,9 @@ public class EnemyController : NetworkBehaviour {
     protected Stats stats;
     protected Motor motor;
     protected bool canMove;
+
+    public float distanceToWalk;
+
     #region Unity's methods
     protected void Start()
     {
@@ -33,14 +36,16 @@ public class EnemyController : NetworkBehaviour {
         GameObject go = GameObject.Find("ThreathDebug");
         go.GetComponent<Text>().text = ToString();
 
-        if (!canMove)
+        if (canMove)
         {
             GoToHightestThreat();
         }
         Slider hpbar = GetComponentInChildren<Slider>();
-        hpbar.maxValue = 1000;
-        hpbar.value = stats.GetHealth();
-        
+        if(hpbar != null)
+        {
+            hpbar.maxValue = 1000;
+            hpbar.value = stats.GetHealth();
+        }
     }
     #endregion
     #region ThreatSystem
@@ -63,9 +68,8 @@ public class EnemyController : NetworkBehaviour {
     [ClientRpc]
     public void RpcGoToHightestThreat(GameObject target)
     {
-        
         transform.LookAt(target.transform.position);
-        if((transform.position - target.transform.position).magnitude > 5)
+        if((transform.position - target.transform.position).magnitude > distanceToWalk)
             transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
     }
     #endregion
