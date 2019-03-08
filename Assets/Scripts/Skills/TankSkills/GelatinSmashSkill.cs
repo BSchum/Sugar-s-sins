@@ -19,7 +19,8 @@ public class GelatinSmashSkill : Skill , IThreatable{
             yield return new WaitForSeconds(0.8f);
         }
 
-        CmdTotemLightAttack();
+        if(GetComponent<TankAttacks>().lastActiveTotem != null)
+            CmdTotemLightAttack();
     }
     [Command]
     void CmdTotemLightAttack() {
@@ -46,7 +47,10 @@ public class GelatinSmashSkill : Skill , IThreatable{
     {
         target.GetComponent<Health>().TakeDamage(damage);
         GenerateThreat(target.GetComponent<EnemyController>());
-        GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
+        if (GetComponentInParent<TankAttacks>().lastActiveTotem != null)
+        {
+            GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
+        }
     }
 
     public void GenerateThreat(EnemyController enemy)

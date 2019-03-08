@@ -54,5 +54,5 @@ MonoBehaviour:
   skillOne: {fileID: 114680329911139762, guid: 713f97027f6bed949a93c132ac6a8031, type: 2}
   skillTwo: {fileID: 114563823203138628, guid: d6c80cacc17c55044bd47d046039be0f, type: 2}
   timeToAbsorb: 3
-  damage: 10
-  range: 5
+  damage: 500
+  range: 50

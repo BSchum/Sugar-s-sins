@@ -25,16 +25,18 @@ public class BossController : EnemyController {
     void Update () {
         base.Update();
 
-        if (skills[0].CanCast() && !skills[0].isOnCooldown && skills[0].HasRessource() && currentTarget != null && (currentTarget.transform.position - this.transform.position).magnitude > 5)
+        //if (skills[1].CanCast() && !skills[1].isOnCooldown && skills[1].HasRessource() && currentTarget != null)
+        //{
+        //    StartCoroutine(skills[1].Cast(currentTarget));
+        //}
+
+        if (skills[0].CanCast() && !skills[0].isOnCooldown && skills[0].HasRessource() && currentTarget != null && (currentTarget.transform.position - this.transform.position).magnitude < 4.5)
         {
+            Debug.Log("AutoAttack");
             StartCoroutine(skills[0].Cast(currentTarget));
         }
 
-        if (skills[1].CanCast() && !skills[1].isOnCooldown && skills[1].HasRessource() && currentTarget != null)
-        {
-            Debug.Log("Je cast le ray");
-            StartCoroutine(skills[1].Cast(currentTarget));
-        }
+
         canMove = isCasting;
 
     }

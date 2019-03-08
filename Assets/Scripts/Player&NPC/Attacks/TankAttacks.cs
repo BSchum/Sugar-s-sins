@@ -181,6 +181,8 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
     [ClientRpc]
     void RpcBuffTotem()
     {
-        this.lastActiveTotem.GetComponent<TotemProjectile>().ComputeApplyBuff();
+        if (lastActiveTotem != null) { 
+            this.lastActiveTotem.GetComponent<TotemProjectile>().ComputeApplyBuff();
+        }
     }
 }

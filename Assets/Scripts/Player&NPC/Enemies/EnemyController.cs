@@ -13,6 +13,8 @@ public class EnemyController : NetworkBehaviour {
     protected Stats stats;
     protected Motor motor;
     protected bool canMove;
+
+    public Slider slider; 
     #region Unity's methods
     protected void Start()
     {
@@ -31,15 +33,18 @@ public class EnemyController : NetworkBehaviour {
         var sortedSources = sources.OrderByDescending(c => c.Value);
         currentTarget = sortedSources.FirstOrDefault().Key;
         GameObject go = GameObject.Find("ThreathDebug");
-        go.GetComponent<Text>().text = ToString();
+        //go.GetComponent<Text>().text = ToString();
 
         if (!canMove)
         {
             GoToHightestThreat();
         }
-        Slider hpbar = GetComponentInChildren<Slider>();
-        hpbar.maxValue = 1000;
-        hpbar.value = stats.GetHealth();
+        if(slider != null)
+        {
+            slider.maxValue = 1000;
+            slider.value = stats.GetHealth();
+        }
+
         
     }
     #endregion

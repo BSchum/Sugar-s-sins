@@ -11,23 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1823101347351276}
   m_IsPrefabAsset: 1
---- !u!1 &1054451070014404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4287427829695600}
-  - component: {fileID: 119252527456009754}
-  - component: {fileID: 114624224425932646}
-  m_Layer: 0
-  m_Name: TargetProjector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &1056046914372586
 GameObject:
   m_ObjectHideFlags: 1
@@ -45,6 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1151008051168756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4237070776632452}
+  - component: {fileID: 119205904617111290}
+  - component: {fileID: 114925114853453270}
+  m_Layer: 0
+  m_Name: TargetProjector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1178649973648192
 GameObject:
   m_ObjectHideFlags: 1
@@ -427,14 +427,14 @@ Transform:
   m_Father: {fileID: 224983855834798332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4287427829695600
+--- !u!4 &4237070776632452
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1054451070014404}
+  m_GameObject: {fileID: 1151008051168756}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.49, y: 5.9299994, z: 46.988075}
+  m_LocalPosition: {x: -7.7733574, y: 5.896456, z: 61.45588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4987955105400064}
@@ -605,7 +605,7 @@ Transform:
   - {fileID: 4762271546216912}
   - {fileID: 4991297726617010}
   - {fileID: 224983855834798332}
-  - {fileID: 4287427829695600}
+  - {fileID: 4237070776632452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -651,7 +651,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 8247
-  m_RenderingPath: 3
+  m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0081fb3d72f515499b530d12afc1a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projector: {fileID: 114624224425932646}
+  projector: {fileID: 114925114853453270}
   gelatinStack: 6
   lastActiveTotem: {fileID: 0}
 --- !u!114 &114597997021013412
@@ -1286,21 +1286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27277da3e3e1fb4884936c8f2dd20b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114624224425932646
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1054451070014404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56135492d20f5da45bb77cf5b4079fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 114525149153911434}
-  cam: {fileID: 20142563076364998}
-  skill: {fileID: 0}
-  distance: 5
 --- !u!114 &114653148881792660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1405,6 +1390,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114925114853453270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1151008051168756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56135492d20f5da45bb77cf5b4079fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 114525149153911434}
+  cam: {fileID: 20142563076364998}
+  skill: {fileID: 0}
+  distance: 5
 --- !u!114 &114943730231423782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1429,12 +1429,12 @@ MonoBehaviour:
   cooldown: 10
   internalCD: 0
   source: {fileID: 0}
---- !u!119 &119252527456009754
+--- !u!119 &119205904617111290
 Projector:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1054451070014404}
+  m_GameObject: {fileID: 1151008051168756}
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 1.09
