@@ -73,7 +73,10 @@ public class TotemProjectile : SkillProjectile, IBuffable {
             {
                 //Debug.Log("Attaque du totem pour" + this.GetComponent<Stats>().GetDamage());
                 if(this.GetComponent<Stats>().GetDamage() > 0)
+                {
                     sortedColls.FirstOrDefault().GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage());
+                    StartCoroutine(GetComponent<TotemProjectileAnimations>().Fire(sortedColls.FirstOrDefault().gameObject));
+                }
             }
             yield return new WaitForSeconds(attackRate);
         }
@@ -90,10 +93,12 @@ public class TotemProjectile : SkillProjectile, IBuffable {
     }
     public IEnumerator LightningAttack()
     {
+        Vector3 source = this.gameObject.transform.position;
         foreach(GameObject t in lightningTargets)
         {
-            Debug.Log("Attaque!");
             t.GetComponent<Health>().TakeDamage(this.GetComponent<Stats>().GetDamage() * lighting);
+            StartCoroutine(GetComponent<TotemProjectileAnimations>().LightingAttack(t.transform.position, source));
+            source = t.transform.position;
             yield return new WaitForSeconds(0.1f);
         }
     }

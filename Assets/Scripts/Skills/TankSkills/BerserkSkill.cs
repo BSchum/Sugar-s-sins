@@ -23,8 +23,14 @@ public class BerserkSkill : Skill
         player.AddBuff(new DefenseBuff(this.gameObject, 10));
         player.AddBuff(new MaxHealthBuff(this.gameObject, 20));
         player.AddBuff(new GelatinGenerationBuff(this.gameObject, 2));
+
+        GetComponentInChildren<Renderer>().material.color = Color.red;
         CmdBuffTotem();
-        yield return null;
+        yield return new WaitForSeconds(cooldown);
+        Debug.Log("lol");
+        GetComponentInChildren<Renderer>().material.color = Color.white;
+
+
     }
 
 

@@ -1,18 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(Stats))]
 public class Health : NetworkBehaviour {
     Stats stats;
+    Canvas canvas;
+    GameObject floatingDmgPrefab;
     public void Start()
     {
         stats = GetComponent<Stats>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        floatingDmgPrefab = Resources.Load<GameObject>("Prefabs/FloatingDamageCanvas");
+
     }
 
     public void TakeDamage(float amount)
     {
+        GameObject instance = Instantiate(floatingDmgPrefab);
+        instance.transform.SetParent(canvas.transform, false);
+        instance.transform.position = Camera.main.WorldToScreenPoint(this.transform.position);
+        instance.GetComponentInChildren<TextMeshProUGUI>().text = amount.ToString("0.00");
+        if (amount < 0) {
+            instance.GetComponentInChildren<TextMeshProUGUI>().material.color = Color.white;
+            instance.GetComponentInChildren<TextMeshProUGUI>().faceColor = Color.green;
+        }
         if (!isServer)
             return;
         RpcTakeDamage(amount);
@@ -28,9 +42,5 @@ public class Health : NetworkBehaviour {
             Destroy(this.gameObject);
         }
     }
-
-    public float GetMaxHealth()
-    {
-        return stats.GetMaxHealth();
-    }
+    
 }

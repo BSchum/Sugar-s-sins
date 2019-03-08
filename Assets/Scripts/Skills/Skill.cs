@@ -36,7 +36,7 @@ public abstract class Skill : NetworkBehaviour {
     public abstract IEnumerator Cast(GameObject currentTarget = null);
     public abstract bool HasRessource();
 
-    public IEnumerator ProcessCoolDown()
+    public virtual IEnumerator ProcessCoolDown()
     {
         isOnCooldown = true;
         for (internalCD = cooldown; internalCD > 0; internalCD -= Time.deltaTime)
