@@ -81,7 +81,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _Diffuse: 0.5
     - _DstBlend: 0
-    - _FaceDilate: -0.09
+    - _FaceDilate: 0.406
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlossMapScale: 1
@@ -101,13 +101,13 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.14
+    - _OutlineWidth: 0.39
     - _Parallax: 0.02
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.81225
+    - _ScaleRatioC: 0.22039157
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -123,10 +123,10 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UVSec: 0
-    - _UnderlayDilate: -0.01
-    - _UnderlayOffsetX: -0.51
-    - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0.006
+    - _UnderlayDilate: 0.512
+    - _UnderlayOffsetX: -0.032
+    - _UnderlayOffsetY: 0.514
+    - _UnderlaySoftness: 0.634
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75
@@ -144,7 +144,7 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 1, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 1, g: 1, b: 1, a: 0.5}
 --- !u!28 &2846298
 Texture2D:
   m_ObjectHideFlags: 1
