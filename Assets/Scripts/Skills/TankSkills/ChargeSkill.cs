@@ -49,7 +49,8 @@ public class ChargeSkill : Skill, IThreatable {
     [ClientRpc]
     private void RpcGenerateThreat(GameObject other)
     {
-        GenerateThreat(other.GetComponent<EnemyController>());
+        if(other != null)
+            GenerateThreat(other.GetComponent<EnemyController>());
     }
 
     public void GenerateThreat(EnemyController enemy)

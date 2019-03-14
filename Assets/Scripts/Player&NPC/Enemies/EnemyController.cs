@@ -12,13 +12,14 @@ public class EnemyController : NetworkBehaviour {
 
     protected Stats stats;
     protected Motor motor;
-    protected bool canMove;
+    public bool canMove;
 
     public Slider slider; 
     #region Unity's methods
     protected void Start()
     {
         stats = GetComponent<Stats>();
+        stats.ComputeFinalStats();
         Slider hpbar = GetComponentInChildren<Slider>();
         if (hpbar != null)
         {
@@ -29,13 +30,14 @@ public class EnemyController : NetworkBehaviour {
     }
     protected void Update()
     {
+        stats.ComputeFinalStats();
         this.GetComponent<Stats>().ResetBonusStats();
         var sortedSources = sources.OrderByDescending(c => c.Value);
         currentTarget = sortedSources.FirstOrDefault().Key;
         GameObject go = GameObject.Find("ThreathDebug");
         //go.GetComponent<Text>().text = ToString();
 
-        if (!canMove)
+        if (canMove)
         {
             GoToHightestThreat();
         }
@@ -68,8 +70,8 @@ public class EnemyController : NetworkBehaviour {
     [ClientRpc]
     public void RpcGoToHightestThreat(GameObject target)
     {
-        
-        transform.LookAt(target.transform.position);
+        if(canMove)
+            transform.LookAt(target.transform.position);
         if((transform.position - target.transform.position).magnitude > 5)
             transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
     }

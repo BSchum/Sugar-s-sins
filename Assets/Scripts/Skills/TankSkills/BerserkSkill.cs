@@ -27,7 +27,6 @@ public class BerserkSkill : Skill
         GetComponentInChildren<Renderer>().material.color = Color.red;
         CmdBuffTotem();
         yield return new WaitForSeconds(cooldown);
-        Debug.Log("lol");
         GetComponentInChildren<Renderer>().material.color = Color.white;
 
 

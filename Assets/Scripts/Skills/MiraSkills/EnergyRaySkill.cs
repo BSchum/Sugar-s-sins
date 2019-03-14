@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class EnergyRaySkill : Skill {
+    public GameObject[] mirrors;
     public GameObject mirror;
     public LineRenderer bossRay;
     public LineRenderer mirrorRay;
@@ -12,10 +14,14 @@ public class EnergyRaySkill : Skill {
     public GameObject rayCastStart;
     public override IEnumerator Cast(GameObject target = null)
     {
+        source.GetComponent<BossController>().resource -= cost;
         source.GetComponent<BossController>().isCasting = true;
-        source.transform.LookAt(mirror.transform);
         isCasting = true;
 
+        mirror = ChooseMirror();
+        source.GetComponent<BossController>().canMove = false;
+
+        source.transform.LookAt(mirror.transform);
         bossRay.gameObject.SetActive(true);
         RpcDrawBossEnergyRay();
 
@@ -26,7 +32,7 @@ public class EnergyRaySkill : Skill {
         IEnumerable<RaycastHit> playersHitted = infos.Where( c => c.collider.tag == Constants.PLAYER_TAG);
         foreach(RaycastHit rHit in playersHitted)
         {
-            rHit.collider.GetComponent<Health>().TakeDamage(50);
+            rHit.collider.GetComponent<Health>().TakeDamage(30);
         }
         yield return new WaitForSeconds(1);
         Vector3 pos = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
@@ -52,7 +58,15 @@ public class EnergyRaySkill : Skill {
         RpcUnDrawRay();
         StartCoroutine(this.ProcessCoolDown());
         isCasting = false;
+        source.GetComponent<BossController>().canMove = true;
+
     }
+
+    private GameObject ChooseMirror()
+    {
+        return mirrors[UnityEngine.Random.Range(0, mirrors.Length)];
+    }
+
     [ClientRpc]
     public void RpcDrawBossEnergyRay()
     {
@@ -78,6 +92,6 @@ public class EnergyRaySkill : Skill {
 
     public override bool HasRessource()
     {
-        return true;
+        return source.GetComponent<BossController>().CurrentRessourceValue > cost;
     }
 }
