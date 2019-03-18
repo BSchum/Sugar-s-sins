@@ -717,7 +717,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 41866b710fd5472408b2d7b03daf2149, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1066,6 +1066,7 @@ MonoBehaviour:
   useProjectors: 1
   area: {fileID: 2100000, guid: a11b0ddfac3b6da4c89997be71ecb6ef, type: 2}
   projector: {fileID: 114624224425932646}
+  projectorOffset: {x: 0, y: 0, z: 0}
   hasProjected: 0
   skillProjectile: {fileID: 114563823203138628, guid: d6c80cacc17c55044bd47d046039be0f,
     type: 2}
@@ -1118,6 +1119,7 @@ MonoBehaviour:
   useProjectors: 0
   area: {fileID: 0}
   projector: {fileID: 0}
+  projectorOffset: {x: 0, y: 0, z: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
@@ -1157,6 +1159,7 @@ MonoBehaviour:
   useProjectors: 0
   area: {fileID: 0}
   projector: {fileID: 0}
+  projectorOffset: {x: 0, y: 0, z: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
@@ -1304,7 +1307,7 @@ MonoBehaviour:
   unit: {fileID: 4987955105400064}
   cam: {fileID: 20142563076364998}
   skill: {fileID: 0}
-  yOffset: 5
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114653148881792660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1371,6 +1374,7 @@ MonoBehaviour:
   useProjectors: 0
   area: {fileID: 0}
   projector: {fileID: 0}
+  projectorOffset: {x: 0, y: 0, z: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
@@ -1429,6 +1433,7 @@ MonoBehaviour:
   useProjectors: 0
   area: {fileID: 0}
   projector: {fileID: 0}
+  projectorOffset: {x: 0, y: 0, z: 0}
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0

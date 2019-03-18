@@ -16,8 +16,8 @@ public class MeltableMageTank : MeltableSkill {
 
     private void CastDamage()
     {
-        Collider[] colliders = Physics.OverlapSphere(skillOne.transform.position, range);
-        foreach(Collider collider in colliders)
+        Collider[] colliders = Physics.OverlapSphere(MeltableSkillManager.skillOne.transform.position, range);
+        foreach (Collider collider in colliders)
         {
             EnemyController enemy = collider.GetComponent<EnemyController>();
             if(enemy != null)

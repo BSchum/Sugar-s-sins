@@ -562,7 +562,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4aee3b72aadcdce4aa047a093eaf825a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -923,6 +923,7 @@ MonoBehaviour:
   unit: {fileID: 4278366710529408}
   cam: {fileID: 20546570432858572}
   skill: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114788059250554548
 MonoBehaviour:
   m_ObjectHideFlags: 1
