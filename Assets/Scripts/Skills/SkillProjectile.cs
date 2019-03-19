@@ -10,6 +10,7 @@ public class SkillProjectile : NetworkBehaviour, IBuffable {
     public GameObject source;
     protected List<Buff> buffs = new List<Buff>();
     protected Stats stats;
+    public GameObject target;
 
     public void DieAfterLifeTime()
     {

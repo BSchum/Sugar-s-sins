@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class DuplicationSkill : Skill
 {
@@ -12,6 +13,15 @@ public class DuplicationSkill : Skill
         source.GetComponent<BossController>().canMove = false;
         source.GetComponent<BossController>().isCasting = true;
 
+        CmdSpawnFakeMiras();
+
+
+        yield return null;
+    }
+
+    [Command]
+    public void CmdSpawnFakeMiras()
+    {
         source.GetComponent<BossController>().deadFakeMira = 4;
         //Move real boss to fake point
         int realMiraSpotIndex = Random.Range(0, spots.Length);
@@ -19,14 +29,13 @@ public class DuplicationSkill : Skill
         source.GetComponent<BossController>().resource += 100;
 
         //Spawn fake mira at other points
-        for(int i = 0; i < spots.Length; i++)
+        for (int i = 0; i < spots.Length; i++)
         {
-            if(i != realMiraSpotIndex)
-                Instantiate(fakeMiraPrefab, spots[i].transform.position, Quaternion.identity);
+            if (i != realMiraSpotIndex)
+            {
+                NetworkServer.Spawn(Instantiate(fakeMiraPrefab, spots[i].transform.position, Quaternion.identity));
+            }
         }
-
-
-        yield return null;
     }
 
     public override bool HasRessource()

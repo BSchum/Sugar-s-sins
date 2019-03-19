@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FakeMiraController : EnemyController {
-
-    public GameObject realMira;
+    public BossController mira;
+    public GameObject hand;
 	// Use this for initialization
 	void Start () {
         base.Start();
-        realMira = GameObject.Find("Mira");
+        mira = GameObject.Find("Mira").GetComponent<BossController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         base.Update();
+        if(!skills[0].isOnCooldown && skills[0].HasRessource() && skills[0].CanCast())
+        {
+            Debug.Log("kuku");
+            skills[0].source = this.gameObject;
+            StartCoroutine(skills[0].Cast());
+        }
+    }
 
+    private void OnDestroy()
+    {
+        mira.deadFakeMira -= 1;
     }
 }

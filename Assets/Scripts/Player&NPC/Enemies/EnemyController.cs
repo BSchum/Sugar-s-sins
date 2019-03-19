@@ -14,7 +14,10 @@ public class EnemyController : NetworkBehaviour {
     protected Motor motor;
     public bool canMove;
 
-    public Slider slider; 
+    public Slider slider;
+    [SerializeField]
+    protected Skill[] skills;
+
     #region Unity's methods
     protected void Start()
     {
@@ -23,7 +26,8 @@ public class EnemyController : NetworkBehaviour {
         Slider hpbar = GetComponentInChildren<Slider>();
         if (hpbar != null)
         {
-            Debug.Log(stats.GetHealth() * 100 / stats.GetMaxHealth());
+            Debug.Log("Une hp bar de type qualitative");
+            Debug.Log(stats.GetHealth());
             hpbar.maxValue = 100;
             hpbar.value = stats.GetHealth() * 100 / stats.GetMaxHealth();
         }
@@ -35,7 +39,7 @@ public class EnemyController : NetworkBehaviour {
         var sortedSources = sources.OrderByDescending(c => c.Value);
         currentTarget = sortedSources.FirstOrDefault().Key;
         GameObject go = GameObject.Find("ThreathDebug");
-        //go.GetComponent<Text>().text = ToString();
+        go.GetComponent<Text>().text = ToString();
 
         if (canMove)
         {
@@ -43,8 +47,9 @@ public class EnemyController : NetworkBehaviour {
         }
         if(slider != null)
         {
-            slider.maxValue = 1000;
+            slider.maxValue = stats.GetMaxHealth();
             slider.value = stats.GetHealth();
+            slider.GetComponentInChildren<Text>().text = stats.GetHealth() + " / "+ stats.GetMaxHealth();
         }
 
         

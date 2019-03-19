@@ -7,8 +7,7 @@ public class BossController : EnemyController, IRessourcesManipulator {
 
     public float attackSpeed = 5f;
     float internalCD = 0;
-    [SerializeField]
-    Skill[] skills;
+
     public bool isCasting = false;
 
     public int deadFakeMira;
@@ -42,7 +41,11 @@ public class BossController : EnemyController, IRessourcesManipulator {
     // Update is called once per frame
     void Update () {
         base.Update();
-
+        if(deadFakeMira == 0)
+        {
+            canMove = true;
+            isCasting = false;
+        }
         //Duplication - When she is at zero ressources
         if (skills[2].CanCast()
             && !skills[2].isOnCooldown
@@ -54,7 +57,6 @@ public class BossController : EnemyController, IRessourcesManipulator {
             Debug.Log("Duplication");
             StartCoroutine(skills[2].Cast(currentTarget));
         }
-        Debug.Log(deadFakeMira);
         //Energy ray - When she is above 0 ressources
         if (skills[1].CanCast() && !skills[1].isOnCooldown && skills[1].HasRessource() && currentTarget != null && !isCasting)
         {

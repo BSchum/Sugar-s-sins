@@ -88,8 +88,8 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
             {
                 StartCoroutine(skills[4].Cast());
             }
+            CmdBuffTotem();
         }
-        CmdBuffTotem();
     }
     #endregion
     #region Gelatin behaviour

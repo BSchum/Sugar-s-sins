@@ -46,11 +46,18 @@ public class GelatinSmashSkill : Skill , IThreatable{
     public void CmdOnSmashHit(float damage, GameObject target)
     {
         target.GetComponent<Health>().TakeDamage(damage);
-        GenerateThreat(target.GetComponent<EnemyController>());
+        RpcOnSmashHit(target);
         if (GetComponentInParent<TankAttacks>().lastActiveTotem != null)
         {
             GetComponentInParent<TankAttacks>().lastActiveTotem.GetComponent<TotemProjectile>().ChargeLightning(target.gameObject);
         }
+    }
+
+    [ClientRpc]
+    public void RpcOnSmashHit(GameObject target)
+    {
+        if(target != null)
+            GenerateThreat(target.GetComponent<EnemyController>());
     }
 
     public void GenerateThreat(EnemyController enemy)
