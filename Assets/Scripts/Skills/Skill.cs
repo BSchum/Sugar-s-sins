@@ -46,11 +46,6 @@ public abstract class Skill : NetworkBehaviour {
 
     }
 
-    public void CastProjector ()
-    {
-        
-    }
-
     InputHandlerBuilder builder;
     protected InputHandler ih;
 

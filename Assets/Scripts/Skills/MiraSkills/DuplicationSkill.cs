@@ -22,7 +22,7 @@ public class DuplicationSkill : Skill
     [Command]
     public void CmdSpawnFakeMiras()
     {
-        source.GetComponent<BossController>().deadFakeMira = 4;
+        FakeMiraController.aliveFakeMira = 4;
         //Move real boss to fake point
         int realMiraSpotIndex = Random.Range(0, spots.Length);
         source.transform.position = spots[realMiraSpotIndex].transform.position;

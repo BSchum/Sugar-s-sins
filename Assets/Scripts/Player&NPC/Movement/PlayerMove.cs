@@ -9,7 +9,7 @@ public class PlayerMove : PlayerScript{
 
     public Motor motor;
     NetworkIdentity netIdentity;
-
+    public bool isRooted;
     // Use this for initialization
     public void Start () {
         Initialize();
@@ -19,7 +19,8 @@ public class PlayerMove : PlayerScript{
     // Update is called once per frame
     void Update () {
         //Move with ih vector
-        motor.Move(ih.ComputeMovement(), ih.ComputeRotation(), this.GetComponent<Stats>().GetSpeed());
+        if(!isRooted)
+            motor.Move(ih.ComputeMovement(), ih.ComputeRotation(), this.GetComponent<Stats>().GetSpeed());
 
         if (ih.RightClick()) {
             Cursor.lockState = CursorLockMode.Locked;

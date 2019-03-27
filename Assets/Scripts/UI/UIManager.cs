@@ -40,14 +40,12 @@ public class UIManager : MonoBehaviour {
     #region UI Slider Update system
     internal void Subscribe(Stats stats)
     {
-        Debug.Log("Je subscribe");
         HealthChanged cb = UpdatePlayerHealthBar;
         stats.Subscribe(cb);
     }
 
     public void BossHPSubscribe(Stats stats)
     {
-        Debug.Log("le boss subscribe");
         HealthChanged cb = UpdateBossHealthBar;
         stats.Subscribe(cb);
     }
