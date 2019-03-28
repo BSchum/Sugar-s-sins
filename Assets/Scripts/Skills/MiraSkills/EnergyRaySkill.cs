@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class EnergyRaySkill : Skill {
     public GameObject[] mirrors;
-    public GameObject mirror;
+    GameObject mirror;
     public LineRenderer bossRay;
     public LineRenderer mirrorRay;
     public GameObject start;

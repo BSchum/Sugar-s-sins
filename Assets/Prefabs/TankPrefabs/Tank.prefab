@@ -1236,8 +1236,8 @@ MonoBehaviour:
     power: 10
     defense: 10
     speed: 10
-    health: 100
-    maxHealth: 100
+    health: 1000
+    maxHealth: 1000
     damage: 10
     lifeSteal: 0
   currentStats:
@@ -1286,6 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27277da3e3e1fb4884936c8f2dd20b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRooted: 0
 --- !u!114 &114653148881792660
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,10 +7,12 @@ public class CristalCone : MonoBehaviour {
     {
         if (other.gameObject.tag == Constants.PLAYER_TAG)
         {
-            Debug.Log("Salut");
+
             other.gameObject.GetComponent<Health>().TakeDamage(10);
             //root le joueur pendant x secondes
             other.gameObject.GetComponent<PlayerAttack>().AddBuff(new RootDebuff(other.gameObject));
+
+            
         }
     }
 
