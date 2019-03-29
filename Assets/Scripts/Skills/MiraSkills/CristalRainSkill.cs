@@ -9,6 +9,7 @@ using UnityEngine.Networking;
 public class CristalRainSkill : Skill
 {
     public GameObject rainPrefab;
+    public GameObject rainSpawn;
     public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
@@ -25,8 +26,7 @@ public class CristalRainSkill : Skill
     [ClientRpc]
     void RpcSpawnRain(GameObject currentTarget)
     {
-        Debug.Log("Hello");
-        GameObject rain = Instantiate(rainPrefab, currentTarget.transform.position, Quaternion.identity);
+        GameObject rain = Instantiate(rainPrefab, rainSpawn.transform.position, Quaternion.identity);
     }
     public override bool HasRessource()
     {

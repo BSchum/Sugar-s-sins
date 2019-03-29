@@ -38,8 +38,8 @@ public class EnemyController : NetworkBehaviour {
         this.GetComponent<Stats>().ResetBonusStats();
         var sortedSources = sources.OrderByDescending(c => c.Value);
         currentTarget = sortedSources.FirstOrDefault().Key;
-        GameObject go = GameObject.Find("ThreathDebug");
-        go.GetComponent<Text>().text = ToString();
+        //GameObject go = GameObject.Find("ThreathDebug");
+        //go.GetComponent<Text>().text = ToString();
 
         if (canMove)
         {

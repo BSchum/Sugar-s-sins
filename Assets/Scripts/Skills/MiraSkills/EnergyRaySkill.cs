@@ -92,6 +92,6 @@ public class EnergyRaySkill : Skill {
 
     public override bool HasRessource()
     {
-        return source.GetComponent<BossController>().CurrentRessourceValue > cost;
+        return GetComponent<BossController>().CurrentRessourceValue > cost;
     }
 }
