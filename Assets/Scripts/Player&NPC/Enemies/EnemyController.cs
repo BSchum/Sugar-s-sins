@@ -78,7 +78,15 @@ public class EnemyController : NetworkBehaviour {
         if(canMove)
             transform.LookAt(target.transform.position);
         if((transform.position - target.transform.position).magnitude > 5)
+        {
             transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
+            GetComponent<MiraAnimations>().Walk();
+        }
+        else
+        {
+            GetComponent<MiraAnimations>().Stay();
+
+        }
     }
     #endregion
 

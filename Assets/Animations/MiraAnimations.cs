@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MiraAnimations : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public Animator anim;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void Stay()
+    {
+        anim.SetBool("isWalking", false);
+    }
+    public void Walk()
+    {
+        anim.SetBool("isWalking", true);
+    }
 }

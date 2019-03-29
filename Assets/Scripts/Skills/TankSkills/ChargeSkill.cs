@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class ChargeSkill : Skill, IThreatable {
+    bool isDashing;
     public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
@@ -15,9 +16,11 @@ public class ChargeSkill : Skill, IThreatable {
         Motor motor = new Motor(this.gameObject);
         while (Time.time < dashStartAt + dashTime)
         {
+            isDashing = true;
             motor.Move(Vector3.forward, Quaternion.identity.eulerAngles, 100);
             yield return new WaitForEndOfFrame();
         }
+        isDashing = false;
         yield return null;
         
     }
@@ -33,7 +36,7 @@ public class ChargeSkill : Skill, IThreatable {
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == Constants.BOSS_TAG)
+        if (other.transform.tag == Constants.ENEMY_TAG || other.transform.tag == Constants.BOSS_TAG && isDashing)
         {
             Debug.Log("Colliding with "+ other.gameObject.name);
             CmdDealChargeDamage(other.gameObject);
