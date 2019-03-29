@@ -44,7 +44,7 @@ public class BossController : EnemyController, IRessourcesManipulator {
         base.Update();
         if (isCasting || !canMove)
         {
-            GetComponent<MiraAnimations>().Stay();
+            GetComponent<BaseAnimation>().Stay();
         }
 
 

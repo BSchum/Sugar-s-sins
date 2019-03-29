@@ -80,11 +80,11 @@ public class EnemyController : NetworkBehaviour {
         if((transform.position - target.transform.position).magnitude > 5)
         {
             transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
-            GetComponent<MiraAnimations>().Walk();
+            GetComponent<BaseAnimation>().Walk();
         }
         else
         {
-            GetComponent<MiraAnimations>().Stay();
+            GetComponent<BaseAnimation>().Stay();
 
         }
     }
