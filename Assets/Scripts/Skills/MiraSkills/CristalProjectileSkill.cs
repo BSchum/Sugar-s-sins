@@ -17,9 +17,6 @@ public class CristalProjectileSkill : Skill {
             projectile.target = players.FirstOrDefault();
             StartCoroutine(ProcessCoolDown());
         }
-
-
-
         yield return true;
     }
 

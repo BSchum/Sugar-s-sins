@@ -46,22 +46,34 @@ public class BossController : EnemyController, IRessourcesManipulator {
             canMove = true;
             isCasting = false;
         }
-        //Duplication - When she is at zero ressources
-        if (skills[2].CanCast()
-            && !skills[2].isOnCooldown
-            && skills[2].HasRessource()
-            && resource <= 0
-            && currentTarget != null
-            && !isCasting)
-        {
-            Debug.Log("Duplication");
-            StartCoroutine(skills[2].Cast(currentTarget));
-        }
+
+        /* if(skills[3].CanCast()
+           && !skills[3].isOnCooldown
+           && skills[2].HasRessource()
+           && resource <= 0
+           && !isCasting)
+       {
+           Debug.Log("MirrorBeam");
+           StartCoroutine(skills[3].Cast());
+       }
+
+           //Duplication - When she is at zero ressources
+         if (skills[2].CanCast()
+           && !skills[2].isOnCooldown
+           && skills[2].HasRessource()
+           && resource <= 0
+           && currentTarget != null
+           && !isCasting)
+       {
+           Debug.Log("Duplication");
+           StartCoroutine(skills[2].Cast(currentTarget));
+       }*/
+
         //Energy ray - When she is above 0 ressources
         if (skills[1].CanCast() && !skills[1].isOnCooldown && skills[1].HasRessource() && currentTarget != null && !isCasting)
-        {
-            StartCoroutine(skills[1].Cast(currentTarget));
-        }
+       {
+           StartCoroutine(skills[1].Cast(currentTarget));
+       }
 
         //AutoAttack - Everytime she is not casting, and when she is in range
         if (!isCasting && skills[0].CanCast() && !skills[0].isOnCooldown && skills[0].HasRessource() && currentTarget != null && (currentTarget.transform.position - this.transform.position).magnitude < 6 && !isCasting)

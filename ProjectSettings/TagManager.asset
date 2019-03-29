@@ -11,6 +11,8 @@ TagManager:
   - Self
   - Totem
   - Boss
+  - Mirror
+  - Ray
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Mirror
+  - Boss
   - 
   - PostProcessing
   - MiniMap
