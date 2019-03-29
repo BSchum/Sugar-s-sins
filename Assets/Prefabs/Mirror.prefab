@@ -5288,10 +5288,10 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 1
+  m_Mode: 0
   m_RefreshMode: 1
   m_TimeSlicingMode: 2
-  m_Resolution: 1024
+  m_Resolution: 256
   m_UpdateFrequency: 0
   m_BoxSize: {x: 20, y: 15, z: 25}
   m_BoxOffset: {x: 0, y: 0, z: 0}
