@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour {
     public Slider playerHealthBar;
     public Slider playerRessourceBar;
 
-    public Slider bossHealthBar;
+    public GameObject bossHealthBar;
+    public TextMeshProUGUI bossText;
 
     public Stats localPlayerStats;
 
@@ -40,14 +41,12 @@ public class UIManager : MonoBehaviour {
     #region UI Slider Update system
     internal void Subscribe(Stats stats)
     {
-        Debug.Log("Je subscribe");
         HealthChanged cb = UpdatePlayerHealthBar;
         stats.Subscribe(cb);
     }
 
     public void BossHPSubscribe(Stats stats)
     {
-        Debug.Log("le boss subscribe");
         HealthChanged cb = UpdateBossHealthBar;
         stats.Subscribe(cb);
     }
@@ -69,9 +68,8 @@ public class UIManager : MonoBehaviour {
 
     public void UpdateBossHealthBar(float value, float maxValue)
     {
-        bossHealthBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
-        bossHealthBar.maxValue = maxValue;
-        bossHealthBar.value = value;
+        bossText.GetComponent<TextMeshProUGUI>().text = value + " / " + maxValue;
+        bossHealthBar.transform.localScale = new Vector3(value/maxValue, 1, 1);
     }
     #endregion
     #region UI Skills system

@@ -51,7 +51,7 @@ public class TankAttacks : PlayerAttack, IRessourcesManipulator {
 
         if (isLocalPlayer)
         {
-            UIForDebug();
+            //UIForDebug();
             CmdInitializeSkills();
             base.Update();
             if (Input.GetButtonDown("FirstSkill") && skills[0].CanCast() && !skills[0].isOnCooldown && skills[0].HasRessource())

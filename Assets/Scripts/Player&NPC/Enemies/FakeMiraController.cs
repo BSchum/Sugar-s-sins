@@ -5,6 +5,7 @@ using UnityEngine;
 public class FakeMiraController : EnemyController {
     public BossController mira;
     public GameObject hand;
+    public static int aliveFakeMira;
 	// Use this for initialization
 	void Start () {
         base.Start();
@@ -24,6 +25,6 @@ public class FakeMiraController : EnemyController {
 
     private void OnDestroy()
     {
-        mira.deadFakeMira -= 1;
+        aliveFakeMira -= 1;
     }
 }
