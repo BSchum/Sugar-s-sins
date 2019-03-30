@@ -19,7 +19,7 @@ public class Health : NetworkBehaviour {
 
     public void TakeDamage(float amount)
     {
-        Debug.Log("Jai pris " + amount);
+        Debug.Log(this.gameObject+" a pris " + amount);
         GameObject instance = Instantiate(floatingDmgPrefab);
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = Camera.main.WorldToScreenPoint(this.transform.position);

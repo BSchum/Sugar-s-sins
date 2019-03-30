@@ -15,7 +15,7 @@ public class CristalRain : NetworkBehaviour {
     {
         for (int i = 0; i < 10; i++)
         {
-            Collider[] colls = Physics.OverlapSphere(this.transform.position, 5);
+            Collider[] colls = Physics.OverlapSphere(this.transform.position, 8);
 
             IEnumerable<Collider> playerColls = colls.Where(c => c.tag == Constants.PLAYER_TAG);
 

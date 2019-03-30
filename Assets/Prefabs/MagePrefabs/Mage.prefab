@@ -878,7 +878,7 @@ MonoBehaviour:
   cooldown: 20
   internalCD: 0
   source: {fileID: 0}
-  lifeSteal: 0.3
+  lifeSteal: 0.1
   duration: 6
 --- !u!114 &114665938490624712
 MonoBehaviour:
@@ -939,6 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27277da3e3e1fb4884936c8f2dd20b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRooted: 0
 --- !u!114 &114941276875109992
 MonoBehaviour:
   m_ObjectHideFlags: 1

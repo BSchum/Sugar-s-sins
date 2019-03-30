@@ -32,7 +32,7 @@ public class MirrorRaySkill : Skill {
             {
                 mirrorRay = mirror.transform.parent.transform.Find("Kamehameha").gameObject;
                 SetLayerRecursively(source, 9);
-                //setAnimation
+                //TODO setAnimation
                 yield return new WaitForSeconds(1);
                 mirrorRay.SetActive(true);
                 mirrorRay.GetComponentInChildren<ParticleSystem>().Play();

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class FireBallProjectile : SkillProjectile, IThreatable {
-
+    bool canTrigger;
     private void Start()
     {
         GetComponent<Collider>().isTrigger = true;
@@ -12,9 +12,9 @@ public class FireBallProjectile : SkillProjectile, IThreatable {
 
     public override void Throw ()
     {
+        canTrigger = true;
         transform.SetParent(null);
         GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-
         DieAfterLifeTime();
     }
 
@@ -22,18 +22,21 @@ public class FireBallProjectile : SkillProjectile, IThreatable {
     {
 
         //Calcul des dégats
-        if(collision.gameObject.tag == Constants.ENEMY_TAG || collision.gameObject.tag == Constants.BOSS_TAG)
+        if(canTrigger && (collision.gameObject.tag == Constants.ENEMY_TAG || collision.gameObject.tag == Constants.BOSS_TAG))
         {
             Vector3 vel = GetComponent<Rigidbody>().velocity;
-            float velSpeed = (Mathf.Abs(vel.x) + Mathf.Abs(vel.y) + Mathf.Abs(vel.z)) + (speed / 10);
+            Debug.Log("Speed = " + speed);
+            float velSpeed = (speed / 10);
 
-            //Debug.Log("Fireball damage : " + damage + " : " + velSpeed);
             damage += velSpeed;
+            Debug.Log("Fireball damage : " + damage + " : " + velSpeed);
 
-            if(source != null)
+
+            if (source != null)
             {
                 source.GetComponent<MageAttack>().AddBurstPassif(damage);
-                source.GetComponent<Stats>().AddCurrentHealth(damage * source.GetComponent<Stats>().GetLifeSteal());
+                if(source.GetComponent<Stats>().GetLifeSteal() != 0)
+                    source.GetComponent<Health>().TakeDamage(-damage * source.GetComponent<Stats>().GetLifeSteal());
             }
             GenerateThreat(collision.GetComponent<EnemyController>());
             Debug.Log(damage);

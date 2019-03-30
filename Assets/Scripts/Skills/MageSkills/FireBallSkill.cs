@@ -93,20 +93,26 @@ public class FireBallSkill : Skill {
         }
         else
         {
-            foreach(GameObject fire in fireBalls)
-            {
-                SkillProjectile fireBallProjectile = fire.GetComponent<SkillProjectile>();
-                fireBallProjectile.speed *= bonusSpeed;
-                fireBallProjectile.damage *= bonusSpeed;
-                fireBallProjectile.source = this.gameObject;
-
-                fireBallProjectile.Throw();
-            }
+            StartCoroutine(ReleaseMultipleFireBall());
         }
 
         fireBallSpawned = false;
         castTime = 0;
         StartCoroutine(ProcessCoolDown());
+    }
+
+    public IEnumerator ReleaseMultipleFireBall()
+    {
+        foreach (GameObject fire in fireBalls)
+        {
+            SkillProjectile fireBallProjectile = fire.GetComponent<SkillProjectile>();
+            fireBallProjectile.speed *= bonusSpeed;
+            fireBallProjectile.damage *= bonusSpeed;
+            fireBallProjectile.source = this.gameObject;
+
+            fireBallProjectile.Throw();
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     private Vector3 scale;
@@ -155,9 +161,9 @@ public class FireBallSkill : Skill {
         }
         else
         {
-            fireBalls[0] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[0]);
-            fireBalls[1] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[1]);
-            fireBalls[2] = Instantiate(skillProjectile.gameObject, spawnFireBallUlt[2]);
+            fireBalls[0] = Instantiate(skillProjectile.gameObject, mageHand);
+            fireBalls[1] = Instantiate(skillProjectile.gameObject, mageHand);
+            fireBalls[2] = Instantiate(skillProjectile.gameObject, mageHand);
         }
     }
 

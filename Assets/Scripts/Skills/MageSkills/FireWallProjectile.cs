@@ -34,14 +34,14 @@ public class FireWallProjectile : SkillProjectile {
             }
             else
             {
-                other.GetComponent<Rigidbody>().velocity *= reducingSpeed;
+                other.GetComponent<SkillProjectile>().speed *= reducingSpeed;
             }
         }
         else if (other.gameObject.tag == "AlliedProjectile")
         {
             Debug.Log("Allied Projectile");
 
-            other.GetComponent<Rigidbody>().velocity *= increasingSpeed;
+            other.GetComponent<SkillProjectile>().speed *= increasingSpeed;
         }
     }
 }

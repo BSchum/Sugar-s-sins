@@ -2097,7 +2097,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282507433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 19.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 775875693}
@@ -3351,7 +3351,7 @@ RectTransform:
   m_GameObject: {fileID: 408222760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.67696637, y: 0.67696637, z: 0.67696637}
   m_Children:
   - {fileID: 1692435254}
   - {fileID: 762881331}
@@ -3360,10 +3360,10 @@ RectTransform:
   m_Father: {fileID: 209453040}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -53.459}
-  m_SizeDelta: {x: 317.7, y: 108.43}
+  m_AnchorMin: {x: 0.37625003, y: 0.849113}
+  m_AnchorMax: {x: 0.6237501, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.9000244}
+  m_SizeDelta: {x: 119.70001, y: 40.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &409256184
 GameObject:
@@ -3832,7 +3832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25100002}
   m_AnchorMax: {x: 1, y: 0.94466466}
-  m_AnchoredPosition: {x: 0, y: 0.20000076}
+  m_AnchoredPosition: {x: 0, y: 0.2000122}
   m_SizeDelta: {x: -0.2999878, y: 0.51999664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437495843
@@ -10265,6 +10265,7 @@ GameObject:
   - component: {fileID: 663198696}
   - component: {fileID: 663198697}
   - component: {fileID: 663198698}
+  - component: {fileID: 663198699}
   - component: {fileID: 663198695}
   m_Layer: 0
   m_Name: Mira
@@ -10398,9 +10399,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 5
+  m_Height: 12.488163
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 5.7789936, z: 0}
 --- !u!114 &663198694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10444,6 +10445,7 @@ MonoBehaviour:
   - {fileID: 663198696}
   - {fileID: 663198697}
   - {fileID: 663198698}
+  - {fileID: 663198699}
   attackSpeed: 5
   isCasting: 0
   resource: 100
@@ -10531,6 +10533,34 @@ MonoBehaviour:
   source: {fileID: 0}
   rainPrefab: {fileID: 1606510816045818, guid: f6641ce5145d8d146811db3feffb34fa, type: 2}
   rainSpawn: {fileID: 282507433}
+--- !u!114 &663198699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663198687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c834e65df758ca45ac2ce843b900c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artwork: {fileID: 0}
+  cost: 0
+  threat: 0
+  canCast: 1
+  isCasting: 0
+  useProjectors: 0
+  area: {fileID: 0}
+  hasProjected: 0
+  skillProjectile: {fileID: 0}
+  isOnCooldown: 0
+  cooldown: 0
+  internalCD: 0
+  source: {fileID: 0}
+  mirrors:
+  - {fileID: 1361309798}
+  - {fileID: 1734331595}
+  - {fileID: 1778411063}
 --- !u!1 &665654435
 GameObject:
   m_ObjectHideFlags: 0
@@ -11275,7 +11305,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 663198687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 34, z: -46.5}
+  m_LocalPosition: {x: 0, y: 30.92, z: -46.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2021414359}
@@ -12197,7 +12227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40625003, y: 0}
   m_AnchorMax: {x: 0.58000004, y: 0.10444396}
-  m_AnchoredPosition: {x: 0.0049972534, y: -5.9000244}
+  m_AnchoredPosition: {x: 0.0049972534, y: -5.9001465}
   m_SizeDelta: {x: 0.01, y: -1.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901345423
@@ -22239,7 +22269,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3,
+  m_PlayerPrefab: {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
@@ -22309,8 +22339,8 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  tankPrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3, type: 2}
-  magePrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3, type: 2}
+  tankPrefab: {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb, type: 2}
+  magePrefab: {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb, type: 2}
 --- !u!4 &1514998549
 Transform:
   m_ObjectHideFlags: 0
@@ -23457,7 +23487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.3893324}
   m_AnchorMax: {x: 1, y: 0.60144514}
-  m_AnchoredPosition: {x: 0, y: 0.50000477}
+  m_AnchoredPosition: {x: 0, y: 0.5}
   m_SizeDelta: {x: -0.2999878, y: 53.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692435255

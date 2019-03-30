@@ -12,7 +12,7 @@ public static class Constants
     public const string PLAYER_TAG = "Player";
     public const string TOTEM_TAG = "Totem";
     #endregion
-    public static float BURST_PASSIF_MULTIPLICATEUR = 1f;
+    public static float BURST_PASSIF_MULTIPLICATEUR = 0.2f;
     #region Tank constants
     public const float MAX_ATTACK_MULTIPLICATOR_GELATIN = 0.5f;
     public const float MIN_ATTACK_MULTIPLICATOR_GELATIN = 0f;

@@ -29,13 +29,8 @@ public class TornadoProjectile : SkillProjectile {
 
         while (spawnTime > 0)
         {
-            //transform.position += transform.forward * speed;
-            transform.Rotate(Vector3.up * (rotateSpeed /** (movingForward ? 1 : -1)*/ / lifeTime));
 
             spawnTime -= Time.deltaTime;
-
-            //movingForward = spawnTime < lifeTime / 2 ? false : true;
-
             Attracts();
 
             yield return new WaitForEndOfFrame();
@@ -46,21 +41,21 @@ public class TornadoProjectile : SkillProjectile {
 
     void Attracts ()
     {
-       Collider[] colliders = Physics.OverlapSphere(transform.position, attractRange);
-       foreach (Collider c in colliders)
-       {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, attractRange);
+        foreach (Collider c in colliders)
+        {
             if (c.tag == Constants.ENEMY_TAG || c.tag == "EnemyProjectile" )
             {
                 Vector3 dir = (transform.position - c.transform.position) * attractForce * Time.deltaTime;
-
                 c.transform.position += dir;
             }
-       }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
+        Debug.Log("Hello");
         if(other.gameObject.tag == "Player")
         {
             other.GetComponent<Rigidbody>().velocity += Vector3.one * bonusSpeed;
