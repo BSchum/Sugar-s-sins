@@ -19,8 +19,36 @@ public class PlayerMove : PlayerScript{
     // Update is called once per frame
     void Update () {
         //Move with ih vector
-        if(!isRooted)
+
+        if (!isRooted)
+        {
+            Debug.Log(ih.ComputeMovement());
+
+            if(ih.ComputeMovement() == Vector3.zero)
+            {
+                GetComponent<BaseAnimation>().Stay();
+                Debug.Log("Je stay");
+            }
+            else if (ih.ComputeMovement().x < 0)
+            {
+                Debug.Log("Je strafe");
+                GetComponent<PlayersAnimations>().StrafeLeft();
+            }
+            else if (ih.ComputeMovement().x > 0)
+            {
+                Debug.Log("Je strafe");
+                GetComponent<PlayersAnimations>().StrafeRight();
+            }
+            else if (ih.ComputeMovement().z > 0 && ih.ComputeMovement().x == 0)
+            {
+                Debug.Log("J'avance");
+                GetComponent<BaseAnimation>().Walk();
+            }
+
             motor.Move(ih.ComputeMovement(), ih.ComputeRotation(), this.GetComponent<Stats>().GetSpeed());
+        }
+
+
 
         if (ih.RightClick()) {
             Cursor.lockState = CursorLockMode.Locked;
