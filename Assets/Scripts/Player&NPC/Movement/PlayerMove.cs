@@ -26,23 +26,27 @@ public class PlayerMove : PlayerScript{
 
             if(ih.ComputeMovement() == Vector3.zero)
             {
-                GetComponent<BaseAnimation>().Stay();
+                if(GetComponent<BaseAnimation>() != null)
+                    GetComponent<BaseAnimation>().Stay();
                 Debug.Log("Je stay");
             }
             else if (ih.ComputeMovement().x < 0)
             {
                 Debug.Log("Je strafe");
-                GetComponent<PlayersAnimations>().StrafeLeft();
+                if (GetComponent<PlayersAnimations>() != null)
+                    GetComponent<PlayersAnimations>().StrafeLeft();
             }
             else if (ih.ComputeMovement().x > 0)
             {
                 Debug.Log("Je strafe");
-                GetComponent<PlayersAnimations>().StrafeRight();
+                if (GetComponent<PlayersAnimations>() != null)
+                    GetComponent<PlayersAnimations>().StrafeRight();
             }
             else if (ih.ComputeMovement().z > 0 && ih.ComputeMovement().x == 0)
             {
                 Debug.Log("J'avance");
-                GetComponent<BaseAnimation>().Walk();
+                if (GetComponent<BaseAnimation>() != null)
+                    GetComponent<BaseAnimation>().Walk();
             }
 
             motor.Move(ih.ComputeMovement(), ih.ComputeRotation(), this.GetComponent<Stats>().GetSpeed());
