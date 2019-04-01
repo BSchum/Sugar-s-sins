@@ -11,7 +11,7 @@ public class BossController : EnemyController, IRessourcesManipulator {
 
     public bool isCasting = false;
 
-
+    private Skill selectedSkill;
     public float resource = 0;
 
     public float CurrentRessourceValue
@@ -55,6 +55,12 @@ public class BossController : EnemyController, IRessourcesManipulator {
             FakeMiraController.aliveFakeMira = -1;
         }
 
+        //Mirror Beam - ...
+        /*if (skills[5].CanCast() && !skills[5].isOnCooldown && skills[5].HasRessource() && currentTarget != null && !isCasting)
+        {
+            StartCoroutine(skills[5].Cast());
+        }*/
+
         //Cone de Cristal suivi de Pluie de cristaux - When she is above 0 ressources
         if (skills[3].CanCast() && !skills[3].isOnCooldown && skills[3].HasRessource() && currentTarget != null && !isCasting)
         {
@@ -86,4 +92,10 @@ public class BossController : EnemyController, IRessourcesManipulator {
         }
     }
     #endregion
+
+    private Skill chooseSpell()
+    {
+        return skills[UnityEngine.Random.Range(0, skills.Length)];
+
+    }
 }

@@ -41,15 +41,14 @@ public class MirrorRaySkill : Skill {
             yield return new WaitForEndOfFrame();
         } while (isNearMirror != true);
         
-        yield return new WaitForSeconds(5);
-        mirrorRay.SetActive(false);
-        source.GetComponent<BossController>().canMove = true;
         source.GetComponent<BossController>().isCasting = false;
         SetLayerRecursively(source, 0);
 
-        isCasting = false;
         StartCoroutine(this.ProcessCoolDown());
-        yield return true;
+        isCasting = false;
+        source.GetComponent<BossController>().canMove = true;
+        yield return new WaitForSeconds(5);
+        mirrorRay.SetActive(false);
     }
 
     void SetLayerRecursively(GameObject obj, int newLayer)
