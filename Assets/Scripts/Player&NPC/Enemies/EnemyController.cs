@@ -67,8 +67,19 @@ public class EnemyController : NetworkBehaviour {
     {
         if (currentTarget)
         {
-            if(isServer)
-                RpcGoToHightestThreat(currentTarget);
+            Vector3 lookAtpos = new Vector3(currentTarget.transform.position.x,this.transform.position.y, currentTarget.transform.position.z);
+            if (canMove)
+                transform.LookAt(lookAtpos);
+            if ((transform.position -lookAtpos).magnitude > 5)
+            {
+                transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
+                GetComponent<BaseAnimation>().Walk();
+            }
+            else
+            {
+                GetComponent<BaseAnimation>().Stay();
+
+            }
         }
     }
 

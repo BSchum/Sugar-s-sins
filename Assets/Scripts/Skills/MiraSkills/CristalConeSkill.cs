@@ -8,6 +8,7 @@ public class CristalConeSkill : Skill
     public GameObject coneProjector;
     public override IEnumerator Cast(GameObject currentTarget = null)
     {
+        source.GetComponent<BossController>().resource -= cost;
         StartCoroutine(ProcessCoolDown());
         source.GetComponent<BossController>().isCasting = true;
         source.GetComponent<BossController>().canMove = false;
@@ -26,6 +27,6 @@ public class CristalConeSkill : Skill
 
     public override bool HasRessource()
     {
-        return true;
+        return GetComponent<BossController>().CurrentRessourceValue > cost;
     }
 }

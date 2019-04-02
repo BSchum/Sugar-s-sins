@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class MirrorRaySkill : Skill {
+public class MirrorBeamSkill : Skill {
 
     public GameObject[] mirrors;
     private GameObject mirror;
@@ -20,15 +20,18 @@ public class MirrorRaySkill : Skill {
         isCasting = true;
 
         mirror = ChooseMirror();
-        
-        source.transform.LookAt(mirror.transform.position);
+
+        Vector3 lookAtpos = new Vector3(mirror.transform.position.x, this.transform.position.y, mirror.transform.position.z);
+
+        source.transform.LookAt(lookAtpos);
         source.GetComponent<BossController>().canMove = false;
         do
         {
-            if ((transform.position - mirror.transform.position).magnitude > 2)
+            if ((transform.position - lookAtpos).magnitude > 2)
             {
                 transform.Translate(Vector3.forward * (GetComponent<Stats>().GetCurrentSpeed() * 1.2f) * Time.deltaTime);
-            } else
+            }
+            else
             {
                 mirrorRay = mirror.transform.parent.transform.Find("Kamehameha").gameObject;
                 SetLayerRecursively(source, 9);
