@@ -6,11 +6,11 @@ public class BaseAnimation : MonoBehaviour {
     public Animator anim;
 	
 
-    public void Stay()
+    public virtual void Stay()
     {
         anim.SetBool("isWalking", false);
     }
-    public void Walk()
+    public virtual void Walk()
     {
         anim.SetBool("isWalking", true);
     }

@@ -35,7 +35,6 @@ public class BossController : EnemyController, IRessourcesManipulator {
         foreach(Skill skill in skills)
         {
             skill.source = this.gameObject;
-            Debug.Log(skill.source);
         }
     }
 
