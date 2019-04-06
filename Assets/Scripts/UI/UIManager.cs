@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour {
 
     public Stats localPlayerStats;
 
+    public Image hpOverlay;
+    public Image ressourceOverlay;
     #region Unity's method
     private void Start()
     {
@@ -73,6 +75,12 @@ public class UIManager : MonoBehaviour {
     }
     #endregion
     #region UI Skills system
+
+    public void SetUIBar(Sprite hpBar, Sprite ressourceBar)
+    {
+        hpOverlay.sprite = hpBar;
+        ressourceOverlay.sprite = ressourceBar;
+    }
     public void AddSkills(List<Skill> skills)
     {
         //TODO Add all skill to UI

@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+
 public delegate void RessourceChanged(float value, float maxValue);
 [RequireComponent(typeof(Stats))]
 public class PlayerAttack : PlayerScript, IBuffable {
     protected Weapon weapon;
     protected Stats stats;
+
+    public Sprite healthBarSprite;
+    public Sprite ressourceBarSprite;
 
     protected Skill[] skills;
     protected List<Buff> buffs = new List<Buff>();
@@ -24,6 +29,7 @@ public class PlayerAttack : PlayerScript, IBuffable {
         skills = GetComponents<Skill>();
         if (isLocalPlayer)
         {
+            UIManager.instance.SetUIBar(healthBarSprite, ressourceBarSprite);
             UIManager.instance.AddSkills(skills.Take(4).ToList());
             UIManager.instance.Subscribe(this.stats);
         }
