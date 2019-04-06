@@ -16,16 +16,6 @@ public class FireBallSkill : Skill {
     public Transform mageHand;
     public Transform[] spawnFireBallUlt;
 
-    public Canvas canvas;
-    public GameObject loadingSkillPrefab;
-    private GameObject loadingSkill;
-
-    private void Start()
-    {
-        loadingSkill = Instantiate(loadingSkillPrefab, canvas.transform);
-        loadingSkill.SetActive(false);
-    }
-
     public override bool CanCast()
     {
         return canCast && !isCasting;
@@ -39,12 +29,12 @@ public class FireBallSkill : Skill {
         {
             fireBallSpawned = true;
             CmdSpawnProjectile();
-            loadingSkill.SetActive(true);
+            CastBar.singleton.ChangeState(true);
         }
         else
         {
             CmdIncreaseFireBall();
-            loadingSkill.GetComponent<Image>().fillAmount = (castTime / maxCastTime);
+            CastBar.singleton.UpdateCastBar(castTime / maxCastTime);
         }
 
         CmdIncreaseCastTime();
@@ -73,7 +63,7 @@ public class FireBallSkill : Skill {
     [ClientRpc]
     public void RpcReleaseFireBall(float cast)
     {
-        loadingSkill.SetActive(false);
+        CastBar.singleton.ChangeState(false);
 
         float maxTime = fireBallScale.keys[fireBallScale.length - 1].time;
         bonusSpeed = fireBallSpeed.Evaluate((cast / maxCastTime) * maxTime);
