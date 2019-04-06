@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 6cf6469a3262ef5468f701446fdfd710
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Jinxbody:ceinture_cuissedroite
+    100004: Jinxbody:Fiole1
+    100006: Jinxbody:Fiole2
+    100008: Jinxbody:Fiole3
+    100010: Jinxbody:Fiole4
+    100012: Jinxbody:Fiole5
+    100014: Jinxbody:Group49856
+    100016: Jinxbody:Head_Burst
+    100018: Jinxbody:Jinxbody:Fiole5
+    100020: Jinxbody:Jinxbody:Head_Burst
+    100022: Jinxbody:Jinxbody:Jinxbody:Head_Burst
+    100024: Jinxbody:Jinxbody:Jinxbody:transform1
+    100026: Jinxbody:Jinxbody:Jinxbody:transform2
+    100028: Jinxbody:Jinxbody:transform1
+    100030: Jinxbody:Jinxbody:transform10
+    100032: Jinxbody:Jinxbody:transform11
+    100034: Jinxbody:Jinxbody:transform12
+    100036: Jinxbody:Jinxbody:transform2
+    100038: Jinxbody:Jinxbody:transform3
+    100040: Jinxbody:Jinxbody:transform4
+    100042: Jinxbody:Jinxbody:transform5
+    100044: Jinxbody:Jinxbody:transform6
+    100046: Jinxbody:Jinxbody:transform7
+    100048: Jinxbody:Jinxbody:transform8
+    100050: Jinxbody:Jinxbody:transform9
+    100052: Jinxbody:Protection_cuissegauche
+    100054: "Jinxbody:\xE9pauli\xE8re_gauche"
+    100056: Jinxeyes:Group17476
+    100058: Jinxhead:transform1
+    100060: Jinxhead:transform2
+    100062: Jinxhead:ZBrush_defualt_group
+    100064: Jinxhead:ZBrush_defualt_group1
+    100066: "\xE9pauli\xE8re_droite:Group14"
+    400000: //RootNode
+    400002: Jinxbody:ceinture_cuissedroite
+    400004: Jinxbody:Fiole1
+    400006: Jinxbody:Fiole2
+    400008: Jinxbody:Fiole3
+    400010: Jinxbody:Fiole4
+    400012: Jinxbody:Fiole5
+    400014: Jinxbody:Group49856
+    400016: Jinxbody:Head_Burst
+    400018: Jinxbody:Jinxbody:Fiole5
+    400020: Jinxbody:Jinxbody:Head_Burst
+    400022: Jinxbody:Jinxbody:Jinxbody:Head_Burst
+    400024: Jinxbody:Jinxbody:Jinxbody:transform1
+    400026: Jinxbody:Jinxbody:Jinxbody:transform2
+    400028: Jinxbody:Jinxbody:transform1
+    400030: Jinxbody:Jinxbody:transform10
+    400032: Jinxbody:Jinxbody:transform11
+    400034: Jinxbody:Jinxbody:transform12
+    400036: Jinxbody:Jinxbody:transform2
+    400038: Jinxbody:Jinxbody:transform3
+    400040: Jinxbody:Jinxbody:transform4
+    400042: Jinxbody:Jinxbody:transform5
+    400044: Jinxbody:Jinxbody:transform6
+    400046: Jinxbody:Jinxbody:transform7
+    400048: Jinxbody:Jinxbody:transform8
+    400050: Jinxbody:Jinxbody:transform9
+    400052: Jinxbody:Protection_cuissegauche
+    400054: "Jinxbody:\xE9pauli\xE8re_gauche"
+    400056: Jinxeyes:Group17476
+    400058: Jinxhead:transform1
+    400060: Jinxhead:transform2
+    400062: Jinxhead:ZBrush_defualt_group
+    400064: Jinxhead:ZBrush_defualt_group1
+    400066: "\xE9pauli\xE8re_droite:Group14"
+    2100000: lambert1
+    2300000: Jinxbody:Jinxbody:Fiole5
+    3300000: Jinxbody:Jinxbody:Fiole5
+    4300000: Jinxbody:Jinxbody:Fiole5
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
