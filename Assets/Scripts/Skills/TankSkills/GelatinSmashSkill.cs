@@ -12,7 +12,6 @@ public class GelatinSmashSkill : Skill , IThreatable{
 
         for (int i =0; i< colliders.Length; i++)
         {
-            Debug.Log("Activation de ce coup : " + colliders[i].name);
             colliders[i].gameObject.SetActive(true);
             yield return new WaitForSeconds(0.1f);
             colliders[i].gameObject.SetActive(false);

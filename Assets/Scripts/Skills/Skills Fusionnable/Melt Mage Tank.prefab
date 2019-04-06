@@ -56,3 +56,4 @@ MonoBehaviour:
   timeToAbsorb: 3
   damage: 500
   range: 50
+  fx: {fileID: 1423984944599524, guid: c1b3bed87ac13bd48859ba39c946f323, type: 2}

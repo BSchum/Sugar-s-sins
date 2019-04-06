@@ -9,6 +9,7 @@ public class MeltableMageTank : MeltableSkill {
     public float damage;
     public float range;
 
+    public GameObject fx;
     public override void Merge()
     {
         Invoke("CastDamage", timeToAbsorb);
@@ -18,6 +19,7 @@ public class MeltableMageTank : MeltableSkill {
     {
         Collider[] colliders = Physics.OverlapSphere(MeltableSkillManager.skillOne.transform.position, range);
         Debug.Log(colliders[0].name);
+        Instantiate(fx, MeltableSkillManager.skillOne.transform.position, fx.transform.rotation);
         foreach(Collider collider in colliders)
         {
             EnemyController enemy = collider.GetComponent<EnemyController>();

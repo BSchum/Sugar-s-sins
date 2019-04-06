@@ -3421,6 +3421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0081fb3d72f515499b530d12afc1a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarSprite: {fileID: 21300000, guid: 517b8dd20d59e8f47b1b4556cf74dc6b, type: 3}
+  ressourceBarSprite: {fileID: 21300000, guid: ba7287d2ffd2c7a4cb43d5bcdfa32a0c, type: 3}
   projector: {fileID: 114925114853453270}
   gelatinStack: 6
   lastActiveTotem: {fileID: 0}
