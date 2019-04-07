@@ -29,6 +29,6 @@ public class CristalRain : NetworkBehaviour {
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 8);
+        //Gizmos.DrawWireSphere(this.transform.position, 8);
     }
 }

@@ -7,6 +7,7 @@ public abstract class Skill : NetworkBehaviour {
     public Sprite artwork;
     public float cost;
     public float threat;
+    public float damage;
 
     [HideInInspector]
     public bool canCast = true;

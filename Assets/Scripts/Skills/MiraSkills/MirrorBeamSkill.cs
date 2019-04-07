@@ -43,7 +43,7 @@ public class MirrorBeamSkill : Skill {
             }
             yield return new WaitForEndOfFrame();
         } while (isNearMirror != true);
-        
+        yield return new WaitForSeconds(2f);
         source.GetComponent<BossController>().isCasting = false;
         SetLayerRecursively(source, 0);
 

@@ -13,14 +13,19 @@ public class EnemyController : NetworkBehaviour {
     protected Stats stats;
     protected Motor motor;
     public bool canMove;
+    public bool isCasting = false;
 
     public Slider slider;
     [SerializeField]
     protected Skill[] skills;
 
+    public Skill autoAttack;
+    public float autoAttackRange;
+
     #region Unity's methods
     protected void Start()
     {
+        
         stats = GetComponent<Stats>();
         stats.ComputeFinalStats();
         Slider hpbar = GetComponentInChildren<Slider>();
@@ -31,6 +36,9 @@ public class EnemyController : NetworkBehaviour {
             hpbar.maxValue = 100;
             hpbar.value = stats.GetHealth() * 100 / stats.GetMaxHealth();
         }
+        autoAttack.source = this.gameObject;
+
+
     }
     protected void Update()
     {
@@ -38,8 +46,8 @@ public class EnemyController : NetworkBehaviour {
         this.GetComponent<Stats>().ResetBonusStats();
         var sortedSources = sources.OrderByDescending(c => c.Value);
         currentTarget = sortedSources.FirstOrDefault().Key;
-        //GameObject go = GameObject.Find("ThreathDebug");
-        //go.GetComponent<Text>().text = ToString();
+        GameObject go = GameObject.Find("ThreathDebug");
+        go.GetComponent<Text>().text = ToString();
 
         if (canMove)
         {
@@ -51,8 +59,15 @@ public class EnemyController : NetworkBehaviour {
             slider.value = stats.GetHealth();
             slider.GetComponentInChildren<Text>().text = stats.GetHealth() + " / "+ stats.GetMaxHealth();
         }
+        if (!isCasting && autoAttack != null && autoAttack.CanCast() && autoAttack.HasRessource() && !autoAttack.isOnCooldown && currentTarget != null && (currentTarget.transform.position - this.transform.position).magnitude < autoAttackRange + 2)
+        {
+            StartCoroutine(autoAttack.Cast(currentTarget));
+            if (GetComponent<SimpleEnemyAnimations>() != null)
+                GetComponent<SimpleEnemyAnimations>().Attack();
+        }
 
-        
+
+
     }
     #endregion
     #region ThreatSystem
@@ -70,33 +85,21 @@ public class EnemyController : NetworkBehaviour {
             Vector3 lookAtpos = new Vector3(currentTarget.transform.position.x,this.transform.position.y, currentTarget.transform.position.z);
             if (canMove)
                 transform.LookAt(lookAtpos);
-            if ((transform.position -lookAtpos).magnitude > 5)
+            if ((transform.position -lookAtpos).magnitude > autoAttackRange)
             {
                 transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
-                GetComponent<BaseAnimation>().Walk();
+                if (GetComponent<BaseAnimation>() != null)
+                {
+                    GetComponent<BaseAnimation>().Walk();
+                }
             }
             else
             {
-                GetComponent<BaseAnimation>().Stay();
-
+                if (GetComponent<BaseAnimation>() != null && !isCasting)
+                {
+                    GetComponent<BaseAnimation>().Stay();
+                }
             }
-        }
-    }
-
-    [ClientRpc]
-    public void RpcGoToHightestThreat(GameObject target)
-    {
-        if(canMove)
-            transform.LookAt(target.transform.position);
-        if((transform.position - target.transform.position).magnitude > 5)
-        {
-            transform.Translate(Vector3.forward * this.stats.GetCurrentSpeed() * Time.deltaTime);
-            GetComponent<BaseAnimation>().Walk();
-        }
-        else
-        {
-            GetComponent<BaseAnimation>().Stay();
-
         }
     }
     #endregion
