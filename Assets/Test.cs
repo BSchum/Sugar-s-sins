@@ -6,6 +6,6 @@ public class Test : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 20);
+        //Gizmos.DrawWireSphere(this.transform.position, 20);
     }
 }
