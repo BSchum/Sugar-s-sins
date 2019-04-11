@@ -8,13 +8,15 @@ using System;
 
 class AutoAttackSkill : Skill
 {
+    public float cast = 2.5f;
+
     GameObject currentTarget;
     public override IEnumerator Cast(GameObject target)
     {
         source.GetComponent<EnemyController>().isCasting = true;
         StartCoroutine(ProcessCoolDown());
         target.GetComponent<Health>().TakeDamage(damage);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(cast);
         source.GetComponent<EnemyController>().isCasting = false;
 
     }

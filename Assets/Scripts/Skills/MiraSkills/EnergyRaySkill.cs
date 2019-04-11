@@ -36,7 +36,7 @@ public class EnergyRaySkill : Skill {
         mirrorRay.gameObject.SetActive(true);
         mirrorRay.GetComponentInChildren<ParticleSystem>().Play();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);
         bossRay.gameObject.SetActive(false);
         mirrorRay.gameObject.SetActive(false);
         source.GetComponent<BossController>().isCasting = false;

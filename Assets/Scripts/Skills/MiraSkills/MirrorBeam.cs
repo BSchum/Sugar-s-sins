@@ -7,6 +7,7 @@ public class MirrorBeam : NetworkBehaviour {
     Collider[] playersHitted;
     public float mirrorTick = 0.1f;
     public float currentCooldown = 0f;
+    public float damage = 1;
 
     void FixedUpdate() {
         if(currentCooldown != 0f) {
@@ -18,7 +19,7 @@ public class MirrorBeam : NetworkBehaviour {
     {
         if(other.tag == Constants.PLAYER_TAG && currentCooldown == 0f)
         {
-            other.GetComponent<Health>().TakeDamage(1);
+            other.GetComponent<Health>().TakeDamage(damage);
             currentCooldown = mirrorTick;
         }
     }

@@ -89,13 +89,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4060473042750634}
+  - component: {fileID: 114557964083564088}
+  - component: {fileID: 114140952663650534}
+  - component: {fileID: 114878040547438922}
   m_Layer: 0
   m_Name: Totemira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1245920944716830
 GameObject:
   m_ObjectHideFlags: 1
@@ -140,7 +143,6 @@ GameObject:
   - component: {fileID: 4162800276606012}
   - component: {fileID: 33313536480099452}
   - component: {fileID: 23220189202884194}
-  - component: {fileID: 114822170580784354}
   m_Layer: 13
   m_Name: Cristal
   m_TagString: Untagged
@@ -337,7 +339,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238761156712758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 31.14, z: 0}
+  m_LocalPosition: {x: 22.707289, y: 31.040174, z: -28.422462}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4162800276606012}
@@ -397,7 +399,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096238921321704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.69, z: -0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4156771374693888}
@@ -454,8 +456,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898036546526348}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 11.17}
-  m_LocalScale: {x: 3, y: 12, z: 1}
+  m_LocalPosition: {x: 0, y: 1.7, z: 34.2}
+  m_LocalScale: {x: 3, y: 34.83415, z: 1}
   m_Children: []
   m_Father: {fileID: 4692589057262746}
   m_RootOrder: 1
@@ -481,8 +483,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538931333001362}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 11.17}
-  m_LocalScale: {x: 3, y: 12, z: 1}
+  m_LocalPosition: {x: 0, y: -1.7, z: 34.3}
+  m_LocalScale: {x: 3, y: 34.834152, z: 1}
   m_Children: []
   m_Father: {fileID: 4349144837931104}
   m_RootOrder: 1
@@ -494,7 +496,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654497186746994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.69, z: -0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4433550100096138}
@@ -522,8 +524,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1113909952544492}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 11.17}
-  m_LocalScale: {x: 3, y: 12, z: 1}
+  m_LocalPosition: {x: 0.04, y: -1.69, z: 33.6}
+  m_LocalScale: {x: 3, y: 34.83415, z: 1}
   m_Children: []
   m_Father: {fileID: 4156771374693888}
   m_RootOrder: 1
@@ -535,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105804633831148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.69, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4692589057262746}
@@ -548,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745197380361910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.69, z: -0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 4349144837931104}
@@ -561,8 +563,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303955581784948}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 11.17}
-  m_LocalScale: {x: 3, y: 12, z: 1}
+  m_LocalPosition: {x: 0, y: 1.69, z: 34.89}
+  m_LocalScale: {x: 3, y: 34.83415, z: 1}
   m_Children: []
   m_Father: {fileID: 4433550100096138}
   m_RootOrder: 1
@@ -818,6 +820,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1.3
+--- !u!114 &114140952663650534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238761156712758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa78e7c9fe556c1479d1995cfd390485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  axis: {x: 0, y: 1, z: 0}
 --- !u!114 &114171462071134242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -831,6 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1.3
 --- !u!114 &114460425646480730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -863,6 +880,22 @@ MonoBehaviour:
     i15: 67
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114557964083564088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238761156712758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb51525301b59344786227d475e05ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cristals:
+  - {fileID: 1745197380361910}
+  - {fileID: 1654497186746994}
+  - {fileID: 1105804633831148}
+  - {fileID: 1096238921321704}
 --- !u!114 &114618788299929866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,25 +928,44 @@ MonoBehaviour:
     i15: 67
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114822170580784354
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1352869874633148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa78e7c9fe556c1479d1995cfd390485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  axis: {x: 0, y: 1, z: 0}
 --- !u!114 &114847360609270812
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1113909952544492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 239
+    i1: 228
+    i2: 140
+    i3: 181
+    i4: 126
+    i5: 151
+    i6: 137
+    i7: 212
+    i8: 25
+    i9: 177
+    i10: 8
+    i11: 165
+    i12: 8
+    i13: 109
+    i14: 104
+    i15: 67
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114878040547438922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238761156712758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
@@ -953,6 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1.3
 --- !u!114 &114921677241565832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -966,6 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1.3
 --- !u!114 &114977364633512386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1129,7 +1183,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1298,7 +1352,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1929,7 +1983,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -2438,7 +2492,7 @@ ParticleSystem:
     sprites:
     - sprite: {fileID: 0}
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2548,7 +2602,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 100
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5662,7 +5716,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5831,7 +5885,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6462,7 +6516,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -6971,7 +7025,7 @@ ParticleSystem:
     sprites:
     - sprite: {fileID: 0}
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -7081,7 +7135,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 100
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10195,7 +10249,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10364,7 +10418,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -10995,7 +11049,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -11504,7 +11558,7 @@ ParticleSystem:
     sprites:
     - sprite: {fileID: 0}
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -11577,7 +11631,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -11614,7 +11668,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 100
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -13135,21 +13189,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          value: 0.42029
+          inSlope: -1.2681141
+          outSlope: -1.2681141
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.19428581
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -14728,7 +14782,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14897,7 +14951,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -15528,7 +15582,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -16037,7 +16091,7 @@ ParticleSystem:
     sprites:
     - sprite: {fileID: 0}
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -16147,7 +16201,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 100
       minScalar: 0
       maxCurve:
         serializedVersion: 2

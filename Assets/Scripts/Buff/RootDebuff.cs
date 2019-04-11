@@ -10,7 +10,7 @@ public class RootDebuff : Buff
     
     public RootDebuff(GameObject target) : base(target)
     {
-        this.duration = 2f;
+        this.duration = 4f;
     }
 
     public override void ApplyBuff()

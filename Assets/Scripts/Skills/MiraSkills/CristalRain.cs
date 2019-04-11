@@ -20,9 +20,9 @@ public class CristalRain : NetworkBehaviour {
 
             foreach (Collider col in playerColls)
             {
-                col.GetComponent<Health>().TakeDamage(10);
+                col.GetComponent<Health>().TakeDamage(4);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
 
         Destroy(this.gameObject);

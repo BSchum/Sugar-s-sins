@@ -25,11 +25,11 @@ public class FireBallProjectile : SkillProjectile, IThreatable {
         if(canTrigger && (collision.gameObject.tag == Constants.ENEMY_TAG || collision.gameObject.tag == Constants.BOSS_TAG))
         {
             Vector3 vel = GetComponent<Rigidbody>().velocity;
-            Debug.Log("Speed = " + speed);
+            //Debug.Log("Speed = " + speed);
             float velSpeed = (speed / 10);
 
             damage += velSpeed;
-            Debug.Log("Fireball damage : " + damage + " : " + velSpeed);
+            //Debug.Log("Fireball damage : " + damage + " : " + velSpeed);
 
 
             if (source != null)
@@ -39,7 +39,7 @@ public class FireBallProjectile : SkillProjectile, IThreatable {
                     source.GetComponent<Health>().TakeDamage(-damage * source.GetComponent<Stats>().GetLifeSteal());
             }
             GenerateThreat(collision.GetComponent<EnemyController>());
-            Debug.Log(damage);
+            //Debug.Log(damage);
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
         }

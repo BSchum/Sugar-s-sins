@@ -29,7 +29,7 @@ public class MirrorBeamSkill : Skill {
         {
             if ((transform.position - lookAtpos).magnitude > 2)
             {
-                transform.Translate(Vector3.forward * (GetComponent<Stats>().GetCurrentSpeed() * 1.2f) * Time.deltaTime);
+                transform.Translate(Vector3.forward * (GetComponent<Stats>().GetCurrentSpeed() * 2f) * Time.deltaTime);
             }
             else
             {
@@ -43,14 +43,14 @@ public class MirrorBeamSkill : Skill {
             }
             yield return new WaitForEndOfFrame();
         } while (isNearMirror != true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         source.GetComponent<BossController>().isCasting = false;
         SetLayerRecursively(source, 0);
 
         StartCoroutine(this.ProcessCoolDown());
         isCasting = false;
         source.GetComponent<BossController>().canMove = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         mirrorRay.SetActive(false);
     }
 
