@@ -13,7 +13,8 @@ public class BossController : EnemyController, IRessourcesManipulator {
         CristalCone = 2,
         CristalRain = 3,
         CristalHorde = 4,
-        Duplication = 5
+        Duplication = 5,
+        Totem = 6
     }
     private int currentSpell = 0;
     public List<Skills> skillOrder;
@@ -81,6 +82,11 @@ public class BossController : EnemyController, IRessourcesManipulator {
             {
                 hasCastCristalHorde = true;
                 StartCoroutine(GetSkill(Skills.CristalHorde).Cast(sources.LastOrDefault().Key));
+            }
+            //Energy ray -When she is above 0 ressources
+            else if (CanCastSkill(Skills.Totem))
+            {
+                StartCoroutine(GetSkill(Skills.Totem).Cast(currentTarget));
             }
             //Energy ray -When she is above 0 ressources
             else if (CanCastSkill(Skills.EnergyRay))

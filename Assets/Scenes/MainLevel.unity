@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1
 --- !u!136 &136018851
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14913,6 +14914,7 @@ GameObject:
   - component: {fileID: 663198700}
   - component: {fileID: 663198699}
   - component: {fileID: 663198695}
+  - component: {fileID: 663198701}
   m_Layer: 0
   m_Name: Mira
   m_TagString: Boss
@@ -14953,9 +14955,9 @@ MonoBehaviour:
   currentStats:
     power: 10
     defense: 10
-    speed: 10
-    health: 10000
-    maxHealth: 10000
+    speed: 7
+    health: 40000
+    maxHealth: 40000
     damage: 10
     lifeSteal: 0
   damageReductionInPercent: 0
@@ -14981,7 +14983,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 20
+  cooldown: 14
   internalCD: 0
   source: {fileID: 0}
   mirrors:
@@ -15073,6 +15075,7 @@ MonoBehaviour:
   cooldown: 5
   internalCD: 0
   source: {fileID: 0}
+  cast: 2.5
 --- !u!114 &663198695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15094,9 +15097,10 @@ MonoBehaviour:
   - {fileID: 663198698}
   - {fileID: 663198700}
   - {fileID: 663198696}
+  - {fileID: 663198701}
   autoAttack: {fileID: 663198694}
   autoAttackRange: 5
-  skillOrder: 0000000001000000020000000400000005000000
+  skillOrder: 000000000100000001000000020000000400000005000000
   attackSpeed: 5
   resource: 100
 --- !u!114 &663198696
@@ -15121,7 +15125,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 1
+  cooldown: 40
   internalCD: 0
   source: {fileID: 0}
   spots:
@@ -15154,7 +15158,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 20
+  cooldown: 22
   internalCD: 0
   source: {fileID: 0}
   cone: {fileID: 1029341281}
@@ -15181,7 +15185,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 36
   internalCD: 0
   source: {fileID: 0}
   rainPrefab: {fileID: 1606510816045818, guid: f6641ce5145d8d146811db3feffb34fa, type: 2}
@@ -15208,7 +15212,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 12
   internalCD: 0
   source: {fileID: 0}
   mirrors:
@@ -15237,7 +15241,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 30
+  cooldown: 32
   internalCD: 0
   source: {fileID: 0}
   cristalPrefab: {fileID: 1933817222229872, guid: b56e6ec9c35979c4ba3a3c5bb3cac274,
@@ -15245,6 +15249,36 @@ MonoBehaviour:
   spawnPrefab: {fileID: 92834132}
   safePos: {fileID: 2027075286}
   amount: 10
+--- !u!114 &663198701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663198687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b30fd161a233d448ed156f2e936e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artwork: {fileID: 0}
+  cost: 0
+  threat: 0
+  damage: 0
+  canCast: 1
+  isCasting: 0
+  useProjectors: 0
+  area: {fileID: 0}
+  hasProjected: 0
+  skillProjectile: {fileID: 0}
+  isOnCooldown: 0
+  cooldown: 90
+  internalCD: 0
+  source: {fileID: 0}
+  castTime: 3
+  totemActiveTime: 8
+  totemPrefab: {fileID: 1238761156712758, guid: efe48cb57e9789d419b108a5086d6843,
+    type: 2}
+  totems: []
 --- !u!1 &665654435
 GameObject:
   m_ObjectHideFlags: 0
@@ -16267,6 +16301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1
 --- !u!136 &830139290
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -24667,6 +24702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1
 --- !u!136 &1248319060
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25152,7 +25188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -2.2525024, y: 0.15621948}
+  m_AnchoredPosition: {x: -2.25251, y: 0.15621948}
   m_SizeDelta: {x: -4.505, y: 2.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1287945201
@@ -27656,7 +27692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5.0000534, y: 0}
+  m_AnchoredPosition: {x: -5.000061, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1487390232
@@ -27966,7 +28002,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb,
+  m_PlayerPrefab: {fileID: 1823101347351276, guid: 1cefd98a03950534699945222e864ac3,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
@@ -27981,6 +28017,7 @@ MonoBehaviour:
   - {fileID: 1409659851575592, guid: 4f61e37b86b1a1a4c95ac32ccc7645eb, type: 2}
   - {fileID: 1486194455791200, guid: ba20bbf3350120c4692fb187384d888f, type: 2}
   - {fileID: 1606510816045818, guid: f6641ce5145d8d146811db3feffb34fa, type: 2}
+  - {fileID: 1238761156712758, guid: efe48cb57e9789d419b108a5086d6843, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -28023,7 +28060,7 @@ MonoBehaviour:
     m_MaxTimerTimeout: 12000
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
-  m_Channels: 
+  m_Channels: 0500000000000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
@@ -28659,7 +28696,7 @@ Prefab:
     - target: {fileID: 224485353564897418, guid: 88b93994ae8fde0468b1a9ed39381a8e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -170.7
+      value: -139.2
       objectReference: {fileID: 0}
     - target: {fileID: 224485353564897418, guid: 88b93994ae8fde0468b1a9ed39381a8e,
         type: 2}
@@ -28901,6 +28938,60 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!1 &1617368394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1094816319364350, guid: b2df474848445e247a0e73c2ea0fe8b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1617368395}
+  - component: {fileID: 1617368398}
+  - component: {fileID: 1617368396}
+  m_Layer: 13
+  m_Name: Centre (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1617368395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4629652774341802, guid: b2df474848445e247a0e73c2ea0fe8b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617368394}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 25.7, z: -0}
+  m_LocalScale: {x: 73.032585, y: 73.032585, z: 73.032585}
+  m_Children: []
+  m_Father: {fileID: 2030977560}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!64 &1617368396
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617368394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300014, guid: e28a9f065de0dda4e852ffdd3e8dd47c, type: 3}
+--- !u!33 &1617368398
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 33133370760395084, guid: b2df474848445e247a0e73c2ea0fe8b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617368394}
+  m_Mesh: {fileID: 4300000, guid: cf49564ed30b6964abb3cb719022c002, type: 3}
 --- !u!1 &1626122186
 GameObject:
   m_ObjectHideFlags: 0
@@ -31430,6 +31521,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1046036059}
+  - {fileID: 1617368395}
   m_Father: {fileID: 1736041183}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36526,6 +36618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mirrorTick: 0.1
   currentCooldown: 0
+  damage: 1
 --- !u!136 &2080511259
 CapsuleCollider:
   m_ObjectHideFlags: 0
