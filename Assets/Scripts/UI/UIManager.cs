@@ -56,21 +56,21 @@ public class UIManager : MonoBehaviour {
 
     public void UpdatePlayerHealthBar(float value, float maxValue)
     {
-        playerHealthBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
+        playerHealthBar.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("F0") + " / " + maxValue.ToString("F0");
         playerHealthBar.maxValue = maxValue;
         playerHealthBar.value = value;
     }
 
     public void UpdatePlayerResourceBar(float value, float maxValue)
     {
-        playerRessourceBar.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("F1") + " / " + maxValue;
+        playerRessourceBar.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("F1") + " / " + maxValue.ToString("F1");
         playerRessourceBar.maxValue = maxValue;
         playerRessourceBar.value = value;
     }
 
     public void UpdateBossHealthBar(float value, float maxValue)
     {
-        bossText.GetComponent<TextMeshProUGUI>().text = value + " / " + maxValue;
+        bossText.GetComponent<TextMeshProUGUI>().text = value.ToString("F0") + " / " + maxValue.ToString("F0");
         bossHealthBar.transform.localScale = new Vector3(value/maxValue, 1, 1);
     }
     #endregion
