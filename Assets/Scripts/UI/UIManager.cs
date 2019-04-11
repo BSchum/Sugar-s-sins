@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour {
 
     public void UpdatePlayerResourceBar(float value, float maxValue)
     {
-        playerRessourceBar.GetComponentInChildren<TextMeshProUGUI>().text = value + " / " + maxValue;
+        playerRessourceBar.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("F1") + " / " + maxValue;
         playerRessourceBar.maxValue = maxValue;
         playerRessourceBar.value = value;
     }

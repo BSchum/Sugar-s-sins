@@ -46,6 +46,16 @@ public class Stats : NetworkBehaviour
         {
             bonusStats.health += amount;
         }
+
+        if (currentStats.health > currentStats.maxHealth)
+        {
+            currentStats.health = currentStats.maxHealth;
+        }
+        else if (bonusStats.health > bonusStats.maxHealth)
+        {
+            bonusStats.health = bonusStats.maxHealth;
+        }
+
         ComputeFinalStats();
         if(OnHealthChanged != null)
             OnHealthChanged(finalStats.health, finalStats.maxHealth);
