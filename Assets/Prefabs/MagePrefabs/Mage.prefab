@@ -2716,7 +2716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7e437b43e48e645a18f77202f69542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artwork: {fileID: 21300000, guid: 893797aa15d4f824f951bbc87702908e, type: 3}
+  artwork: {fileID: 21300000, guid: 7cf50e32664aa0c42a03f19de59c5acf, type: 3}
   cost: 0
   threat: 0
   damage: 0
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3747f9efe1a691349b53a27de6066c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artwork: {fileID: 21300000, guid: 702ddb8fee5416747ab0336bc9ec8ebd, type: 3}
+  artwork: {fileID: 21300000, guid: bdd46e549b5aa0a4aa5319126a60fc61, type: 3}
   cost: 0
   threat: 0
   damage: 0
