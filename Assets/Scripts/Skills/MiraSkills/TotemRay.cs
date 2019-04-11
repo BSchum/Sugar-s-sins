@@ -18,24 +18,25 @@ public class TotemRay : Skill {
         yield return new WaitForSeconds(castTime);
 
         GameObject go = Instantiate(totemPrefab, pos, totemPrefab.transform.rotation);
-        //NetworkServer.Spawn(go);
+        NetworkServer.Spawn(go);
         totems.Add(go);
 
         StartCoroutine(ProcessCoolDown());
-
+       
         foreach (GameObject totem in totems)
         {
             RpcCastTotems(totem, true);
         }
 
         yield return new WaitForSeconds(totemActiveTime);
-
-        foreach(GameObject totem in totems)
+        
+        foreach (GameObject totem in totems)
         {
             RpcCastTotems(totem, false);
         }
     }
     
+    [ClientRpc]
     public void RpcCastTotems (GameObject totem, bool state)
     {
         totem.GetComponent<Totem>().SetStateCristals(state);
