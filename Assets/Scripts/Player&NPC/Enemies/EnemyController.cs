@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 public class EnemyController : NetworkBehaviour {
 
     protected Dictionary<GameObject, float> sources = new Dictionary<GameObject, float>();
+    [SyncVar]
     protected GameObject currentTarget;
 
     protected Stats stats;
