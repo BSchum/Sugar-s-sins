@@ -21,14 +21,6 @@ public class Health : NetworkBehaviour {
     {
         Debug.Log(this.gameObject+" a pris " + amount);
 
-        if (!isServer)
-            return;
-        RpcTakeDamage(amount);
-    }
-
-    [ClientRpc]
-    public void RpcTakeDamage(float amount)
-    {
         GameObject instance = Instantiate(floatingDmgPrefab);
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = Camera.main.WorldToScreenPoint(this.transform.position);
@@ -39,11 +31,26 @@ public class Health : NetworkBehaviour {
             instance.GetComponentInChildren<TextMeshProUGUI>().faceColor = Color.green;
         }
 
+        if (!isServer)
+            return;
+        RpcTakeDamage(amount);
+    }
+
+    [ClientRpc]
+    public void RpcTakeDamage(float amount)
+    {
         //Debug.Log("Je prend -" + amount + "de degats");
         this.stats.TakeDamage(-amount * (1 - (this.stats.damageReductionInPercent / 100)));
         if (this.stats.GetHealth() <= 0)
         {
-            Destroy(this.gameObject);
+            if(this.gameObject.GetComponent<PlayerAttack>() != null)
+            {
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
     
