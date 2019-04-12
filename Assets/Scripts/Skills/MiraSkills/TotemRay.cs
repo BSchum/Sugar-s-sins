@@ -26,7 +26,7 @@ public class TotemRay : Skill {
 
         StartCoroutine(ProcessCoolDown());
        
-        foreach (GameObject totem in totems)
+        /*foreach (GameObject totem in totems)
         {
             RpcCastTotems(totem, true);
         }
@@ -36,7 +36,7 @@ public class TotemRay : Skill {
         foreach (GameObject totem in totems)
         {
             RpcCastTotems(totem, false);
-        }
+        }*/
     }
     
     [ClientRpc]
