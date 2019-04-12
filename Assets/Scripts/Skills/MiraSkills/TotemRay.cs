@@ -18,7 +18,6 @@ public class TotemRay : Skill {
         yield return new WaitForSeconds(castTime);
 
         GameObject go = Instantiate(totemPrefab, pos, totemPrefab.transform.rotation);
-        NetworkServer.Spawn(go);
         totems.Add(go);
 
         StartCoroutine(ProcessCoolDown());

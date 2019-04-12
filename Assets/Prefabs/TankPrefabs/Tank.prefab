@@ -3223,6 +3223,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 58b9ace85be60ae4abb9dd795245d566, type: 3}
   cost: 0
   threat: 0
+  damage: 0
   canCast: 1
   isCasting: 0
   useProjectors: 1
@@ -3261,6 +3262,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: ff9fcbfaffd1b9f4eaea3bf10ad0cb2f, type: 3}
   cost: 2
   threat: 10
+  damage: 0
   canCast: 1
   isCasting: 0
   useProjectors: 0
@@ -3297,6 +3299,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 688868d20a5256d43954146346cf84c8, type: 3}
   cost: 3
   threat: 10
+  damage: 0
   canCast: 1
   isCasting: 0
   useProjectors: 0
@@ -3403,10 +3406,10 @@ MonoBehaviour:
     lifeSteal: 0
   currentStats:
     power: 10
-    defense: 10
+    defense: 12
     speed: 10
-    health: 100
-    maxHealth: 100
+    health: 260
+    maxHealth: 260
     damage: 10
     lifeSteal: 0
   damageReductionInPercent: 0
@@ -3507,8 +3510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artwork: {fileID: 21300000, guid: c31a4ffd63c3d284b8ee3db4f33dcc66, type: 3}
-  cost: 5
+  cost: 7
   threat: 1000
+  damage: 0
   canCast: 1
   isCasting: 0
   useProjectors: 0
@@ -3516,7 +3520,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 10
+  cooldown: 18
   internalCD: 0
   source: {fileID: 0}
   range: 5
@@ -3600,6 +3604,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: b6fd52417a947834188b097146b6080d, type: 3}
   cost: 0
   threat: 0
+  damage: 0
   canCast: 1
   isCasting: 0
   useProjectors: 0

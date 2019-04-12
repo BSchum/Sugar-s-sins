@@ -2870,7 +2870,7 @@ MonoBehaviour:
   canCast: 1
   isCasting: 0
   useProjectors: 1
-  area: {fileID: 2100000, guid: a11b0ddfac3b6da4c89997be71ecb6ef, type: 2}
+  area: {fileID: 2100000, guid: f41fe725c668aab4aaebd2a1c4fd7a55, type: 2}
   hasProjected: 0
   skillProjectile: {fileID: 114024248576147586, guid: 55ebd242f004d974780340a13b5b56b9,
     type: 2}
