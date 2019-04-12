@@ -26,6 +26,12 @@ public class TauntSkill : Skill, IThreatable {
     [Command]
     public void CmdGenerateThreat(GameObject go)
     {
+        RpcGenerateThreat(go);
+    }
+
+    [ClientRpc]
+    public void RpcGenerateThreat(GameObject go)
+    {
         go.GetComponent<EnemyController>().AddThreatFor(this.gameObject, threat);
     }
     public void GenerateThreat(EnemyController enemy)
