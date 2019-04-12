@@ -13,6 +13,10 @@ public class TotemRay : Skill {
 
     public override IEnumerator Cast(GameObject currentTarget = null)
     {
+        if(!isServer)
+        {
+            yield return null;
+        }
         Vector3 pos = currentTarget.transform.position;
 
         yield return new WaitForSeconds(castTime);

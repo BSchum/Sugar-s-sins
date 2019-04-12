@@ -6193,7 +6193,7 @@ MonoBehaviour:
   hasProjected: 0
   skillProjectile: {fileID: 0}
   isOnCooldown: 0
-  cooldown: 36
+  cooldown: 26
   internalCD: 0
   source: {fileID: 0}
   rainPrefab: {fileID: 1606510816045818, guid: f6641ce5145d8d146811db3feffb34fa, type: 2}
