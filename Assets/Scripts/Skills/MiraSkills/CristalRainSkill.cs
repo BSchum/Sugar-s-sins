@@ -13,7 +13,8 @@ public class CristalRainSkill : Skill
     public override IEnumerator Cast(GameObject currentTarget = null)
     {
         StartCoroutine(ProcessCoolDown());
-        CmdSpawnRain(currentTarget);
+        GameObject rain = Instantiate(rainPrefab, rainSpawn.transform.position, Quaternion.identity);
+        //CmdSpawnRain(currentTarget);
         yield return null;
     }
 

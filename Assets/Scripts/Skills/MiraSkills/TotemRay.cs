@@ -28,7 +28,7 @@ public class TotemRay : Skill {
        
         /*foreach (GameObject totem in totems)
         {
-            RpcCastTotems(totem, true);
+ 
         }
 
         yield return new WaitForSeconds(totemActiveTime);

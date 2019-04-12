@@ -83,7 +83,7 @@ public class BossController : EnemyController, IRessourcesManipulator {
                 hasCastCristalHorde = true;
                 StartCoroutine(GetSkill(Skills.CristalHorde).Cast(sources.LastOrDefault().Key));
             }
-            //Energy ray -When she is above 0 ressources
+            //Totem -When she is above 0 ressources
             else if (CanCastSkill(Skills.Totem))
             {
                 StartCoroutine(GetSkill(Skills.Totem).Cast(currentTarget));
